@@ -29,7 +29,7 @@ As you configure your environment you should **keep a log** where you **write do
 * After install make sure you add `/usr/local/mysql/bin` (or equivalent) to your path
 
 **3. Install Ruby 3.0.2**
-* Consult one of the guides linked at the start of this section
+* Consult one of the guides linked in the previous section
 * Use [asdf](https://asdf-vm.com/guide/getting-started.html) on Mac/Linux systems
 * Use the [WSL](https://docs.microsoft.com/en-us/windows/wsl) on Windows systems
 * Make sure you are using Ruby 3.02 before proceeding:
