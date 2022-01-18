@@ -36,4 +36,4 @@
 .tool-versions
 
 # Ignore ENV variable file
-/config/initializers/_env.rb
+.env
