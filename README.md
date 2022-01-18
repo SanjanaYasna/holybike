@@ -1,46 +1,72 @@
-# ValetBike
+#ValetBike
 
-Smith College CSC223: Introduction to Software Engineering\
+Smith College CSC223: Software Engineering\
 Starter App for ValetBike project
 
-## General Configuration
-1. Install MySQL 8.0.26
-* Download: https://dev.mysql.com/downloads/mysql
-* Choose "Use Legacy Password Encryption"
-* After install make sure you add `/usr/local/mysql/bin` (or equivalent) to your path
+## Environment Configuration
+Follow these general steps to set up your local development environment from scratch. It is **very important** that you **consult a more detailed guide** that corresponds to your specific type of development machine.
 
-2. Install Ruby 3.0.2
-* Start here: https://www.ruby-lang.org/en/documentation/installation
-* asdf is recommended for *nix systems, more info available on request
-* Make sure you are using Ruby 3.0.2 before proceeding
+* [Install Ruby on Mac (Intel and M1)](https://mac.install.guide/ruby/index.html)
+* [Install Ruby on Mac (M1 additional details)](https://github.com/deadroxy/valetbike/blob/master/notes/dev-enviro.md)
+* [Install Ruby on Windows 10](https://gorails.com/setup/windows/10)
 
-3. Install Rails 6.1.4
-* `gem install rails --version 6.1.4`
+On Mac it is recommended to use asdf to install Ruby. On Windows you should set up your environment through the Windows Subsystem for Linux (WSL).
 
-4. Install MySQL gem
-* `gem install mysql2`
-
-5. Fork & clone ValetBike repo
+**1. Fork & clone ValetBike repo**
 * Click fork in the upper right hand corner of the ValetBike GitHub page
+* Then create a local copy of your fork with:
 * `git clone https://github.com/<username>/valetbike.git`
 
-6. Install gems
-* `cd valetbike`
-* `bundle install`
+**2. Install MySQL 8**
+* Download: https://dev.mysql.com/downloads/mysql
+* Be sure to select the version that corresponds to your operating system (Intel Mac = x86, M1 Mac = ARM)
+* Choose "Use Legacy Password Encryption" when installing
+* Make note of the password you set for the root user
+* After install make sure you add `/usr/local/mysql/bin` (or equivalent) to your path
 
-7. Prepare database in MySQL
-* `mysql -u root -p`
-* `CREATE DATABASE valetbike_development;`
+**3. Install Ruby 3.0.2**
+* Consult one of the guides linked at the start of this section
+* Use [asdf](https://asdf-vm.com/guide/getting-started.html) on Mac/Linux systems
+* Use the [WSL](https://docs.microsoft.com/en-us/windows/wsl) on Windows systems
+* Make sure you are using Ruby 3.02 before proceeding:
+  * `cd valetbike` then `ruby -v` to check your version
 
-8. Run database migrations
+**4. Install essential gems**
+* Disable gem docs:
+  * `echo "gem: --no-document" >> ~/.gemrc`
+* Install Rails 6.1.4:
+  * `gem install rails --version 6.1.4`
+* Install MySQL gem:
+  * `gem install mysql2`
+  * Use the `-- --with-opt-dir="$(brew --prefix openssl@1.1)"` flag on M1 Macs
+* Install required gems:
+  * `bundle install`
+
+**5. Configure database environment variables**
+* Add a file called `.env` to your app's root directory
+* Ensure that it includes the credentials you setup when installing MySQL:
+
+```shell
+MYSQL_USERNAME=root
+MYSQL_PASSWORD=YOURPASSWORD
+MYSQL_SOCKET=/tmp/mysql.sock              # For Mac
+MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
+```
+
+**6. Prepare database in MySQL**
+* Run either `rake db:create`
+* Or `mysql -u root -p` and `CREATE DATABASE valetbike_development;`
+
+**7. Run database migrations**
 * `rake db:migrate`
 
-9. Confirm app runs
-* `rackup`
-* Open http://localhost:9292 (or http://127.0.0.1:9292) in a browser
+**8. Confirm app runs**
+* Launch web server using `rackup` or `rails s`
+* If using `rackup` open http://localhost:9292 (or http://127.0.0.1:9292) in a browser
+* If using `rails s` open http://localhost:3000 (or http://127.0.0.1:3000) in a browser
 * You should see ValetBike welcome page
   
-  
+
 ## Assignment #1: Hello Stack, Welcome to ValetBike!
 
 ### Brief Background
@@ -62,8 +88,6 @@ You may work in teams of up to five people to get your environments set up and t
 ### Ruby on Rails Guides
 You will probably be unfamiliar with the main components of the ValetBike stack like the language (Ruby), the framework (Rails), and the database (MySQL). Luckily the lead developer left links to their favorite books and tutorials for you below. Consult them regularly as you get your bearings in the new environment.
 
-* [Install Ruby 3.0 on macOS Big Sur or Catalina](https://mac.install.guide/ruby/index.html)
-* [Install Ruby on Rails on Windows 10](https://gorails.com/setup/windows/10)
 * [Getting Started with Rails](https://guides.rubyonrails.org/getting_started.html)
 * [I Love Ruby](https://i-love-ruby.gitlab.io/)
 * [The Bastards Book of Ruby](http://ruby.bastardsbook.com/)
@@ -90,9 +114,9 @@ You will probably be unfamiliar with the main components of the ValetBike stack 
 6. List the names of everyone you worked with on this assignment, including your own (for me it would be "Johanna Brewer")
 7. Submit your screenshot and team list via Moodle
 
-### Submission Guidelines to Exceed Expectations
+### Submission Guidelines to Exceed Expectations or Distinguish yourself
 1. Complete all of the Meets Expectations tasks
-2. Implement one or more of the features below
+2. Implement one (Exceeds) or more (Distinguished) of the features below
    - Show number of docked bikes at each station
    - Create rake task to import station & bike data from csv files
    - Allow user to view list of bikes
