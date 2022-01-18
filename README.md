@@ -4,7 +4,7 @@ Smith College CSC223: Software Engineering\
 Starter App for ValetBike project
 
 ## Environment Configuration
-Follow the general steps in the next section to set up your local development environment from scratch. It is essential that you also **consult a more detailed guide** that corresponds to your specific type of development machine. Use one of the guides listed below to help you complete the steps for setting up ValetBike on your machine.
+Follow the general steps in the next section to set up your local development environment from scratch. It is essential that you **consult a more detailed guide** that corresponds to your specific type of development machine. Use one of the guides listed below to help you complete the steps for setting up ValetBike on your machine.
 
 * [Install Ruby on Mac (Intel and M1)](https://mac.install.guide/ruby/index.html)
 * [Install Ruby on Mac (M1 additional details)](https://github.com/deadroxy/valetbike/blob/master/notes/dev-enviro.md)
