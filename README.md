@@ -4,14 +4,18 @@ Smith College CSC223: Software Engineering\
 Starter App for ValetBike project
 
 ## Environment Configuration
-Follow these general steps to set up your local development environment from scratch. It is **very important** that you **consult a more detailed guide** that corresponds to your specific type of development machine.
+Follow the general steps in the next section to set up your local development environment from scratch. It is **very important** that you also **consult a more detailed guide** that corresponds to your specific type of development machine. Use one of the guides listed below to help you complete the steps for setting up ValetBike on your machine.
 
 * [Install Ruby on Mac (Intel and M1)](https://mac.install.guide/ruby/index.html)
 * [Install Ruby on Mac (M1 additional details)](https://github.com/deadroxy/valetbike/blob/master/notes/dev-enviro.md)
 * [Install Ruby on Windows 10](https://gorails.com/setup/windows/10)
 
-On Mac it is recommended to use asdf to install Ruby. On Windows you should set up your environment through the Windows Subsystem for Linux (WSL).
+On Mac it is strongly recommended that you use asdf to install Ruby. On Windows you should set up your environment through the Windows Subsystem for Linux (WSL). The guides above explain how to do so in detail.
 
+## General Configuration Steps
+
+As you configure your environment you should **keep a log** where you **write down all the steps you take** and each command you type. You will inevitably run into errors setting up your development environment and maintaining a meticulous log will allow others to help you troubleshoot. 
+ 
 **1. Fork & clone ValetBike repo**
 * Click fork in the upper right hand corner of the ValetBike GitHub page
 * Then create a local copy of your fork with:
