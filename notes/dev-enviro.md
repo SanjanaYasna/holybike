@@ -34,7 +34,7 @@ Instructions for setting up RoR environment on Apple M1 machine.
 - Migrate databases and SequelPro favorites (use SequelAce)
 
 ## 7. Install asdf (Ruby version manager)
-- `git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1`
+- `git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0`
 - Add two lines at the end of bash_profile:
   - `. $HOME/.asdf/asdf.sh`
   - `. $HOME/.asdf/completions/asdf.bash`
@@ -51,11 +51,11 @@ Instructions for setting up RoR environment on Apple M1 machine.
   - `asdf plugin add ruby`
   - `asdf list all ruby`
 - Install Ruby:
-  - `export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"` (only for Ruby > 2.4)
+  - `export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"`
   - `export RUBY_CFLAGS="-Wno-error=implicit-function-declaration"`
-  - `asdf install ruby 2.6.3` (or whatever version you need)
-  - `asdf global ruby 2.6.3` (creates ~/.tool-versions)
-  - `asdf local ruby 2.6.3` (for file in repo)
+  - `asdf install ruby 3.0.2` (or whatever version you need)
+  - `asdf global ruby 3.0.2` (creates ~/.tool-versions)
+  - `asdf local ruby 3.0.2` (for file in repo)
 - FYI: adsf install ruby = ruby-build = rbenv install
 
 ## 9. Install essential gems
@@ -65,5 +65,5 @@ Instructions for setting up RoR environment on Apple M1 machine.
   - `gem list`
   - `bundler -v`
 - Install Rails and MySQL:
-  - `gem install rails --version 6.0.0.rc1`
+  - `gem install rails --version 6.1.4`
   - `gem install mysql2  -- --with-opt-dir="$(brew --prefix openssl@1.1)"`
