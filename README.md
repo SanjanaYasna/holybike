@@ -1,13 +1,16 @@
 # ValetBike
 
 Smith College CSC223: Software Engineering\
-Starter App for ValetBike project
+Starter App for ValetBike project\
 
 ## Environment Configuration
 
 As you configure your environment you should **keep a log** where you **write down all the steps you take** including **each command you type**. You will inevitably run into errors setting up your development environment and maintaining a meticulous log will allow others to help you troubleshoot. Ignore this recommendation at your own peril, but don't say you haven't been warned :]
 
 Installing Ruby on Rails is not a trivial process. It is the essential first step to developing ValetBike, and it will take you far longer than all the other steps to complete. Be sure to set aside ample time to work through the setup.
+
+### 0. Remember that versions matter
+ValetBike runs on Ruby 3.1.2 and Rails 7.0.3.1. It is essential that you configure your environment to use these precise versions of the language and framework.
 
 ### 1. Install Ruby on Rails with MySQL
 
