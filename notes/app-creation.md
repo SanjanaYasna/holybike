@@ -1,10 +1,10 @@
-## ValetBike App Creation Notes
+# ValetBike App Creation Notes
 Below is a step by step explanation walkthrough of how the existing ValetBike app was created from scratch on an Apple M1 machine. The machine which was used for this process already had a fully configured Ruby on Rails development environment. New developers hoping to replicate the steps below should first follow one of the other guides included in this folder:
 
 * [Mac Ruby on Rails Developer Environment Setup](https://github.com/deadroxy/valetbike/blob/master/notes/mac-setup.md)
 * [Windows Ruby on Rails Developer Environment Setup](https://github.com/deadroxy/valetbike/blob/master/notes/windows-setup.md)
 
-### First update the system to use the latest versions of Ruby and Rails
+## First update the system to use the latest versions of Ruby and Rails
 
 - Update asdf with the latest language packs:\
   `asdf update`\
@@ -18,7 +18,7 @@ Below is a step by step explanation walkthrough of how the existing ValetBike ap
   `gem install mysql2  -- --with-opt-dir="$(brew --prefix openssl@1.1)"`\
   `gem update bundler`
 
-### Next create a new application and configure the repository
+## Next create a new application and configure the repository
 
 - Create the app with: `rails new valetbike --css tailwind --database=mysql`
 - Note if multiple versions of Rails are installed, specify with: `rails _7.0.3.1_ new ...`
@@ -30,7 +30,7 @@ Below is a step by step explanation walkthrough of how the existing ValetBike ap
   `git add .`\
   `git commit -m "Initial commit."`
 
-### Then configure the database for the new application
+## Then configure the database for the new application
 
 - Update `Gemfile` to use dotenv-rails for secret credentials
 - Add `.env` file with database root username, password, and socket
@@ -40,7 +40,7 @@ Below is a step by step explanation walkthrough of how the existing ValetBike ap
 - Run `rackup` to start the server
 - Open http://localhost:9292 in a browser to confirm the app is working
 
-### Finally begin coding the app
+## Finally begin coding the app
 
 - Generate the basic Station and Bike models with:\
   `rails generate model station identifier:integer name:string address:string`\
@@ -53,6 +53,6 @@ Below is a step by step explanation walkthrough of how the existing ValetBike ap
 - Update `routes.rb` to direct the application to the new controller method
 - Build and style the `application.html.erb` layout, `stations/_row.html.erb` view, and `stations/index.html.erb` view using several stylesheets `flexbox.css`, `global.css`, `pages.css`, and `variables.css`
 
-## Parting thoughts for other developers...
+# Parting thoughts for other developers...
 
 Regrettably I did not have time to write a rake task to import the station and bike data the ValleyBike devs shared with us. Glancing at those CSV files, I suspect there's a bunch of useless columns in there so we should dive deeper before trying to use those as seed data!
