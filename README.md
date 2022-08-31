@@ -9,7 +9,7 @@ As you configure your environment you should **keep a log** where you **write do
 
 Installing Ruby on Rails is not a trivial process. It is the essential first step to developing ValetBike, and it will take you far longer than all the other steps to complete. Be sure to set aside ample time to work through the setup.
 
-####1. Install Ruby on Rails with MySQL
+#### 1. Install Ruby on Rails with MySQL
 
 On Mac it is strongly recommended that you use asdf to install Ruby. On Windows you should set up your environment through the Windows Subsystem for Linux (WSL). The guides below explain how to do so in detail:
 
@@ -18,7 +18,7 @@ On Mac it is strongly recommended that you use asdf to install Ruby. On Windows 
 
 Be sure to complete all the installation procedures in the relevant guide before continuing on to the next step.
 
-####2. Fork & clone the ValetBike repo
+#### 2. Fork & clone the ValetBike repo
 
 - Click fork in the upper right hand corner of the ValetBike GitHub page
 - This creates a copy of the repository on your personal GitHub account
@@ -26,7 +26,7 @@ Be sure to complete all the installation procedures in the relevant guide before
   `git clone https://github.com/<your_username>/valetbike.git`
 - Note: you should run that command when you are in the folder where you want to store the repo (e.g. `/Users/<your_username>/Development`)
 
-####3. Configure the database environment variables
+#### 3. Configure the database environment variables
 
 - Add a file called `.env` to the valetbike app root directory
 - Ensure that it includes the credentials you setup when installing MySQL:
@@ -38,7 +38,7 @@ MYSQL_SOCKET=/tmp/mysql.sock              # For Mac
 MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 ```
 
-####4. Prepare the database in MySQL
+#### 4. Prepare the database in MySQL
 
 - Use rails to create both the development and test databases with:\
   `rake db:create`
@@ -49,7 +49,7 @@ MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 - Then run the database migrations with:\
   `rake db:migrate`
 
-####5. Confirm that the app runs
+#### 5. Confirm that the app runs
 
 * Launch the web server using `rackup` or `rails s` (short for `rails server`) or `bin/dev`
 * If using `rackup` open http://localhost:9292 (or http://127.0.0.1:9292) in a browser
