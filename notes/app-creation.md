@@ -53,6 +53,6 @@ Below is a step by step explanation walkthrough of how the existing ValetBike ap
 - Update `routes.rb` to direct the application to the new controller method
 - Build and style the `application.html.erb` layout, `stations/_row.html.erb` view, and `stations/index.html.erb` view using several stylesheets `flexbox.css`, `global.css`, `pages.css`, and `variables.css`
 
-# Parting thoughts for other developers...
+## Parting thoughts for other developers...
 
 Regrettably I did not have time to write a rake task to import the station and bike data the ValleyBike devs shared with us. Glancing at those CSV files, I suspect there's a bunch of useless columns in there so we should dive deeper before trying to use those as seed data!
