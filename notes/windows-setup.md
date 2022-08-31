@@ -44,7 +44,7 @@
 - Begin by installing system dependencies via apt (the Advanced Packaging Tool):\
   `sudo apt-get update`\
   `sudo apt install autoconf bison build-essential curl git libcurl4-openssl-dev libffi-dev libgdbm-dev libncurses-dev libreadline-dev libsqlite3-dev libssl-dev libxml2-dev libxslt1-dev libyaml-dev software-properties-common sqlite3 zlib1g-dev`
-- Then consult the software's guide: [https://asdf-vm.com/guide/getting-started.htm](https://asdf-vm.com/guide/getting-started.htm)
+- Then consult the software's guide: [https://asdf-vm.com/guide/getting-started.html](https://asdf-vm.com/guide/getting-started.html)
 - Follow the instructions to install via git. From your command line type:\
   `git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2`
 - Make sure that `asdf` has been added to your `PATH` by adding two lines to the end of your profile file (usually named `.bashrc`):\
