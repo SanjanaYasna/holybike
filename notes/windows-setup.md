@@ -56,7 +56,7 @@
 **6. Install Ruby via asdf**
 
 - Add the Ruby plugin to asdf: `asdf plugin add ruby`
-- Install Ruby with: `asdf install ruby 3.1.2`
+- Install Ruby 3.1.2 with: `asdf install ruby 3.1.2`
 - Set this version of Ruby as your default with: `asdf global ruby 3.1.2`
 - Type `ruby -v` to check if it has been properly installed
 - Note that: `adsf install ruby` = `ruby-build` = `rbenv install`
