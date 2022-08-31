@@ -5,9 +5,9 @@ Starter App for ValetBike project
 
 ## Environment Configuration
 
-As you configure your environment you should **keep a log** where you **write down all the steps you take** including each command you type. You will inevitably run into errors setting up your development environment and maintaining a meticulous log will allow others to help you troubleshoot. **Ignore this recommendation at your own peril.**
+As you configure your environment you should **keep a log** where you **write down all the steps you take** including each command you type. You will inevitably run into errors setting up your development environment and maintaining a meticulous log will allow others to help you troubleshoot. Ignore this recommendation at your own peril, but don't say you haven't been warned.
 
-Installing Ruby on Rails is not a trivial process. Though it is the essential first step to developing ValetBike, it will take you far longer than all the other steps to complete. Be sure to set aside ample time to work through the setup guides.
+Installing Ruby on Rails is not a trivial process. It is the essential first step to developing ValetBike, and it will take you far longer than all the other steps to complete. Be sure to set aside ample time to work through the setup guides.
 
 **1. Install Ruby on Rails**
 
@@ -21,7 +21,7 @@ On Mac it is strongly recommended that you use asdf to install Ruby. On Windows 
 - Click fork in the upper right hand corner of the ValetBike GitHub page
 - This creates a copy of the repository on your personal GitHub account
 - To access this code on your development machine, create a local copy of your fork with:\
-  `git clone https://github.com/<your_username>/valetbike.git`\
+  `git clone https://github.com/<your_username>/valetbike.git`
 - Note: you should run that command when you are in the folder where you want to store the repo (e.g. `/Users/<your_username>/Development`)
 
 **3. Configure database environment variables**
@@ -43,9 +43,9 @@ MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 - Or use mysql to just create the development databse with:\
   `mysql -u root -p`\
   `CREATE DATABASE valetbike_development;`\
-  `exit`\
+  `exit`
 - Then run the database migrations with:\
-  `rake db:migrate`\
+  `rake db:migrate`
 
 **5. Confirm app runs**
 

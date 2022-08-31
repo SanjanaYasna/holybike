@@ -2,18 +2,19 @@
 
 **1. Begin by reading the external guides**
 
-- Install Ruby on Rails on Windows: [https://gorails.com/setup/windows/10](https://gorails.com/setup/windows/10)
+- Open the install Ruby on Rails on Windows guide:\
+  [https://gorails.com/setup/windows/10](https://gorails.com/setup/windows/10)
 - Note that we will use asdf instead of rbenv
-- Install asdf (ruby, nodejs, and yarn) in WSL2: [https://dev.to/michellelwt/install-asdf-ruby-nodejs-and-yarn-in-wsl2-207o](https://dev.to/michellelwt/install-asdf-ruby-nodejs-and-yarn-in-wsl2-207o)
+- Open the Install asdf (ruby, nodejs, and yarn) in WSL2 guide:\ [https://dev.to/michellelwt/install-asdf-ruby-nodejs-and-yarn-in-wsl2-207o](https://dev.to/michellelwt/install-asdf-ruby-nodejs-and-yarn-in-wsl2-207o)
 - Note that you do not need to install NodeJS or Yarn
 - Recognize that no guide is perfect, and be prepared to consult multiple secondary sources
 
 **2. Install the Windows Linux Subsystem (WSL)**
 
-- First recognize that you are installing a new shell for the Linux (Ubuntu) operating system on your computer
+- First understand that you are installing a new shell for the Linux (Ubuntu) operating system on your computer
 - From your Windows PowerShell, prepare your computer with:\
   `dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart`\
-  `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart`\
+  `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart`
 - Visit the Windows store to install Ubuntu: [https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6)
 - Open Ubuntu from the Start menu OR by typing `wsl` in your PowerShell
 - Set up a new root user for Ubuntu and be sure to note the password you create (this will be your `sudo` password in the WSL)
@@ -40,13 +41,13 @@
 
 - Begin by installing system dependencies via apt (the Advanced Packaging Tool):\
   `sudo apt-get update`\
-  `sudo apt install autoconf bison build-essential curl git libcurl4-openssl-dev libffi-dev libgdbm-dev libncurses-dev libreadline-dev libsqlite3-dev libssl-dev libxml2-dev libxslt1-dev libyaml-dev software-properties-common sqlite3 zlib1g-dev`\
+  `sudo apt install autoconf bison build-essential curl git libcurl4-openssl-dev libffi-dev libgdbm-dev libncurses-dev libreadline-dev libsqlite3-dev libssl-dev libxml2-dev libxslt1-dev libyaml-dev software-properties-common sqlite3 zlib1g-dev`
 - Then consult the software's guide: [https://asdf-vm.com/guide/getting-started.htm](https://asdf-vm.com/guide/getting-started.htm)
 - Follow the instructions to install via git. From your command line type:\
-  `git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2`\
+  `git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2`
 - Make sure that `asdf` has been added to your `PATH` by adding two lines to the end of your profile file (usually named `.bashrc`):\
    `. $HOME/.asdf/asdf.sh`\
-   `. $HOME/.asdf/completions/asdf.bash`\
+   `. $HOME/.asdf/completions/asdf.bash`
 - Close your shell and reopen it for the changes to take effect   
 - Type `asdf --version` to check if it has been properly installed
 
