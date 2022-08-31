@@ -23,8 +23,8 @@ Below is a step by step explanation walkthrough of how the existing ValetBike ap
 - Create the app with: `rails new valetbike --css tailwind --database=mysql`
 - Note if multiple versions of Rails are installed, specify with: `rails _7.0.3.1_ new ...`
 - Enter the new app directory: `cd valetbike`
-- Add .tool-versions to app directory to ensure the right ruby is always used: `asdf local ruby 3.1.2`
-- Update .gitignore to exclude a few additional hidden files
+- Add `.tool-versions` to app directory to ensure the right ruby is always used: `asdf local ruby 3.1.2`
+- Update `.gitignore` to exclude a few additional hidden files
 - Initialize the repo with:\
   `git init`\
   `git add .`\
