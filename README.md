@@ -5,18 +5,20 @@ Starter App for ValetBike project
 
 ## Environment Configuration
 
-As you configure your environment you should **keep a log** where you **write down all the steps you take** including each command you type. You will inevitably run into errors setting up your development environment and maintaining a meticulous log will allow others to help you troubleshoot. Ignore this recommendation at your own peril, but don't say you haven't been warned.
+As you configure your environment you should **keep a log** where you **write down all the steps you take** including each command you type. You will inevitably run into errors setting up your development environment and maintaining a meticulous log will allow others to help you troubleshoot. Ignore this recommendation at your own peril, but don't say you haven't been warned :]
 
-Installing Ruby on Rails is not a trivial process. It is the essential first step to developing ValetBike, and it will take you far longer than all the other steps to complete. Be sure to set aside ample time to work through the setup guides.
+Installing Ruby on Rails is not a trivial process. It is the essential first step to developing ValetBike, and it will take you far longer than all the other steps to complete. Be sure to set aside ample time to work through the setup.
 
-**1. Install Ruby on Rails**
+**1. Install Ruby on Rails with MySQL**
 
 On Mac it is strongly recommended that you use asdf to install Ruby. On Windows you should set up your environment through the Windows Subsystem for Linux (WSL). The guides below explain how to do so in detail:
 
 - [Mac Ruby on Rails Developer Environment Setup](https://github.com/deadroxy/valetbike/blob/master/notes/mac-setup.md)
 - [Windows Ruby on Rails Developer Environment Setup](https://github.com/deadroxy/valetbike/blob/master/notes/windows-setup.md)
 
-**2. Fork & clone ValetBike repo**
+Only after you have completed all the installation procedures in the relevant preceding guide should you continue on to the next step.
+
+**2. Fork & clone the ValetBike repo**
 
 - Click fork in the upper right hand corner of the ValetBike GitHub page
 - This creates a copy of the repository on your personal GitHub account
@@ -24,7 +26,7 @@ On Mac it is strongly recommended that you use asdf to install Ruby. On Windows 
   `git clone https://github.com/<your_username>/valetbike.git`
 - Note: you should run that command when you are in the folder where you want to store the repo (e.g. `/Users/<your_username>/Development`)
 
-**3. Configure database environment variables**
+**3. Configure the database environment variables**
 
 - Add a file called `.env` to the valetbike app root directory
 - Ensure that it includes the credentials you setup when installing MySQL:
@@ -36,10 +38,10 @@ MYSQL_SOCKET=/tmp/mysql.sock              # For Mac
 MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 ```
 
-**4. Prepare database in MySQL**
+**4. Prepare the database in MySQL**
 
 - Use rails to create both the development and test databases with:\
-  `rake db:create`\
+  `rake db:create`
 - Or use mysql to just create the development databse with:\
   `mysql -u root -p`\
   `CREATE DATABASE valetbike_development;`\
@@ -47,9 +49,9 @@ MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 - Then run the database migrations with:\
   `rake db:migrate`
 
-**5. Confirm app runs**
+**5. Confirm that the app runs**
 
-* Launch web server using `rackup` or `rails s` (short for `rails server`) or `bin/dev`
+* Launch the web server using `rackup` or `rails s` (short for `rails server`) or `bin/dev`
 * If using `rackup` open http://localhost:9292 (or http://127.0.0.1:9292) in a browser
 * If using `rails s` or `bin/dev` open http://localhost:3000 (or http://127.0.0.1:3000) in a browser
 * You should see ValetBike welcome page
