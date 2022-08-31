@@ -49,7 +49,7 @@ Below is a step by step explanation walkthrough of how the existing ValetBike ap
 - Set up validators and relations in the models `station.rb` & `bike.rb`
 - Generate a controller scaffold for the stations with:\
   `rails generate controller stations`
-- Update `stations_controller.rb` with an index method to load data
+- Update `stations_controller.rb` with an `index` method to load data
 - Update `routes.rb` to direct the application to the new controller method
 - Build and style the `application.html.erb` layout, `stations/_row.html.erb` view, and `stations/index.html.erb` view using several stylesheets `flexbox.css`, `global.css`, `pages.css`, and `variables.css`
 
