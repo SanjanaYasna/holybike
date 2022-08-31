@@ -2,8 +2,8 @@
 
 one:
   identifier: 1
-  station_id: 1
+  current_station_id: 1
 
 two:
   identifier: 1
-  station_id: 1
+  current_station_id: 1

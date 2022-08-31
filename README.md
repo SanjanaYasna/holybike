@@ -1,54 +1,39 @@
 # ValetBike
 
 Smith College CSC223: Software Engineering\
-Starter App for ValetBike project
+Starter App for ValetBike project\
 
 ## Environment Configuration
-Follow the general steps in the next section to set up your local development environment from scratch. It is essential that you **consult a more detailed guide** that corresponds to your specific type of development machine. Use one of the guides listed below to help you complete the steps for setting up ValetBike on your machine.
 
-* [Install Ruby on Mac (Intel and M1)](https://mac.install.guide/ruby/index.html)
-* [Install Ruby on Mac (M1 additional details)](https://github.com/deadroxy/valetbike/blob/master/notes/dev-enviro.md)
-* [Install Ruby on Windows 10](https://gorails.com/setup/windows/10)
+As you configure your environment you should **keep a log** where you **write down all the steps you take** including **each command you type**. You will inevitably run into errors setting up your development environment and maintaining a meticulous log will allow others to help you troubleshoot. Ignore this recommendation at your own peril, but don't say you haven't been warned :]
 
-On Mac it is strongly recommended that you use asdf to install Ruby. On Windows you should set up your environment through the Windows Subsystem for Linux (WSL). The guides above explain how to do so in detail.
+Installing Ruby on Rails is not a trivial process. It is the essential first step to developing ValetBike, and it will take you far longer than all the other steps to complete. Be sure to set aside ample time to work through the setup.
 
-## General Configuration Steps
+### 0. Remember that versions matter
+ValetBike runs on Ruby 3.1.2 and Rails 7.0.3.1. It is essential that you configure your environment to use these precise versions of the language and framework.
 
-As you configure your environment you should **keep a log** where you **write down all the steps you take** and each command you type. You will inevitably run into errors setting up your development environment and maintaining a meticulous log will allow others to help you troubleshoot. 
- 
-**1. Fork & clone ValetBike repo**
-* Click fork in the upper right hand corner of the ValetBike GitHub page
-* Then create a local copy of your fork with:
-* `git clone https://github.com/<username>/valetbike.git`
+### 1. Install Ruby on Rails with MySQL
 
-**2. Install MySQL 8**
-* Download: https://dev.mysql.com/downloads/mysql
-* Be sure to select the version that corresponds to your operating system (Intel Mac = x86, M1 Mac = ARM)
-* Choose "Use Legacy Password Encryption" when installing
-* Make note of the password you set for the root user
-* After install make sure you add `/usr/local/mysql/bin` (or equivalent) to your path
+On Mac it is strongly recommended that you use asdf to install Ruby. On Windows you should set up your environment through the Windows Subsystem for Linux (WSL). The guides below explain how to do so in detail:
 
-**3. Install Ruby 3.0.2**
-* Consult one of the guides linked in the previous section
-* Use [asdf](https://asdf-vm.com/guide/getting-started.html) on Mac/Linux systems
-* Use the [WSL](https://docs.microsoft.com/en-us/windows/wsl) on Windows systems
-* Make sure you are using Ruby 3.02 before proceeding:
-  * `cd valetbike` then `ruby -v` to check your version
+- [Mac Ruby on Rails Developer Environment Setup](https://github.com/deadroxy/valetbike/blob/master/notes/mac-setup.md)
+- [Windows Ruby on Rails Developer Environment Setup](https://github.com/deadroxy/valetbike/blob/master/notes/windows-setup.md)
 
-**4. Install essential gems**
-* Disable gem docs:
-  * `echo "gem: --no-document" >> ~/.gemrc`
-* Install Rails 6.1.4:
-  * `gem install rails --version 6.1.4`
-* Install MySQL gem:
-  * `gem install mysql2`
-  * Use the `-- --with-opt-dir="$(brew --prefix openssl@1.1)"` flag on M1 Macs
-* Install required gems:
-  * `bundle install`
+Be sure to complete all the installation procedures in the relevant guide before continuing on to the next step.
 
-**5. Configure database environment variables**
-* Add a file called `.env` to your app's root directory
-* Ensure that it includes the credentials you setup when installing MySQL:
+### 2. Fork & clone the ValetBike repo
+
+- Click fork in the upper right hand corner of the ValetBike GitHub page
+- This creates a copy of the repository on your personal GitHub account
+- To access this code on your development machine, create a local copy of your fork with:\
+  `git clone https://github.com/<your_username>/valetbike.git`
+- Note: you should run that command when you are in the folder where you want to store the repo\
+  (e.g. `/Users/<your_username>/Development`)
+
+### 3. Configure the database environment variables
+
+- Add a file called `.env` to the valetbike root directory
+- Ensure that it includes the credentials you setup when installing MySQL:
 
 ```shell
 MYSQL_USERNAME=root
@@ -57,17 +42,22 @@ MYSQL_SOCKET=/tmp/mysql.sock              # For Mac
 MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 ```
 
-**6. Prepare database in MySQL**
-* Run either `rake db:create`
-* Or `mysql -u root -p` and `CREATE DATABASE valetbike_development;`
+### 4. Prepare the database in MySQL
 
-**7. Run database migrations**
-* `rake db:migrate`
+- Use rails to create both the development and test databases with:\
+  `rake db:create`
+- Or use mysql to just create the development databse with:\
+  `mysql -u root -p`\
+  `CREATE DATABASE valetbike_development;`\
+  `exit`
+- Then run the database migrations with:\
+  `rake db:migrate`
 
-**8. Confirm app runs**
-* Launch web server using `rackup` or `rails s`
+### 5. Confirm that the app runs
+
+* Launch the web server using `rackup` or `rails s` (short for `rails server`) or `bin/dev`
 * If using `rackup` open http://localhost:9292 (or http://127.0.0.1:9292) in a browser
-* If using `rails s` open http://localhost:3000 (or http://127.0.0.1:3000) in a browser
+* If using `rails s` or `bin/dev` open http://localhost:3000 (or http://127.0.0.1:3000) in a browser
 * You should see ValetBike welcome page
   
 
@@ -99,6 +89,7 @@ You will probably be unfamiliar with the main components of the ValetBike stack 
 
 ### Exploration Tips
 * Review the files the lead developer left in the `notes/` folder
+* Pay special attention to the environment setup and [app creation](https://github.com/deadroxy/valetbike/blob/master/notes/app-creation.md) guides
 * Use GitHub to dive into previous commits to see what they built so far
 * Use `rails console` to experiment with creating station & bike records from the command line
   - `s = Station.new(name: "Neu Station", address: "123 Novel Lane", identifier: "45")`
