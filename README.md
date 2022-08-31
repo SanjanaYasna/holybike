@@ -16,7 +16,7 @@ On Mac it is strongly recommended that you use asdf to install Ruby. On Windows 
 - [Mac Ruby on Rails Developer Environment Setup](https://github.com/deadroxy/valetbike/blob/master/notes/mac-setup.md)
 - [Windows Ruby on Rails Developer Environment Setup](https://github.com/deadroxy/valetbike/blob/master/notes/windows-setup.md)
 
-Only after you have completed all the installation procedures in the relevant preceding guide should you continue on to the next step.
+Be sure to complete all the installation procedures in the relevant guide before continuing on to the next step.
 
 **2. Fork & clone the ValetBike repo**
 
