@@ -1,0 +1,13 @@
+:root {
+  --title-font:             'Rubik', 'Arial';
+  --body-font:              'Rubik', 'Arial';
+
+  --black-color:            #160919;
+  --light-black-color:      #2E2230;
+  --gray-color:             #84848C;
+  --light-gray-color:       #D0CED1;
+  --dark-white-color:       #F3F2F3;
+  --medium-white-color:     #FDFCFD;
+  --white-color:            #FFFFFF;
+
+}
