@@ -85,6 +85,7 @@ You will probably be unfamiliar with the main components of the ValetBike stack 
 
 ### Exploration Tips
 * Review the files the lead developer left in the `notes/` folder
+* Pay special attention to the environment setup and [app creation](https://github.com/deadroxy/valetbike/blob/master/notes/app-creation.md) guides
 * Use GitHub to dive into previous commits to see what they built so far
 * Use `rails console` to experiment with creating station & bike records from the command line
   - `s = Station.new(name: "Neu Station", address: "123 Novel Lane", identifier: "45")`
