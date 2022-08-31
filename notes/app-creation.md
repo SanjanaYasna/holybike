@@ -43,7 +43,7 @@ Below is a step by step explanation walkthrough of how the existing ValetBike ap
 ## Finally begin coding the app
 
 - Generate the basic Station and Bike models with:\
-  `rails generate model station identifier:integer name:string address:string`\
+  `rails generate model Station identifier:integer name:string address:string`\
   `rails generate model Bike identifier:integer current_station_id:integer`
 - Apply the changes to the database: `rake db:migrate`
 - Set up validators and relations in the models `station.rb` & `bike.rb`
