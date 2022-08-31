@@ -40,7 +40,7 @@ Below is a step by step explanation walkthrough of how the existing ValetBike ap
 - Run `rackup` to start the server
 - Open http://localhost:9292 in a browser to confirm the app is working
 
-###Finally begin coding the app
+### Finally begin coding the app
 
 - Generate the basic Station and Bike models with:\
   `rails generate model station identifier:integer name:string address:string`\
