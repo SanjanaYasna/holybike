@@ -5,7 +5,8 @@
 - Open the install Ruby on Rails on Windows guide:\
   [https://gorails.com/setup/windows/10](https://gorails.com/setup/windows/10)
 - Note that we will use asdf instead of rbenv
-- Open the Install asdf (ruby, nodejs, and yarn) in WSL2 guide:\ [https://dev.to/michellelwt/install-asdf-ruby-nodejs-and-yarn-in-wsl2-207o](https://dev.to/michellelwt/install-asdf-ruby-nodejs-and-yarn-in-wsl2-207o)
+- Open the Install asdf (ruby, nodejs, and yarn) in WSL2 guide:\
+  [https://dev.to/michellelwt/install-asdf-ruby-nodejs-and-yarn-in-wsl2-207o](https://dev.to/michellelwt/install-asdf-ruby-nodejs-and-yarn-in-wsl2-207o)
 - Note that you do not need to install NodeJS or Yarn
 - Recognize that no guide is perfect, and be prepared to consult multiple secondary sources
 

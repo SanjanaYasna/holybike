@@ -40,7 +40,6 @@
 - Note that installing Homebrew will also install the Xcode Command Line Tools
 - From your command line type:\
   `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
-- Ensure that the `brew` command has been added to your `PATH`
 - Type `echo $PATH` to ensure that `/opt/homebrew/bin` is present
 - Type `brew doctor` to check if it has been properly installed
 
