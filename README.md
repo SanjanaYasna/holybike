@@ -24,11 +24,12 @@ Be sure to complete all the installation procedures in the relevant guide before
 - This creates a copy of the repository on your personal GitHub account
 - To access this code on your development machine, create a local copy of your fork with:\
   `git clone https://github.com/<your_username>/valetbike.git`
-- Note: you should run that command when you are in the folder where you want to store the repo (e.g. `/Users/<your_username>/Development`)
+- Note: you should run that command when you are in the folder where you want to store the repo\
+  (e.g. `/Users/<your_username>/Development`)
 
 ### 3. Configure the database environment variables
 
-- Add a file called `.env` to the valetbike app root directory
+- Add a file called `.env` to the valetbike root directory
 - Ensure that it includes the credentials you setup when installing MySQL:
 
 ```shell
