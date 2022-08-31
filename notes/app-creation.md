@@ -55,4 +55,4 @@ Below is a step by step explanation walkthrough of how the existing ValetBike ap
 
 ## Parting thoughts for other developers...
 
-Regrettably I did not have time to write a rake task to import the station and bike data the ValleyBike devs shared with us. Glancing at those CSV files, I suspect there's a bunch of useless columns in there so we should dive deeper before trying to use those as seed data for our app!
+Regrettably I did not have time to write a rake task to import the station and bike data the ValleyBike devs shared with us. Glancing at those CSV files, I suspect there's a bunch of useless columns in there so we should dive deeper before trying to use those as seed data!
