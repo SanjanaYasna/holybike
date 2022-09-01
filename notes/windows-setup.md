@@ -10,7 +10,7 @@
 - Note that you do not need to install NodeJS or Yarn
 - Recognize that no guide is perfect, and be prepared to consult multiple secondary sources
 
-**2. Install the Windows Linux Subsystem (WSL)**
+**2. Install the Windows Subsystem for Linux (WSL)**
 
 - First understand that you are installing a new shell for the Linux (Ubuntu) operating system on your computer
 - From your Windows PowerShell, prepare your computer with:\
