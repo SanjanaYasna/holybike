@@ -30,7 +30,13 @@ Be sure to complete all the installation procedures in the relevant guide before
 - Note: you should run that command when you are in the folder where you want to store the repo\
   (e.g. `/Users/<your_username>/Development`)
 
-### 3. Configure the database environment variables
+### 3. Prepare the application
+
+- Enter the directory you just created: `cd valetbike`
+- Add `.tool-versions` to app directory to ensure the right ruby is always used: `asdf local ruby 3.1.2`
+- Install required gems with: `bundle install`
+
+### 4. Configure the database environment variables
 
 - Add a file called `.env` to the valetbike root directory
 - Ensure that it includes the credentials you setup when installing MySQL:
@@ -42,7 +48,7 @@ MYSQL_SOCKET=/tmp/mysql.sock              # For Mac
 MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 ```
 
-### 4. Prepare the database in MySQL
+### 5. Prepare the database in MySQL
 
 - Use rails to create both the development and test databases with:\
   `rake db:create`
@@ -53,7 +59,7 @@ MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 - Then run the database migrations with:\
   `rake db:migrate`
 
-### 5. Confirm that the app runs
+### 6. Confirm that the app runs
 
 * Launch the web server using `rackup` or `rails s` (short for `rails server`) or `bin/dev`
 * If using `rackup` open http://localhost:9292 (or http://127.0.0.1:9292) in a browser
