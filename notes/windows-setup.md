@@ -26,6 +26,7 @@
 - Use apt (the Advanced Packaging Tool) to install MySQL: `sudo apt-get install mysql-server mysql-client libmysqlclient-dev`
 - Then use `sudo mysql` to enter the MySQL console without a password
 - Type `alter user 'root'@'localhost' identified with mysql_native_password by '<password>';` to set a password
+- Choose a password that uses only alphanumeric characters (no special symbols!)  
 - Then apply it with `flush privileges;` followed by `exit;`
 - Try logging in with `mysql -u root -p` to confirm the password for the root user
 

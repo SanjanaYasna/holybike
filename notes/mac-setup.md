@@ -49,7 +49,8 @@
 - `git config --global user.email "me@example.com"`
 - `git config --global color.ui true`
 - `git config -l --global`
-- Setup or migrate your SSH keys for GitHub access by following the instructions:\ [https://docs.github.com/en/authentication/connecting-to-github-with-ssh](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+- Setup or migrate your SSH keys for GitHub access by following the instructions:\
+  [https://docs.github.com/en/authentication/connecting-to-github-with-ssh](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 - Type `ssh -T git@github.com` to be sure they are configured correctly
 
 **7. Install asdf (Programming Language Version Manager)**
