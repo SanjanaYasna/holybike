@@ -1,10 +1,10 @@
 # ValetBike App Creation Notes
-Below is a step by step explanation walkthrough of how the existing ValetBike app was created from scratch on an Apple M1 machine. The machine which was used for this process already had a fully configured Ruby on Rails development environment. New developers hoping to replicate the steps below should first follow one of the other guides included in this folder:
+Below is a step by step explanation walkthrough of how I, the lead developer of ValetBike, created the application from scratch on an Apple M1 machine. The machine which was used for this process already had a fully configured Ruby on Rails development environment. New developers hoping to replicate the steps below should first follow one of the other guides included in this folder:
 
 * [Mac Ruby on Rails Developer Environment Setup](https://github.com/deadroxy/valetbike/blob/master/notes/mac-setup.md)
 * [Windows Ruby on Rails Developer Environment Setup](https://github.com/deadroxy/valetbike/blob/master/notes/windows-setup.md)
 
-## First update the system to use the latest versions of Ruby and Rails
+## First I updated my system to use the latest versions of Ruby and Rails
 
 - Update asdf with the latest language packs:\
   `asdf update`\
@@ -18,7 +18,7 @@ Below is a step by step explanation walkthrough of how the existing ValetBike ap
   `gem install mysql2  -- --with-opt-dir="$(brew --prefix openssl@1.1)"`\
   `gem update bundler`
 
-## Next create a new application and configure the repository
+## Next I created a new Rails application and configured the repository
 
 - Create the app with: `rails new valetbike --css tailwind --database=mysql`
 - Note if multiple versions of Rails are installed, specify with: `rails _7.0.3.1_ new ...`
@@ -30,7 +30,7 @@ Below is a step by step explanation walkthrough of how the existing ValetBike ap
   `git add .`\
   `git commit -m "Initial commit."`
 
-## Then configure the database for the new application
+## Then I configured the database for the new application
 
 - Update `Gemfile` to use dotenv-rails for secret credentials
 - Add `.env` file with database root username, password, and socket
@@ -40,7 +40,7 @@ Below is a step by step explanation walkthrough of how the existing ValetBike ap
 - Run `rackup` to start the server
 - Open http://localhost:9292 in a browser to confirm the app is working
 
-## Finally begin coding the app
+## Finally I began coding the app
 
 - Generate the basic Station and Bike models with:\
   `rails generate model Station identifier:integer name:string address:string`\
@@ -53,6 +53,10 @@ Below is a step by step explanation walkthrough of how the existing ValetBike ap
 - Update `routes.rb` to direct the application to that new `stations#index` controller method
 - Build and style the `application.html.erb` layout, `stations/_row.html.erb` view, and `stations/index.html.erb` view using several stylesheets `flexbox.css`, `global.css`, `pages.css`, and `variables.css`
 
-## Parting thoughts for other developers...
+## Parting thoughts regarding new developers...
 
-Regrettably I did not have time to write a rake task to import the station and bike data the ValleyBike devs shared with us. Glancing at those CSV files, I suspect there's a bunch of useless columns in there so we should dive deeper before trying to use those as seed data!
+Regrettably I have not had time to write a rake task to import the station and bike data the ValleyBike devs shared. Glancing at those files, I suspect **there's a bunch of useless columns in the CSV data** so we should dive deeper before trying to use those to seed our database. Our rake task only needs to import some of the information, and we should **follow The Rails Way by using the power of associations between models** rather than uncritically ingesting the raw data.
+
+Similarly, as we create new features we have to remind the new developers to **build on the existing associations and data patterns** I already laid the groundwork for. Looking at our backlog, it seems like the **next features only require generating a few files and adding a couple of lines of code**. My commit history along with the notes above should be enough to point our new hires in the right direction.
+
+But I really hope these junior engineers have internalized the importance of [consulting the Rails Guides](https://guides.rubyonrails.org). We really need to order some of those RTFM mugs for our new hires. Are their professors even teaching them how to work with application frameworks in college or what?
