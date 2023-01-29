@@ -97,14 +97,31 @@ You will probably be unfamiliar with the main components of the ValetBike stack 
 * Review the files the lead developer left in the `notes/` folder
 * Pay special attention to the environment setup and [app creation](https://github.com/deadroxy/valetbike/blob/master/notes/app-creation.md) guides
 * Use GitHub to dive into previous commits to see what they built so far
-* Use `rails console` to experiment with creating station & bike records from the command line
+* Use `rails console` to experiment with creating & associating records (objects) from the command line
   - `s = Station.new(name: "Neu Station", address: "123 Novel Lane", identifier: "45")`
   - `s.save`
   - `b = Bike.new(identifier: "1234")`
   - `b.current_station = s`
   - `b.save`
+  - `s = Station.new(name: "Ye Olde Statione", address: "101 Historic Way", identifier: "99")`
+  - `s.save`
+  - `b = Bike.new(identifier: "5678")`
+  - `b.save`
+  - `s`
+  - `Station.last`
+  - `Station.first`
+  - `s = Station.first`
+  - `s`
+  - `s.id`
+  - `s.identifier`
   - `s.docked_bikes`
   - `s.docked_bikes.count`
+  - `Station.last.docked_bikes.count`
+  - `Bike.first.current_station`
+  - `Bike.last.current_station`
+  - `Bike.find_by(identifier: "1234").update(current_station: Station.last)`
+  - `Station.last.docked_bikes`
+  - `Station.first.docked_bikes`
 
 ### Submission Guidelines to Meet Expectations
 1. Get ValetBike running on your development machine
