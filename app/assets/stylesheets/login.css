@@ -1,0 +1,80 @@
+/* 
+**The following css file was put in app/assets/stylesheets/login.css.
+
+**In order to display the .css file, update the application.html.erb 
+file in views/layouts to have <%= stylesheet_link_tag 'login', 'data-turbolinks-track': 'reload' %> underneath the link_tag to the tailwind and application css files */
+
+.login h2 {
+    /* Login title size is px. Change to relative? */
+    font-size: 24px;
+   
+    /* Login title is bold */
+    font-weight: bold;
+   
+    /* Add space below title */
+    margin-bottom: 16px;
+}
+
+
+.login .alert {
+    /* Alert text is red */
+    color: red;
+   
+    /* add space below alert */
+    margin-bottom: 16px;
+}
+
+
+.login .field {
+    /* add space below each text field*/
+    margin-bottom: 16px;
+}
+
+
+.login .field label {
+    /* labels are block elements (starts new line)*/
+    display: block;
+   
+    /* bold label */
+    font-weight: bold;
+   
+    /* add space between label and text field */
+    margin-bottom: 8px;
+}
+
+
+.login input[type="email"],
+.login input[type="password"] {
+    /* input fields take up 100% of box*/
+    width: 100%;
+   
+    /* padding around email and password input fields */
+    padding: 8px;
+   
+    /* Gray border arond text fields */
+    border: 1px solid gray;
+   
+    /* Round corners*/
+    border-radius: 4px;
+}
+.login .actions {
+    /* bottom space around actions (log in button) */
+    margin-bottom: 24px;
+}
+.login input[type="submit"] {
+    /*make background of submit button blue*/
+    /*background-color: blue; */
+   
+    /*Text of submit button*/
+    /*color: white; */
+   
+    /*10px height/right 20 px down/left???*/
+    padding: 10px 20px;
+   
+    /*No border around submit*/
+    border: none;
+   
+    /* Round corners*/
+    border-radius: 4px;
+   
+}

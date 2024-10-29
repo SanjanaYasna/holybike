@@ -1,0 +1,46 @@
+#nav {
+    min-height:66px;
+   }
+   
+   .span-logo {
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -6px;
+    display: inline;
+   }
+   .top_nav {
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    overflow: hidden;
+    background-color: #2c3e50;
+    font-size:2vw;    
+    width: 100%;
+}
+
+.top_nav a {
+    width:10%;    
+    color: white;    
+    text-decoration: none;   
+    font-family: monospace;
+
+}
+
+.top_nav a:hover {
+    background-color: #ed0162;
+    color: white;
+}
+
+img{
+   width:100%;
+   }
+   
+   #short{
+      width:2.5%;
+      }
+
+#map {
+height: 100%;
+}
