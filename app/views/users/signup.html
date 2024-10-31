@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+/* ul { /* this is for the left side floating nav bar*/
+  /*list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  background-color: #f1f1f1;
+  height: 100%; /* Full height */
+  /*position: fixed; /* Make it stick, even on scroll */
+  /*overflow: auto; /* Enable scrolling if the sidenav has too much content */
+/*}*/
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #024686c5;
+  position: fixed; /*fixes position at the top of the page*/
+  top: 0;
+  width: 100%;
+  border: 4px solid #f8e750;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/*for the page your mouse is on*/
+li a:hover {
+  background-color: #f8e750a4;
+}
+
+/*for the current page youre on*/
+.active {
+  background-color: #ffe600;
+}
+
+li {
+  border-right: 4px solid #f8e750;
+}
+
+h1{
+    text-align: center
+}
+
+h3 {
+  text-align: center;
+}
+
+form{
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<ul>
+    <li><a href="home">Valley Bike </a></li>
+
+    <li><a href="login">VB Login</a></li>
+
+    <li><a href="help">Help</a></li>
+
+    <li><a href="home">Contact Us</a></li>
+</ul>
+
+<div style="padding:20px; margin-top:150px; background-color:#78b4df7e; height:500px;">
+    <h1>Sign Up</h1>
+    <h3> Welcome to Valley Bike! To sign up for an account, please complete the following information:</h3>
+
+    <form>
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname"><br>
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email"><br>
+        <label for="phone">Phone:</label><br>
+        <input type="text" id="phone" name="phone"><br>
+        <br><br>
+        <label for="uname">User Name:</label><br>
+        <input type="text" id="uname" name="uname"><br>
+        <label for="pword">Password:</label><br>
+        <input type="text" id="pword" name="pword"><br>
+
+        <br><br>
+        <input type="submit" value="Submit">  
+    </form>
+</div>
