@@ -52,5 +52,8 @@ Time:
         - all station Addresses? are links to the list of bikes at that station 
             - rent bike button on that view
 
+6. issues with attributes in the rental class being part of toher classes
+    - do they need to be "declared" in the rental class if they exist as part of other classes?
 
-6. bella is going to add all the A1 parts from johanna's stuff later tonight. 
+7. bella is going to add all the A1 parts from johanna's stuff later tonight. 
+
