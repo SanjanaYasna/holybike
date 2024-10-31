@@ -17,5 +17,5 @@ class User < ApplicationRecord
   validates_uniqueness_of  :identifier, :email
   
   has_many :Bike, :Ride, :Broken_report, :Review, :Rental   #foreign_key: true (must correspond across tables)
-  
+ 
 end
