@@ -81,22 +81,37 @@ form{
     <h1>Sign Up</h1>
     <h3> Welcome to Valley Bike! To sign up for an account, please complete the following information:</h3>
 
-    <form>
-        <label for="fname">First name:</label><br>
-        <input type="text" id="fname" name="fname"><br>
-        <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname"><br>
-        <label for="email">Email:</label><br>
-        <input type="text" id="email" name="email"><br>
-        <label for="phone">Phone:</label><br>
-        <input type="text" id="phone" name="phone"><br>
-        <br><br>
-        <label for="uname">User Name:</label><br>
-        <input type="text" id="uname" name="uname"><br>
-        <label for="pword">Password:</label><br>
-        <input type="text" id="pword" name="pword"><br>
+    <%= form_with model: @user do |f| %>
+    <%#fname, lname, email, phone, uname, pword%>
+      <div class="field">
+        <%= f.label "First Name" %><br/>
+        <%= f.text_field :fname %>
+      </div>
+      
+      <div class="field">
+        <%= f.label "Last Name" %><br/>
+        <%= f.text_field :lname %>
+      </div>
 
-        <br><br>
-        <input type="submit" value="Submit">  
-    </form>
+      <div class="field">
+        <%= f.label :phone %><br/>
+        <%= f.text_field :phone %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %><br/>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div><br/><br/>
+
+      <div class="field">
+          <%= f.label "Password" %><br/>
+          <%= f.password_field :pword, autocomplete: "new-password" %>
+      </div>
+      <p>Password should be 8-14 characters.</p>
+
+      <br/><br/>
+      <div class="actions">
+          <%= f.submit "Submit" %>
+      </div>
+    <% end %>
 </div>
