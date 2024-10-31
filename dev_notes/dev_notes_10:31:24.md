@@ -1,5 +1,5 @@
 Pair programming: Erin, Camille, Bella
-Time:  
+Time:  130 minutes
 
 1. in bikes model, add attributes:
     ```ruby:
@@ -35,7 +35,7 @@ Time:
         - if incorrect render view again with flash notice (which is in the view?) 
 
 4. have determined we need a bike controller
-    - this will have one fucntion of update status
+    - this will have one function of update status
         - 0 at station
         - 1 in use
         - (-1) broken 
@@ -57,3 +57,10 @@ Time:
 
 7. bella is going to add all the A1 parts from johanna's stuff later tonight. 
 
+Pair Programming: Camille and Erin
+Time: 90 minutes
+
+1. Continued working in User model to implement with log in form
+    -Encountering confusing errors, decided to revisit later
+2. Worked on routes, redirect to homepage instead of stations page
+   - Added a PagesController, switched homepage_valetbite to index
