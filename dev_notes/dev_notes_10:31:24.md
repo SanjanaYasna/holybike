@@ -58,7 +58,7 @@ Time:  130 minutes
 7. bella is going to add all the A1 parts from johanna's stuff later tonight. 
 
 Pair Programming: Camille and Erin
-Time: 90 minutes
+Time: 80 minutes
 
 1. Continued working in User model to implement with log in form
     -Encountering confusing errors, decided to revisit later
