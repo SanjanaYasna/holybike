@@ -1,3 +1,5 @@
+Bella
+Time: 3hrs 
 1. set up the import_bikes.rake based of johanna's code from class
 2. set up the import_stations.rake based of johanna's code from class
 3. modified _row.html.erb for docked bike count
