@@ -1,6 +1,8 @@
 # Ignore bundler config.
 /.bundle
 
+#ignore database file
+/config/database.yml 
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
