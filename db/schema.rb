@@ -32,7 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_31_141805) do
     t.string "lname"
     t.string "email"
     t.string "phone"
-    t.string "pword"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
