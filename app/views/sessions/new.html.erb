@@ -1,0 +1,34 @@
+<div class="login">
+  <h2>Log In</h2>
+
+  <%= form_with(model: @user, url: sessions_path, local: true, data: { turbo: false }) do |f| %>
+    <% if flash[:alert] %>
+      <p class="alert alert-danger"><%= flash[:alert] %></p>
+    <% end %>
+    <% if flash[:success] %>
+      <p class="alert alert-success"><%= flash[:success] %></p>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :email %><br/>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <% if @user && @user.errors[:email].any? %>
+        <p class="error"><%= @user.errors[:email].join(", ") %></p>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %><br/>
+      <%= f.password_field :password, autocomplete: "new-password" %>
+      <% if @user && @user.errors[:password].any? %>
+        <p class="error"><%= @user.errors[:password].join(", ") %></p>
+      <% end %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Log in" %>
+    </div>
+  <% end %>
+
+  <%= link_to "Create an account", "/registrations/new" %>
+</div>
