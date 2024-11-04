@@ -1,5 +1,5 @@
 working? Bella 
-time? 21:00 - 
+time? 21:00 - 22:00 (1 hr for this part)
 
 
 1. created bikes_controller.rb
