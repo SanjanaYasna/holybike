@@ -7,49 +7,49 @@
   
   <style>
     html, body {
-      height: 100%; /* Full height */
-      margin: 0; /* Remove default margin */
+      height: 100%;
+      margin: 0;
     }
 
     .container {
-      height: calc(100vh - 56px); /* Adjust for navbar height */
-      display: flex; /* Enable flex on the container */
-      flex-direction: column; /* Stack children vertically */
+      /**height: calc(100vh - 56px); */
+      display: flex;
+      flex-direction: column; 
     }
 
     .flexbox.vertical-stretch {
-      flex: 1; /* This makes it take the available height */
-      display: flex; /* Enable flex for child sections */
-      flex-direction: column; /* Stack sections vertically */
+      flex: 1; 
+      display: flex; 
+      flex-direction: column; 
     }
 
     .top-section, .bottom-section {
-      flex: 1; /* Each section takes equal space */
+      flex: 1; 
       display: flex;
-      justify-content: center; /* Center content horizontally */
-      align-items: center; /* Center content vertically */
+      justify-content: center;
+      align-items: center; 
     }
 
     .top-section {
-      background: grey; /* Background for top section */
+      background: grey; 
     }
 
     .box {
       display: flex;
-      justify-content: space-between; /* Evenly space the boxes */
-      width: 80%; /* Set a width for the boxes */
+      justify-content: space-between; /
+      width: 80%; 
     }
 
     .info {
       background: white;
-      flex: 1; /* Make each box take equal space */
-      padding: 20px; /* Add some padding */
+      flex: 1; 
+      padding: 20px; 
       text-align: center; 
     }
 
     .info img {
-      display: block; /* Treat the image as a block element */
-      margin: 0 auto; /* Center the image horizontally */
+      display: block; 
+      margin: 0 auto; 
     }
   </style>
 </head>
