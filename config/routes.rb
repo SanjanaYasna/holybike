@@ -14,3 +14,11 @@ Rails.application.routes.draw do
   #TO DO: session destruction for logout
   post 'users/logout', to: 'sessions#destroy'
 end
+
+#CAMILLE"S ROUTES, TO BE ADJUSTED
+# get 'users/signup', to: 'users#create'
+# get 'users/login'
+# #root to: 'pages#index'
+# resources :registrations, only: [:new,:create]
+# resources :sessions, only: [:new, :create, :destroy]
+# root to: 'pages#placeholder'
