@@ -1,0 +1,24 @@
+<div class="page-section flexbox vertical stretch">
+    <div class="section-inner flexbox vertical stretch">
+        <div class="section-title flexbox horizontal center">
+            Meet the HolyBike Fleet!
+            <a class="toggle" href="<%= stations_path %>">View Stations</a>
+        </div>
+        <div class="flexbox vertical stretch">
+            <% if @bikes.present? %>
+                <div class="record-row header flexbox horizontal justify-space-between">
+                    <% if params[:reverse].blank? || params[:reverse] == "0" %>
+                        <a href="<%= bikes_path(params: (reverse:1))%>">Sort &#8595;</a>
+                    <% else %>
+                        <a href="<%= bikes_path %>">Sort &#8593;</a>
+                    <% end %>
+                </div>
+                <%= render(partial: "bikes/row", collection: @bikes, as: :bike) %>
+            <% else %>
+            <div class="empty">
+                No bikes found.
+            </div>
+            <% end %>
+        </div>
+    </div>
+</div>
