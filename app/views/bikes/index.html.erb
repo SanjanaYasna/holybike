@@ -1,14 +1,14 @@
 <div class="page-section flexbox vertical stretch">
     <div class="section-inner flexbox vertical stretch">
         <div class="section-title flexbox horizontal center">
-            Meet the HolyBike Fleet!
-            <a class="toggle" href="<%= stations_path %>">View Stations</a>
+            Meet the HolyBike Fleet!        
         </div>
         <div class="flexbox vertical stretch">
+            <a class="toggle" href="<%= stations_path %>">View Stations</a>
             <% if @bikes.present? %>
                 <div class="record-row header flexbox horizontal justify-space-between">
                     <% if params[:reverse].blank? || params[:reverse] == "0" %>
-                        <a href="<%= bikes_path(params: (reverse:1))%>">Sort &#8595;</a>
+                        <a href="<%= bikes_path(params: [reverse:1])%>">Sort &#8595;</a>
                     <% else %>
                         <a href="<%= bikes_path %>">Sort &#8593;</a>
                     <% end %>
