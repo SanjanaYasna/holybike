@@ -5,10 +5,11 @@
       <a class="toggle" href="<%= bikes_path %>">View Bikes</a>
     </div>  
     <div class="flexbox vertical stretch">
+      <a class="toggle" href="<%= bikes_path %>">View Bikes</a>
       <% if @stations.present? %>
         <div class="record-row header flexbox horizontal justify-space-between">
           <% if params[:reverse].blank? || params[:reverse] == "0" %>
-            <a href="<%= stations_path(params: (reverse:1))%>">Sort &#8595;</a>
+            <a href="<%= stations_path(params: [reverse:1])%>">Sort &#8595;</a>
           <% else %>
             <a href="<%= stations_path %>">Sort &#8593;</a>
           <% end %>
