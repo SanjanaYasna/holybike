@@ -8,4 +8,10 @@ class StationsController < ApplicationController
     end
   end
 
+#def show
+ # @station = Station.find(params[:id])
+  #@station.docked_bikes.each do |bike|
+   # @bikes = bike 
+  #end
+#end
 end

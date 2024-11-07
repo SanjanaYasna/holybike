@@ -105,6 +105,8 @@ time: 11:00 - 2:30pm, 3.5 hr
 
     
 9. i tried to show jsut each station and their specific bikes: 
-    - there are commented sections in stations row view for the link to each page using a stationsspeicific parameter
-    - there is a commented section in the routes file for get bikes/show
-    - there is a commented section in the 
+    - there are commented sections in stations row view for the link to each page using a id parameter
+    - there is a commented section in the routes file for get stations/:id
+    - there is a commented section in the stations controller for show. 
+
+    - TODO: need to create the show.html.erb file to show.  
