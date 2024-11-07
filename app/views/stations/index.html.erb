@@ -2,10 +2,9 @@
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title flexbox horizontal center">
       Look at all these stations! 
-      <a class="toggle" href="<%= bikes_path %>">View Bikes</a>
     </div>  
     <div class="flexbox vertical stretch">
-      <a class="toggle" href="<%= bikes_path %>">View Bikes</a>
+      <a class="toggle" href="<%= bikes_path %>">View All Bikes</a>
       <% if @stations.present? %>
         <div class="record-row header flexbox horizontal justify-space-between">
           <% if params[:reverse].blank? || params[:reverse] == "0" %>

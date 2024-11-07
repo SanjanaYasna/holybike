@@ -6,4 +6,8 @@ class BikesController < ApplicationController
       @bikes = Bike.all.order(identifer: :desc)
     end
   end
+
+  #def show
+  #  @bikes = @stations.find(params[:stationspecific]).docked_bikes
+  #end
 end

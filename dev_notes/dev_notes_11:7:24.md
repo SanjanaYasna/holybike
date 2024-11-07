@@ -1,5 +1,5 @@
 Bella, Erin, Camille 
-time: 11:00 - 
+time: 11:00 - 2:30pm, 3.5 hr
 
 1. how to return bike? 
     - is this based off location? 
@@ -104,3 +104,7 @@ time: 11:00 -
     - End button appear at redirect off submit? 
 
     
+9. i tried to show jsut each station and their specific bikes: 
+    - there are commented sections in stations row view for the link to each page using a stationsspeicific parameter
+    - there is a commented section in the routes file for get bikes/show
+    - there is a commented section in the 
