@@ -77,4 +77,10 @@ time: 11:00 -
   
     end    
     ```
- 
+
+7. rental controller: 
+    ```ruby: 
+    class RentalsController < ApplicationController
+  
+    end    
+    ```
