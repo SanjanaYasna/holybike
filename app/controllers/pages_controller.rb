@@ -1,9 +1,9 @@
 class PagesController < ApplicationController
-  def index
-    render :index
-  end
-  
   def main
     render :main
+  end
+  
+  def home
+    render :home
   end
 end
