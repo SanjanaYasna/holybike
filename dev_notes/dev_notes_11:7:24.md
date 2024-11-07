@@ -86,10 +86,10 @@ time: 11:00 -
     ```
 
 
-8. for new.html.erb in rentals: 
-    - add in form with changes above ^ + flash alerts and jazz form new.html.erb form the sessions views.
+8. for new.html.erb in views/rentals: 
+    - TODO: add in form with changes above ^ + flash alerts and jazz form new.html.erb form the sessions views.
   
-    - pre populated fields of: 
+    - TODO: pre populated fields of: 
 
         - user name
         - bike number from the selction
@@ -97,8 +97,10 @@ time: 11:00 -
 
       we will pretend they cant change them
     
+    - TODO:  FIX PATHS ON LINK TO on BOTTOM
+    
     - when you submit form thats whe start time gets updated. 
 
     - End button appear at redirect off submit? 
 
-    - TODO:  FIX PATHS ON LINK TO on BOTTOM
+    
