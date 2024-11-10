@@ -11,6 +11,7 @@ class RegistrationsController < ApplicationController
       redirect_to new_session_path
     else
       flash.now[:alert] = @user.errors.full_messages.to_sentence
+      logger.debug "Regsitration Failed: User attributes hash: #{@user.attributes.inspect}"
       render :new
     end
   end
@@ -19,6 +20,7 @@ class RegistrationsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :fname, :lname, :phone)
+    #identifier kept for now in case of future increment operations for better sessions tracking
+    params.require(:user).permit(:email, :password, :fname, :lname, :phone, :identifer)
   end
 end

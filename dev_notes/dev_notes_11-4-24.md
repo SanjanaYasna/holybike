@@ -42,7 +42,10 @@ end
         <%= f.label :password %><br/>
         <%= f.password_field :pword, autocomplete: "new-password" %>
       </div>
-```
+``` 
+- (Teetly) Flash is no longer commented out, since I have worked in resolving flash module middleware configurations and things did appear to work on Camille's 
+end in getting login and signup pages to appear properly 
+
 - Changed ```link_to 'users/signup'``` to  ```<%= link_to "Create an account", users_signup_path %>```
 ### 2. Changes to views/users/signup.html.erb
 - Changed ```<li><a href="login">VB Login</a></li>``` to  ```<li><%= link_to "VB Login", users_login_path%></li>```
