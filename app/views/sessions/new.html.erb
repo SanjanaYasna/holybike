@@ -4,7 +4,7 @@
   <%= form_with(model: @user, url: sessions_path, local: true, data: { turbo: false }) do |f| %>
     <% if flash[:alert] %>
       <p class="alert alert-danger"><%= flash[:alert] %></p>
-    <% end %>
+    <% end %>x
     <% if flash[:success] %>
       <p class="alert alert-success"><%= flash[:success] %></p>
     <% end %>

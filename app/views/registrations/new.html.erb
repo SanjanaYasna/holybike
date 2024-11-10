@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+config.middleware.use ActionDispatch::Flash<!DOCTYPE html>
 <html>
 <head>
 <style>
@@ -80,14 +80,6 @@ form{
 <div style="padding:20px; margin-top:150px; background-color:#78b4df7e; height:500px;">
     <h1>Sign Up</h1>
     <h3> Welcome to Valley Bike! To sign up for an account, please complete the following information:</h3>
-
-    <!--<% if flash[:alert] %>
-        <p class="alert alert-danger" style="text-align: center; color: red;"><%= flash[:alert] %></p>
-    <% end %>-->
-
-    <% if flash[:success] %>
-        <p class="alert alert-success" style="text-align: center;"><%= flash[:success] %></p>
-    <% end %>
 
     <%= form_with(model: @user, url: registrations_path, local: true, data: { turbo: false }) do |f| %>
 
