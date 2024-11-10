@@ -1,12 +1,13 @@
 class SessionsController < ApplicationController
-  #skip_before_action :authorize, only: :create
-    def new
-        @user = User.new
-    end
+
+  def new
+    @user = User.new
+  end
 
   def create
     @user = User.find_by(email: params[:user][:email])
-    if @user&.authenticate(params[:user][:password]) 
+    if @user && @user&.authenticate(params[:user][:password]) 
+      logger.debug "Login successful. User attributes hash: #{@user.attributes.inspect}"
       session[:user_id] = @user.id
       flash[:success] = 'Login successful'
       redirect_to root_path
@@ -14,6 +15,7 @@ class SessionsController < ApplicationController
       @user = User.new(email: params[:user][:email]) 
       flash.now[:alert] = 'Login unsuccessful'
       #flash.now[:alert] = @user.errors.full_messages.to_sentence
+
       render :new
     end
   end

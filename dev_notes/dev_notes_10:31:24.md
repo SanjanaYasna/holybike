@@ -64,3 +64,13 @@ Time: 80 minutes
     -Encountering confusing errors, decided to revisit later
 2. Worked on routes, redirect to homepage instead of stations page
    - Added a PagesController, switched homepage_valetbite to index
+
+
+Pair Programming Session  Oct 29 (4:30 - 5 PM) Camille & Teetly:
+Time: 90 minutes
+1. Shared FLash module configuration issues and got these pages to render properly on Camille's end. 
+Teetly later resolved this issue by editing config files and including the module on the 
+sessions controller and registration controller's base (it was a silly oversight)
+2. Camille and Teetly's work on Login/Signup were merged together into a single version committed on Teetly's branch with 
+a functional login and signup page.
+Teetly worked after this session to reintegrate her version of session authorization with their combined code. 
