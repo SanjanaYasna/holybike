@@ -1,9 +1,20 @@
-<!doctype html>
-<html lang="en">
-  
-  <!-- Homepage content starts here!-->
+Teetly (this is cumulative from 11-5 to end of week): 
+
+## Merged Camille's and Bella's branches (~6 hours)
+
+Login and signup from Camille's branch works alongside sessions authorization after some tweaking and debugging (~5 hours, including pair programming after class)
+
+Merged Bella's code on stations and bike appearances
 
 
+## Embedded map into main page placeholder:
+
+Did prior main page design (~2 hours) but the map display didn't really work as intended 
+
+Added following to placeholder page for proper map display. TODO map API to read from bike database objects
+
+```html:
+    <!-- Homepage content starts here!-->
   <h3 style="color:white"> Where are you headed to? </h3>
   <!--TO DO: HOW TO HANDLE COSTS OF MAPS API + SEARCH COMPLETION API FOR GOOGLE-->
     <div class="input-group mb-3">
@@ -18,4 +29,13 @@
           Broadband Providers</a><style>#canvas-for-googlemap .text-marker{}.map-generator{
             max-width: 100%; max-height: 100%; background: none;</style>
     </div>
-</html>
+```
+
+## Adjusted styling to menu  navbar partial to include switch account and logout links (~1 hour)
+
+Now using glyphicons, linked as :
+
+``` html:
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+```
+
