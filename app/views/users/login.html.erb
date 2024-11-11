@@ -3,9 +3,9 @@
   
     <%= form_with model: @user do |f| %>
   
-      <%# if flash[:alert] %>
+      <% if flash[:alert] %>
         <p class="alert alert-danger"><%#= flash[:alert] %></p>
-      <%# end %>
+      <% end %>
   
       <div class="field">
         <%= f.label :email %><br/>

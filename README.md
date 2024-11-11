@@ -1,5 +1,5 @@
 # ValetBike
-NAME: Bella falbo
+NAME: Bella falbo, Sanjana Yasna, Camille Mathis, Erin Riley
 
 Smith College CSC223: Software Engineering\
 Starter App for ValetBike project
@@ -67,92 +67,69 @@ MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 * If using `rails s` or `bin/dev` open http://localhost:3000 (or http://127.0.0.1:3000) in a browser
 * You should see ValetBike welcome page
   
+# File Organization
 
-## Assignment #1: Hello Stack, Welcome to ValetBike!
+## Controllers
 
-### Brief Background
-You and several other junior engineers have just started at ValetBike, a community tech co-op based in Nipmuc Notch, and you are excited to finally be getting paid to contribute to a meaningful app. During your hiring interview, you said you were comfortable doing full stack programming, but stressed you hadn't worked in Ruby on Rails before. The lead developer thought you were right for the position and promised you a guided tour of the codebase on your first day. However, after your onboarding, you learn they've just gone on leave indefinitely. It also turns out the lead developer was the *only* developer at ValetBike, and now the rest of the team is counting on you and the other new programmers to complete the prototype before the scheduled launch day.
+### application_controller.rb:
 
-As a fearless software engineer you agree to onboard yourself and attempt to continue the build. You didn't get much information about the architecture or design of the product during your interview. All you remember is that the lead developer had been working with the [ValleyBike](https://valleybike.org) team to iterate on their system which launched in 2018 and that they were using GitHub to collaborate on their codebase.
+Base of ActionController API, imports Flash (used in registrations and sessions controllers, along with html.erb files) and Cookies (session tracking in sessions controller) modules
+Functions: 
+authorize 
+render_unprocessable_entity
 
-### Assignment Goal
-Your primary objective is to get your development environment configured so that the existing app will run on your machine. To exceed expectations, you must add at least one feature to the current code. To distinguish yourself, you should add two or more features. See submission guidelines below for complete details.
+### bikes_controller.rb:
 
-### How to Begin
-* Create a GitHub account if you don't have one
-* Go to [https://github.com/deadroxy/valetbike](https://github.com/deadroxy/valetbike)
-* Follow the README instructions to configure your environment
+Functions:
+index: reverses bike order
 
-### Teamwork Guidelines
-You may work in teams of up to five people to get your environments set up and to modify the code. But you must each submit your own unique environment screenshots via Moodle. If you choose to fork the repo to add features, you can collaborate on the code, but you must each create and submit a record of a unique pull request.
+### pages_controller.rb:
 
-### Ruby on Rails Guides
-You will probably be unfamiliar with the main components of the ValetBike stack like the language (Ruby), the framework (Rails), and the database (MySQL). Luckily the lead developer left links to their favorite books and tutorials for you below. Consult them regularly as you get your bearings in the new environment.
+Renders placeholder(main) page and other templates (TODO) from teh pages folder of views
 
-* [Getting Started with Rails](https://guides.rubyonrails.org/getting_started.html)
-* [I Love Ruby](https://i-love-ruby.gitlab.io/)
-* [The Bastards Book of Ruby](http://ruby.bastardsbook.com/)
-* [Why's (Poignant) Guide to Ruby](https://poignant.guide/)
+### registrations_controller.rb 
 
-### Exploration Tips
-* Review the files the lead developer left in the `notes/` folder
-* Pay special attention to the environment setup and [app creation](https://github.com/deadroxy/valetbike/blob/master/notes/app-creation.md) guides
-* Use GitHub to dive into previous commits to see what they built so far
-* Use `rails console` to experiment with creating & associating records (objects) from the command line
-  - `s = Station.new(name: "Neu Station", address: "123 Novel Lane", identifier: "45")`
-  - `s.save`
-  - `b = Bike.new(identifier: "1234")`
-  - `b.current_station = s`
-  - `b.save`
-  - `s = Station.new(name: "Ye Olde Statione", address: "101 Historic Way", identifier: "99")`
-  - `s.save`
-  - `b = Bike.new(identifier: "5678")`
-  - `b.save`
-  - `s`
-  - `Station.last`
-  - `Station.first`
-  - `s = Station.first`
-  - `s`
-  - `s.id`
-  - `s.identifier`
-  - `s.docked_bikes`
-  - `s.docked_bikes.count`
-  - `Station.last.docked_bikes.count`
-  - `Bike.first.current_station`
-  - `Bike.last.current_station`
-  - `Bike.find_by(identifier: "1234").update(current_station: Station.last)`
-  - `Station.last.docked_bikes`
-  - `Station.first.docked_bikes`
+creates User by calling User.rb for attribute validation
+Functions: 
+new: new user
+create: creates user by passing in form inputs collected from user_params function
+user_params: requires user form information for user creation
 
-### Submission Guidelines to Meet Expectations
-1. Get ValetBike running on your development machine
-2. Modify the welcome message
-3. Take a screenshot showing your change works (include browser, console, date/time)
-4. Name the screenshot "youremail-a1-ss.png" or *.jpg (for me it would be "jbrewer-a1-ss.png")
-5. Create a text file called "youremail-a1-team.txt" (for me it would be "jbrewer-a1-team.txt")
-6. List the names of everyone you worked with on this assignment, including your own (for me it would be "Johanna Brewer")
-7. Submit your screenshot and team list via Moodle
+### sessions_controller.rb
 
-### Submission Guidelines to Exceed Expectations or Distinguish yourself
-1. Complete all of the Meets Expectations tasks
-2. Implement one (Exceeds) or more (Distinguished) of the features below
-   - Show number of docked bikes at each station
-   - Create rake task to import station & bike data from csv files
-   - Allow user to view list of bikes
-   - Allow user to switch between station and bike list views
-   - Allow user to reverse sort order of stations or bikes in list view
-3. Commit and push your changes to your fork on GitHub
-4. Create a pull request from your modified fork to the main ValetBike repo
-5. Create a file called "youremail-a1-pr.txt" (for me it would be "jbrewer-a1-pr.txt")
-6. Include a complete link to your pull request as the first line of this file (e.g. "https://github.com/deadroxy/valetbike/pull/1234")
-7. Submit your pull request file along with your screenshot and team list via Moodle
+authorizes user if user is logged in, otherwise, aids in session creation upon user creation 
+functions:
+destroy: destroy session id if user logged out (TO BE CALLED, but option in navbar)
+create: authenticates user, if signed in, redirected to login page to then be redirected to home/main page (placeholder.html.erb)
 
-## License
-Copyright 2021-2022, Johanna Brewer
+### stations_controller:
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+Functions:
+index: in order or reverse order stations displays
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+### users_controller.rb: 
 
-You should have received a copy of the GNU Affero General Public License along with this program. If not, see https://www.gnu.org/licenses.
+Reads data from sessions controller and flags successful creation of user
+Functions: 
+create: checks if user is valid, flashes successful or unsuccessful user creation
+user_params: passes in params to create
 
+## Views
+
+Shared folder contains partial rendering templates...
+
+### users/login.html.erb:
+
+Login form display
+
+### users/signup.html.erb:
+
+Sign up form display
+
+### pages/placeholder.html.erb
+
+Displays map and navbar partial rendering from shared/navbar
+
+### pages/index.html.erb
+
+Renders with placeholder to display bike rental options by station (TO DO)
