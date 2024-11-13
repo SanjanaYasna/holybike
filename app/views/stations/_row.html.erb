@@ -1,6 +1,6 @@
 <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox horizontal justify-space-between">
   <div><%= station.identifier %>: <%= station.name %> (<%= station.address %>)</div>
-  <div><%= station.docked_bikes.count %> bikes</div>
+   <div><%= link_to "#{station.docked_bikes.count} bikes", station%> </div>
 </div>
 
 
