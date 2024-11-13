@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   #get 'stations/:id'
 
   resources :bikes,     only: [:index]
-  resources :stations,  only: [:index]
+  resources :stations,  only: [:index, :show]
 end
