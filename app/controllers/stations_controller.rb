@@ -7,7 +7,19 @@ class StationsController < ApplicationController
       @stations = Station.all.order(identifer: :desc)
     end
   end
+  
+  def show
+    @station = Station.find(params[:id])
 
+    @station.docked_bikes.each do |bike|
+      @bikes = bike 
+    end 
+    
+    if @station.nil?
+      flash[:alert] = "Station not found."
+      redirect_to stations_path
+    end
+  end
 #def show
  # @station = Station.find(params[:id])
   #@station.docked_bikes.each do |bike|
