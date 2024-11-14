@@ -132,4 +132,5 @@ Displays map and navbar partial rendering from shared/navbar
 
 ### pages/index.html.erb
 
-Renders with placeholder to display bike rental options by station (TO DO)
+Renders with placeholder to display bike rental options by station 
+This is the class for passing in proper local context to different pages to be rendered

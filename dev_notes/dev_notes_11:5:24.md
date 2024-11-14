@@ -39,3 +39,21 @@ Now using glyphicons, linked as :
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 ```
 
+Nov 14:
+
+
+## Bikes and Stations are viewable in main page
+
+~10 hours:
+
+Bella and I had a lot of issues in getting the bikes and stations to show with proper ids (making sure station ids are station ids, bike ids are bike ids)
+
+Pages_controller now passes stations objects as local context to the pages and the index renders partials of the bikes and stations objects
+
+Fixed routes to allow proper instantiation of stations and bikes displays
+
+
+## merged together a working main branch:
+
+~2 hours
+Combined Bella's code with my own and got a working product that has all features as intended. Wrote additional documentation and comments

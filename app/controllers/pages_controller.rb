@@ -4,11 +4,9 @@ class PagesController < ApplicationController
   end
   
   def placeholder
-    render :placeholder
-  end 
-
-  def render_stations
     @stations = Station.all
-    render :stations
-  end
+    #puts @stations stations are received
+    #puts the sttions objects into pages/placeholder page to be passed into index page for partial renderings ...
+    render :placeholder, locals: {stations: @stations}
+  end 
 end

@@ -15,7 +15,12 @@ class StationsController < ApplicationController
       flash[:alert] = "Station not found."
       redirect_to stations_path
     end
-    
+
+  end
+
+  def render_stations_in_pages
+    @stations = Station.all
+    render partial: "/pages/index", locals: {stations: @stations}
   end
 #def show
  # @station = Station.find(params[:id])

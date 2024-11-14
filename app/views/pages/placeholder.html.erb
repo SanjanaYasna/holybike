@@ -63,9 +63,8 @@
   
   <!-- Render the navbar contents at top of every page-->
   <%= render 'shared/navbar' %>
-
   <!--Render index.html.erb in pages with bike rental displays:-->
-  <%= render partial: "pages/index", locals: {station: @stations} %>
+  <%= render partial: "pages/index", locals: {stations: @stations} %>
   
   <div class="container">
     <div class="flexbox vertical-stretch">

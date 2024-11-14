@@ -6,11 +6,12 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   #main page upon logging in and having an authorized session
   root to: 'pages#placeholder'
+  get 'pages#placeholder', to: 'stations_controller#render_stations_in_pages'
 
   #bikes and statoins specific
   resources :bikes,     only: [:index]
-  resources :stations,  only: [:index, :show]
-  
+  resources :stations,  only: [:index, :show, :render_stations_in_pages]
+
 end
 
 #registrations/new <-create user for signup
