@@ -133,3 +133,4 @@ Displays map and navbar partial rendering from shared/navbar
 ### pages/index.html.erb
 
 Renders with placeholder to display bike rental options by station (TO DO)
+put stations above map

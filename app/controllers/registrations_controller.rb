@@ -1,4 +1,5 @@
 class RegistrationsController < ApplicationController
+  skip_before_action :authorize, only: [:new, :create]
   def new
     @user = User.new
   end
@@ -15,10 +16,8 @@ class RegistrationsController < ApplicationController
       render :new
     end
   end
-
   
   private
-
   def user_params
     #identifier kept for now in case of future increment operations for better sessions tracking
     params.require(:user).permit(:email, :password, :fname, :lname, :phone, :identifer)
