@@ -134,3 +134,6 @@ Displays map and navbar partial rendering from shared/navbar
 
 Renders with placeholder to display bike rental options by station (TO DO)
 put stations above map
+
+#bikes link is just bikes  (/bikes)
+/stations is stations for index.html
