@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   get 'users/login'
   root to: 'pages#home'
   get 'pages/main'
-  #get 'stations/:id'
+  get '/stations', to: 'stations#index'
+  get '/stations/:identifier', to: "stations#show", as: "station"
 
   resources :bikes,     only: [:index]
-  resources :stations,  only: [:index, :show]
+  #resources :stations,  only: [:index]
 end

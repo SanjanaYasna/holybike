@@ -1,4 +1,4 @@
-#this imports station data from a CSV file, use after importing station data
+#this imports station data from a CSV file
 #useage: rake db:import_stations["notes/station-data.csv"]
 
 namespace :db do
