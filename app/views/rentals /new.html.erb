@@ -1,0 +1,47 @@
+<div class = "new">
+    <h2>Rental Form</h2>
+  
+    <%= form_with model: @user do |f| %>
+  
+     <!--add in form with changes above ^ + flash alerts and jazz form new.html.erb form the sessions views.-->
+  
+     <!-- pre populated fields of: 
+            user name
+            bike number from the selction
+            station number from the selection
+        we will pretend they cant change them-->
+    
+      <div class="field">
+        <%= f.label :first_name %><br/>
+        <%= f.first_name_field :first_name, autofocus: true, autocomplete: "first name" %>
+      </div>
+  
+      <div class="field">
+        <%= f.label :last_name %><br/>
+        <%= f.last_name_field :last_name, autofocus: true, autocomplete: "last name" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :credit_card_num %><br/>
+        <%= f.credit_card_num_field :credit_card_num, autofocus: true, autocomplete: "credit card number" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :cvv %><br/>
+        <%= f.cvv_field :cvv, autofocus: true, autocomplete: "cvv" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :address %><br/>
+        <%= f.address_field :address, autocomplete: "address" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Start Rental" %>
+      </div>
+    
+    <% end %>
+    <!-- fix the paths-->
+    <%= link_to "Back to stations", users_signup_path %>
+    <%= link_to "Back to bikes", users_signup_path %>
+  </div>

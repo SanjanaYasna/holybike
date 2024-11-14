@@ -1,8 +1,8 @@
 class Bike < ApplicationRecord
-  attr_accessor :status
-  def initialize(status)
-    @status = status
-  end
+  # attr_accessor :status
+  # def initialize(status)
+  #   @status = status
+  # end
   
   validates_presence_of    :identifier
   validates_uniqueness_of  :identifier

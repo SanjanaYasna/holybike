@@ -7,7 +7,7 @@ class Rental < ApplicationRecord
 #if they exist within other classes? 
 #i think we just need the getter to get the other info from the other class? 
 
-has_many :Bike
+has_many :Bike, :Station
 belongs_to :User, :Ride
 
 end

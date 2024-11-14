@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body style = "background-color: #464646">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<nav class="navbar navbar-expand-lg navbar-light" style = "background-color: #85C83E">
+    <a class="navbar-brand" href="#">Menu</a>
+    <button class = "btn btn-outline-primary" type="button", id="Profile">
+      <%= image_tag 'profile.png', style: 'width: 50px; height: 40px;', alt: 'Profile' %>
+    </button>
+    <button class = "btn btn-outline-primary" type="button", id="Search-bikes" >
+      <%= image_tag 'bike.jpg', style: 'width: 50px; height: 40px;', alt: 'Bike' %>
+    </button>
+    <button class = "btn btn-outline-primary" type="button", id="discounts">
+      <%= image_tag 'discount.png', style: 'width: 50px; height: 40px;', alt: 'Discount' %>
+    </button>
+    <button class = "btn btn-outline-primary" type="button", id="payment">
+      <%= image_tag 'prior_payment.png', style: 'width: 50px; height: 40px;', alt: 'Prior Payment' %>
+    </button>
+    <button class = "btn btn-outline-primary" type="button", id="analytics">
+      <%= image_tag 'analytics.png', style: 'width: 50px; height: 40px;', alt: 'Analytics' %>
+    </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Profile
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Search Bikes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Discounts</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Payments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Analytics</a>
+          </li>
+      </ul>
+    </div>
+
+  </nav>
+  <!-- Homepage content starts here!-->
+
+  <h3 style="color:white"> Where are you headed to? </h3>
+  <!--TO DO: HOW TO HANDLE COSTS OF MAPS API + SEARCH COMPLETION API FOR GOOGLE-->
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Enter your current location" aria-label="Enter your destination" aria-describedby="button-addon2">
+        <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2" style = "background-color: beige;">Search</button>
+        </div>
+
+        <gmp-map
+        center="42.31636263765447, -72.64004664623388"
+        zoom="10"
+        map-id="DEMO_MAP_ID"
+        style="height: 400px"
+      ></gmp-map>
+    </div>
+  <!--
+  The `defer` attribute causes the script to execute after the full HTML
+  document has been parsed. For non-blocking uses, avoiding race conditions,
+  and consistent behavior across browsers, consider loading using Promises. See
+  https://developers.google.com/maps/documentation/javascript/load-maps-js-api
+  for more information.
+  -->
+  <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5900.459408378385!2d-72.64288978771424!3d42.31629917107688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e6d7686a2e5a89%3A0x1e164445789d4484!2sSmith%20College!5e0!3m2!1sen!2sus!4v1729623882867!5m2!1sen!2sus" 
+  width="600" 
+  height="450" 
+  style="border:0;" 
+  allowfullscreen="" 
+  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+  <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=maps&v=beta"
+      defer
+    ></script>
+</div>
+  <!--Possible tutorial slides to add towards end of development with screenshots on how to use-->
+  <!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="..." alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+            <h5>How to use ValetBike</h5>
+            <p>...</p>
+          </div>
+      </div>
+
+      <div class="carousel-item">
+        <img class="d-block w-100" src="..." alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="..." alt="Third slide">
+      </div>
+    </div>
+  </div> -->
+</html>

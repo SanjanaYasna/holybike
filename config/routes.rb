@@ -8,8 +8,7 @@ Rails.application.routes.draw do
 
   #bikes and statoins specific
   resources :bikes,     only: [:index]
-  resources :stations,  only: [:index]
-  #set root_path
+  resources :stations,  only: [:index, :show]
 end
 
 #registrations/new <-create user for signup
