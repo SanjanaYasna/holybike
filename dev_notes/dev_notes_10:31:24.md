@@ -74,3 +74,10 @@ sessions controller and registration controller's base (it was a silly oversight
 2. Camille and Teetly's work on Login/Signup were merged together into a single version committed on Teetly's branch with 
 a functional login and signup page.
 Teetly worked after this session to reintegrate her version of session authorization with their combined code. 
+
+
+Pair Programming Bella and Teetly Nov 14 (1:30-3 pm):
+Time: 90 minutes
+1. resolved issues with the stations displays ids (we thought they were displaying object ids of
+stations being created as opposed to the actual current_station_identifier), but it turns out that these new ids that are different from current station identifier is still ok for a display since we will still be able to associate an id with a station. We are just going along with this.
+2. Discussed views content and layout, Teetly implemented later on. Bella will work on profiles and bikes displays from menu navbar 

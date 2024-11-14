@@ -13,7 +13,8 @@
     </a>
     <ul class="navbar navbar-expand-lg navbar-light navbar-fixed-top navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-user px-3 fit-width"></span> Switch Account</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in px-3 fit-width"></span> Logout</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in px-3 fit-width"></span></a>
+      <%=link_to 'Log Out', new_session_path, method: :delete%></li>
     </ul>
     <!-- Button Images -->
     <button class="btn btn-outline-primary" type="button" id="Profile" aria-label="Profile Button">

@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   root to: 'pages#placeholder'
   get 'pages#placeholder', to: 'stations_controller#render_stations_in_pages'
 
+  #logout, redirects to sign in page
+  delete '/sessions', to: 'sessions#destroy'
+
   #bikes and statoins specific
   resources :bikes,     only: [:index]
   resources :stations,  only: [:index, :show, :render_stations_in_pages]

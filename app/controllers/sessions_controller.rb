@@ -20,9 +20,11 @@ class SessionsController < ApplicationController
     end
   end
   
-
+  #for logout button on navbar
   def destroy
+    User.find(session[:user_id]).destroy  
     session[:user_id] = nil
-    redirect_to root_path, flash: { success: 'Logged Out' }
+    #create proper redirect path
+    redirect_to new_session_path
   end
 end
