@@ -4,7 +4,6 @@
             <%= @station.name%>
         </div>
         <div class="flexbox vertical stretch">
-            <% @bikes = @station.docked_bikes %>
             <% if @bikes.present? %>
                 <%= link_to "View All Stations", stations_path(@station::identifier)%> 
                 <%= render(partial: "bikes/row", collection: @bikes, as: :bike) %>

@@ -10,10 +10,7 @@ class StationsController < ApplicationController
   
   def show
     @station = Station.find(params[:id])
-
-    @station.docked_bikes.each do |bike|
-      @bikes = bike 
-    end 
+    @bikes = @station.docked_bikes
     
     if @station.nil?
       flash[:alert] = "Station not found."

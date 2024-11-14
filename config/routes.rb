@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get 'users/login'
   root to: 'pages#home'
   get 'pages/main'
-  #get 'stations/:id'
 
   resources :bikes,     only: [:index]
   resources :stations,  only: [:index, :show]
