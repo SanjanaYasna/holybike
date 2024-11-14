@@ -6,4 +6,9 @@ class PagesController < ApplicationController
   def placeholder
     render :placeholder
   end 
+
+  def render_stations
+    @stations = Station.all
+    render :stations
+  end
 end

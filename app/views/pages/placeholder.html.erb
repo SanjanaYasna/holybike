@@ -63,13 +63,13 @@
   
   <!-- Render the navbar contents at top of every page-->
   <%= render 'shared/navbar' %>
+
+  <!--Render index.html.erb in pages with bike rental displays:-->
+  <%= render partial: "pages/index", locals: {station: @stations} %>
   
   <div class="container">
     <div class="flexbox vertical-stretch">
-      <div class="top-section">
-        <div>Sign in Section. To do: Add sign in button and registration button</div>
-      </div>
-      <div class="bottom-section">
+      <!--<div class="bottom-section">
         <div class="box">
           <div class="info" style="background: red; color:white;">
             <%= image_tag 'analytics.png', style: 'width: 50px; height: 40px;', alt: 'Analytics' %>
@@ -84,7 +84,7 @@
             Pretend this has information
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 

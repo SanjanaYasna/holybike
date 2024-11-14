@@ -4,17 +4,17 @@ Rails.application.routes.draw do
   #login and signup specific
   resources :registrations, only: [:new,:create]
   resources :sessions, only: [:new, :create, :destroy]
+  #main page upon logging in and having an authorized session
   root to: 'pages#placeholder'
 
   #bikes and statoins specific
   resources :bikes,     only: [:index]
   resources :stations,  only: [:index, :show]
+  
 end
 
 #registrations/new <-create user for signup
-#registrations/create <-signup
-#sessions/create <-login
-#sessions/new <-create user for app
+#sessions/new <-create user for login (and with session check, session entered)
 #CAMILLE"S ROUTES, TO BE ADJUSTED
 # get 'users/signup', to: 'users#create'
 # get 'users/login'

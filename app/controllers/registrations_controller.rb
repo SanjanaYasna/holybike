@@ -20,7 +20,7 @@ class RegistrationsController < ApplicationController
   private
 
   def user_params
-    #identifier kept for now in case of future increment operations for better sessions tracking
+    #identifier kept for now in case of future increment operations for better sessions tracking (for now, sessions do work and do get destroyed once you leave)
     params.require(:user).permit(:email, :password, :fname, :lname, :phone, :identifer)
   end
 end
