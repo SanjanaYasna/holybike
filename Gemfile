@@ -79,6 +79,8 @@ end
 # Developer Added Gems
 gem 'dotenv-rails'
 
+gem 'stripe'
+
 # Suggested Potentially Useful Gems
 # gem 'devise'
 # gem 'httparty'

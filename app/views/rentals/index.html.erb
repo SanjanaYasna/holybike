@@ -1,7 +1,8 @@
 <div class = "new">
     <h2>Rental Form</h2>
+    <!-- CHANGE TO TIME RECORDER -->
   
-    <%= form_with model: @user do |f| %>
+    <%= form_with model: @rental do |f| %>
   
      <!--add in form with changes above ^ + flash alerts and jazz form new.html.erb form the sessions views.-->
   
@@ -10,7 +11,9 @@
             bike number from the selction
             station number from the selection
         we will pretend they cant change them-->
-    
+      
+      <!-- auto fill in: <%= rest of field, value: @current_user.fname %> -->
+      <!-- @current_user = User.find_by(id: session[:user_id]) -->
       <div class="field">
         <%= f.label :first_name %><br/>
         <%= f.first_name_field :first_name, autofocus: true, autocomplete: "first name" %>
@@ -21,19 +24,24 @@
         <%= f.last_name_field :last_name, autofocus: true, autocomplete: "last name" %>
       </div>
 
+      <div class = "start_time">
+        <%= f.label :start_time %><br/>
+        <%= f.datetime_field :start_time, autofocus: true, autocomplete: "start time" %>
+      </div>
+
+      <div class="end_time">
+        <%= f.label :end_time %><br/>
+        <%= f.end_time  %>
+      </div>
+      
       <div class="field">
-        <%= f.label :credit_card_num %><br/>
-        <%= f.credit_card_num_field :credit_card_num, autofocus: true, autocomplete: "credit card number" %>
+        <%= f.label :start_station %><br/>
+        <%= f.address_field :start_station, autocomplete: "start station" %>
       </div>
 
       <div class="field">
-        <%= f.label :cvv %><br/>
-        <%= f.cvv_field :cvv, autofocus: true, autocomplete: "cvv" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :address %><br/>
-        <%= f.address_field :address, autocomplete: "address" %>
+        <%= f.label :end_station %><br/>
+        <%= f.address_field :end_station, autocomplete: "end station" %>
       </div>
 
       <div class="actions">
@@ -42,6 +50,7 @@
     
     <% end %>
     <!-- fix the paths-->
-    <%= link_to "Back to stations", users_signup_path %>
-    <%= link_to "Back to bikes", users_signup_path %>
+    <%# link_to "Back to stations", stations_path %>
+    <%# link_to "Back to bikes", bikes_path %> 
+    <%= link_to "Pay for ride", new_payment_path%>
   </div>

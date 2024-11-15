@@ -57,3 +57,6 @@ Fixed routes to allow proper instantiation of stations and bikes displays
 
 ~2 hours
 Combined Bella's code with my own and got a working product that has all features as intended. Wrote additional documentation and comments
+
+## logout and session deletion code available 
+~30 mins

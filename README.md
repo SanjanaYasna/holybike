@@ -138,3 +138,8 @@ This is the class for passing in proper local context to different pages to be r
 ### stations/index.html.erb
 
 Calls the _rows.html.erb partial to render rows of stations and bikes, and works with show.html.erb to list station and bike info
+
+## payments_controller.rb
+
+Functions: new and create
+ 

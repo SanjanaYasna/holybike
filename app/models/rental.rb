@@ -10,4 +10,5 @@ class Rental < ApplicationRecord
 has_many :Bike, :Station
 belongs_to :User, :Ride
 
+# TO DO: needs params (first_name, last_name, start_time, end_time, start and end station)
 end

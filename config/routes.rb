@@ -14,7 +14,17 @@ Rails.application.routes.draw do
   #bikes and statoins specific
   resources :bikes,     only: [:index]
   resources :stations,  only: [:index, :show, :render_stations_in_pages]
+  
+  # Payments in payments folder with payments_controller.rb
+  resources :payments
 
+  #404 page added as our lord and savior
+  post 'render_404', to: 'application#render_404'
+
+  resources :rentals, only: [:new, :pass_bike_and_station_to_form]
+
+  #payments specific
+  resources :payments, only: [:new, :create]
 end
 
 #registrations/new <-create user for signup
