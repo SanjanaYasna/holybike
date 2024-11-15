@@ -1,4 +1,4 @@
-Teetly (this is cumulative from 11-5 to end of week): 
+Teetly (this is cumulative from 10/28 to end of week): 
 
 ## Merged Camille's and Bella's branches (~6 hours)
 
@@ -39,7 +39,7 @@ Now using glyphicons, linked as :
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 ```
 
-Nov 14:
+Nov 8 - Nov 14:
 
 
 ## Bikes and Stations are viewable in main page
@@ -59,4 +59,10 @@ Fixed routes to allow proper instantiation of stations and bikes displays
 Combined Bella's code with my own and got a working product that has all features as intended. Wrote additional documentation and comments
 
 ## logout and session deletion code available 
+
 ~30 mins
+
+## Series of pair programming seessions with Bella and Camille
+
+~5 hours 
+Details in dev_notes_pair_programming doc or (https://docs.google.com/document/d/1adFF3zZJ4W4LMygoFjCSBrxM6OfKec6507lkaO1QFwc/edit?usp=sharing)
