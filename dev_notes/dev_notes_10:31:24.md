@@ -1,4 +1,5 @@
-Pair programming: Erin, Camille, Bella
+# Pair programming: Erin, Camille, Bella
+
 Time:  130 minutes
 
 1. in bikes model, add attributes:
@@ -57,7 +58,8 @@ Time:  130 minutes
 
 7. bella is going to add all the A1 parts from johanna's stuff later tonight. 
 
-Pair Programming: Camille and Erin
+# Pair Programming: Camille and Erin
+
 Time: 80 minutes
 
 1. Continued working in User model to implement with log in form
@@ -66,7 +68,8 @@ Time: 80 minutes
    - Added a PagesController, switched homepage_valetbite to index
 
 
-Pair Programming Session  Oct 29 (4:30 - 5 PM) Camille & Teetly:
+# Pair Programming Session  Oct 29 (4:30 - 5 PM) Camille & Teetly:
+
 Time: 90 minutes
 1. Shared FLash module configuration issues and got these pages to render properly on Camille's end. 
 Teetly later resolved this issue by editing config files and including the module on the 
@@ -76,8 +79,14 @@ a functional login and signup page.
 Teetly worked after this session to reintegrate her version of session authorization with their combined code. 
 
 
-Pair Programming Bella and Teetly Nov 14 (1:30-3 pm):
+# Pair Programming Bella and Teetly Nov 14 (1:30-3 pm):
+
 Time: 90 minutes
 1. resolved issues with the stations displays ids (we thought they were displaying object ids of
 stations being created as opposed to the actual current_station_identifier), but it turns out that these new ids that are different from current station identifier is still ok for a display since we will still be able to associate an id with a station. We are just going along with this.
 2. Discussed views content and layout, Teetly implemented later on. Bella will work on profiles and bikes displays from menu navbar 
+
+# Nov 14 Pair Programming Camille and Teetly (3 hours):
+
+Time: 270 minutes
+Doc with our work https://docs.google.com/document/d/1adFF3zZJ4W4LMygoFjCSBrxM6OfKec6507lkaO1QFwc/edit?usp=sharing 
