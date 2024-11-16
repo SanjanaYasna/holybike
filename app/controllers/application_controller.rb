@@ -10,14 +10,8 @@ class ApplicationController < ActionController::API
   
     #check if the user is logged in by checking session id
     def authorize
-      @current_user ||= User.find_by(id: session[:user_id])
-      #render json: { errors: ["Not authorized"] }, status: :unauthorized unless @current_user
-      
-      unless @current_user  # Temporary
-        # This doesn't update the status, it just redirects to home if not logged in
-        flash[:error] = "Please login before accessing that page"
-        redirect_to new_session_path
-      end
+      @current_user = User.find_by(id: session[:user_id])
+      render json: { errors: ["Not authorized"] }, status: :unauthorized unless @current_user
     end
   
     #render error message if user is not an admin

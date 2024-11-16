@@ -68,9 +68,10 @@ form{
 <body>
 
 <ul>
-    <li><a href="home">Valley Bike </a></li>
+    <!-- <li><a href="home">Valley Bike </a></li> -->
+    <li><%= link_to "Valley Bike", root_path%></li>
 
-    <li><a href="login">VB Login</a></li>
+    <li><%= link_to "Login", users_login_path%></li>
 
     <li><a href="help">Help</a></li>
 
@@ -81,44 +82,37 @@ form{
     <h1>Sign Up</h1>
     <h3> Welcome to Valley Bike! To sign up for an account, please complete the following information:</h3>
 
-    <%= form_with(model: @user, url: registrations_path, local: true, data: { turbo: false }) do |f| %>
-
+    <%= form_with model: @user do |f| %>
+    <%#fname, lname, email, phone, uname, pword%>
       <div class="field">
         <%= f.label "First Name" %><br/>
         <%= f.text_field :fname %>
-        <%= @user.errors[:fname].join(", ") if @user.errors[:fname].any? %>
       </div>
-
+      
       <div class="field">
         <%= f.label "Last Name" %><br/>
         <%= f.text_field :lname %>
-        <%= @user.errors[:lname].join(", ") if @user.errors[:lname].any? %>
       </div>
 
       <div class="field">
         <%= f.label :phone %><br/>
         <%= f.text_field :phone %>
-        <%= @user.errors[:phone].join(", ") if @user.errors[:phone].any? %>
       </div>
 
       <div class="field">
         <%= f.label :email %><br/>
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        <% if @user.errors[:email].any? %>
-          <p>Email <%= @user.errors[:email].join(", ") %></p>
-        <% end %>
-      </div>
+      </div><br/><br/>
 
       <div class="field">
-        <%= f.label "Password" %><br/>
-        <%= f.password_field :password, autocomplete: "new-password" %>
-        <% if @user.errors[:password].any? %>
-          <p>Password <%= @user.errors[:password].join(", ") %></p>
-        <% end %>
+          <%= f.label "Password" %><br/>
+          <%= f.password_field :pword, autocomplete: "new-password" %>
       </div>
+      <p>Password should be 8-14 characters.</p>
 
+      <br/><br/>
       <div class="actions">
-        <%= f.submit "Submit" %>
+          <%= f.submit "Submit" %>
       </div>
     <% end %>
 </div>

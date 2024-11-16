@@ -60,13 +60,6 @@ MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
 - Then run the database migrations with:\
   `rake db:migrate`
 
-### 5. Seed the database with stations and bikes
-
-- Use rails to seed the database, starting with stations:\
-  `rake db:import_stations["notes/station-data.csv"]`
-- Then, seed the bikes:\
-  `rake db:import_bikes["notes/bike-data.csv"]`
-
 ### 6. Confirm that the app runs
 
 * Launch the web server using `rackup` or `rails s` (short for `rails server`) or `bin/dev`
@@ -125,11 +118,11 @@ user_params: passes in params to create
 
 Shared folder contains partial rendering templates...
 
-### sessions/new.html.erb:
+### users/login.html.erb:
 
 Login form display
 
-### registrations/new.html.erb:
+### users/signup.html.erb:
 
 Sign up form display
 

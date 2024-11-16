@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  # get 'users/signup', to: 'users#create'
-  # get 'users/login'
+  get 'users/signup', to: 'users#create'
+  get 'users/login'
   #login and signup specific
   resources :registrations, only: [:new,:create]
   resources :sessions, only: [:new, :create, :destroy]

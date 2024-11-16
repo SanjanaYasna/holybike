@@ -1,0 +1,26 @@
+<div class = "login">
+    <h2>Log In</h2>
+    <%= form_with model: @user do |f| %>
+    
+  
+      <% if flash[:alert] %>
+        <p class="alert alert-danger"><%#= flash[:alert] %></p>
+      <% end %>
+  
+      <div class="field">
+        <%= f.label :email %><br/>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+  
+      <div class="field">
+        <%= f.label :password %><br/>
+        <%= f.password_field :pword, autocomplete: "new-password" %>
+      </div>
+  
+      <div class="actions">
+        <%= f.submit "Log in" %>
+      </div>
+  
+    <% end %>
+    <%= link_to "Create an account", users_signup_path %>
+  </div>
