@@ -13,4 +13,8 @@ class PagesController < ApplicationController
   def discounts
     render :discounts
   end
+
+  def about
+    render :about
+  end
 end

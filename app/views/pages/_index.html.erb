@@ -1,11 +1,9 @@
-
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
-    <div class="section-title flexbox horizontal center">
-      Here are our bike stations:
+    <div style="background-color:black;color:white;padding:20px;" class="section-title flexbox horizontal center">
+      Here Are Our Bike Stations:
     </div>  
-    <div class="flexbox vertical stretch">
-      <a class="toggle" href="<%= bikes_path %>">View All Bikes</a>
+    <div style="background-color:rgb(96,96,96);color:white;padding:20px;" class="flexbox vertical stretch">
       <% if @stations.present? %>
         <div class="record-row header flexbox horizontal justify-space-between">
           <% if params[:reverse].blank? || params[:reverse] == "0" %>
@@ -21,7 +19,10 @@
       </div>
       <% end %>
     </div>
+    <a style="padding:20px;"class="toggle" href="<%= bikes_path %>">View All Bikes</a>
 	</div>
 </div>
+
+
 
 

@@ -31,6 +31,9 @@ Rails.application.routes.draw do
 
   #discounts page
   get '/discounts', to: 'pages#discounts'
+
+  #about page in drop down 
+  get '/About', to: 'pages#about'
 end
 
 #registrations/new <-create user for signup

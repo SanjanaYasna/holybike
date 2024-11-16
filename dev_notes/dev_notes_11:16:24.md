@@ -11,3 +11,7 @@ bella
 
 4. made discounts page
     - added discounts function to pages controller
+
+5. made about us page
+    - added about function to pages controller
+    
