@@ -25,6 +25,9 @@ Rails.application.routes.draw do
 
   #payments specific
   resources :payments, only: [:new, :create]
+
+  #user profile page
+  get '/users/:id', to: 'users#profile', as: "user"
 end
 
 #registrations/new <-create user for signup
