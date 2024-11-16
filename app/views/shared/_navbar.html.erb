@@ -4,7 +4,7 @@
     <a class="dropdown-toggle fit-width" data-toggle="dropdown" href="#">Menu
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Profile</a></li>
+          <li><%= link_to "Profile", user_path(@current_user.id)%>></li>
           <li><a href="#">Search Bikes</a></li>
           <li><a href="#">Discounts</a></li>
           <li><a href="#">Payment History</a></li>

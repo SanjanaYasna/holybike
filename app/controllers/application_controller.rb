@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
   
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
   
-    before_action :authorize
+    before_action :authorize #comment and uncomment if unauthorized error appears.
   
     private
   

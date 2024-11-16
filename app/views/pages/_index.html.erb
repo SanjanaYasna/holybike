@@ -13,7 +13,7 @@
           <% else %>
             <a href="<%= stations_path %>">Sort &#8593;</a>
           <% end %>
-        </div> %>
+        </div>
         <%= render(partial: "stations/row", collection: @stations, as: :station) %>
       <% else %>
       <div class="empty">
