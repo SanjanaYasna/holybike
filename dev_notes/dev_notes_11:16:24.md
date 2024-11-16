@@ -1,0 +1,7 @@
+1. finished creating a profiles page and integrating into drop down menu
+    - profile.html.erb has the temp profile page html with name and email. of current user. 
+
+2. users controller has new function:
+    - profile function assigns user to current session user for profile page. 
+
+3. converted images to buttons for profile and bikes

@@ -18,10 +18,11 @@
     </ul>
     <!-- Button Images -->
     <button class="btn btn-outline-primary" type="button" id="Profile" aria-label="Profile Button">
-    <%= image_tag 'profile.png', style: 'width: 50px; height: 40px;', alt: 'Profile' %>
+    <%=link_to (image_tag 'profile.png', style: 'width: 50px; height: 40px;', alt: 'Profile'), user_path(@current_user.id)%>
     </button>
+
     <button class="btn btn-outline-primary" type="button" id="Search-bikes" aria-label="Search Bikes Button">
-    <%= image_tag 'bike.jpg', style: 'width: 50px; height: 40px;', alt: 'Search Bikes' %>
+    <%=link_to (image_tag 'bike.jpg', style: 'width: 50px; height: 40px;', alt: 'Search bikes' ), bikes_path%>
     </button>
     <button class="btn btn-outline-primary" type="button" id="discounts" aria-label="Discounts Button">
     <%= image_tag 'discount.png', style: 'width: 50px; height: 40px;', alt: 'Discounts' %>
