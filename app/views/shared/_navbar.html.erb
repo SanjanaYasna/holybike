@@ -4,9 +4,9 @@
     <a class="dropdown-toggle fit-width" data-toggle="dropdown" href="#">Menu
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><%= link_to "Profile", user_path(@current_user.id)%>></li>
+          <li><%= link_to "Profile", user_path(@current_user.id)%></li>
           <li><a href="#">Search Bikes</a></li>
-          <li><a href="#">Discounts</a></li>
+          <li><a href="/discounts">Discounts</a></li>
           <li><a href="#">Payment History</a></li>
           <li><a href="#">Analytics</a></li>
         </ul>
@@ -22,10 +22,11 @@
     </button>
 
     <button class="btn btn-outline-primary" type="button" id="Search-bikes" aria-label="Search Bikes Button">
-    <%=link_to (image_tag 'bike.jpg', style: 'width: 50px; height: 40px;', alt: 'Search bikes' ), bikes_path%>
+    <%=link_to (image_tag 'bike.jpg', style: 'width: 50px; height: 40px;', alt: 'Search bikes' ),bikes_path%>
     </button>
+
     <button class="btn btn-outline-primary" type="button" id="discounts" aria-label="Discounts Button">
-    <%= image_tag 'discount.png', style: 'width: 50px; height: 40px;', alt: 'Discounts' %>
+    <%=link_to (image_tag 'discount.png', style: 'width: 50px; height: 40px;', alt: 'Discounts'), "/discounts"%>
     </button>
     <button class="btn btn-outline-primary" type="button" id="payment" aria-label="Prior Payment Button">
     <%= image_tag 'prior_payment.png', style: 'width: 50px; height: 40px;', alt: 'Prior Payment' %>

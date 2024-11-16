@@ -8,3 +8,6 @@ bella
     - profile function assigns user to current session user for profile page. 
 
 3. converted images to buttons for profile and bikes
+
+4. made discounts page
+    - added discounts function to pages controller

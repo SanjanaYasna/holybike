@@ -28,6 +28,9 @@ Rails.application.routes.draw do
 
   #user profile page
   get '/users/:id', to: 'users#profile', as: "user"
+
+  #discounts page
+  get '/discounts', to: 'pages#discounts'
 end
 
 #registrations/new <-create user for signup

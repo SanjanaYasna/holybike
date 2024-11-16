@@ -9,4 +9,8 @@ class PagesController < ApplicationController
     #puts the sttions objects into pages/placeholder page to be passed into index page for partial renderings ...
     render :placeholder, locals: {stations: @stations}
   end 
+
+  def discounts
+    render :discounts
+  end
 end
