@@ -1,5 +1,5 @@
 bella
-11am-4pm
+11am-5pm (6hrs)
 
 1. finished creating a profiles page and integrating into drop down menu
     - profile.html.erb has the temp profile page html with name and email. of current user. 
@@ -14,4 +14,6 @@ bella
 
 5. made about us page
     - added about function to pages controller
+
+6. changed some things with the html formatting 
     

@@ -85,7 +85,10 @@ index: reverses bike order
 
 ### pages_controller.rb:
 
-Renders placeholder(main) page and other templates (TODO) from teh pages folder of views
+Renders placeholder(main) page and other templates (TODO) from the pages folder of views
+
+discounts and about functions render those respective pages 
+
 
 ### registrations_controller.rb 
 
@@ -113,6 +116,7 @@ Reads data from sessions controller and flags successful creation of user
 Functions: 
 create: checks if user is valid, flashes successful or unsuccessful user creation
 user_params: passes in params to create
+profile: assigns user to current session user for profile pages
 
 ## Views
 
