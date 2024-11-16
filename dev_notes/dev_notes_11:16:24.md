@@ -1,3 +1,6 @@
+bella
+11am-4pm
+
 1. finished creating a profiles page and integrating into drop down menu
     - profile.html.erb has the temp profile page html with name and email. of current user. 
 
