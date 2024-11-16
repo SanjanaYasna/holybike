@@ -34,11 +34,12 @@
         <%= f.datetime_field :start_time, autofocus: true, autocomplete: "end time"  %>
       </div>
       
+      <!-- If autofilling the dropdown doesn't Work, switch back to f.text_field for start and end station 
+            (check #7 in dev_notes 11-16-24)-->
       <div class="field">
         <%= f.label :start_station %><br/>
         <%= f.collection_select :start_station, Station.all, :id, :name, prompt: "Select Start Station" %>
       </div>
-      
       
 
       <div class="field">

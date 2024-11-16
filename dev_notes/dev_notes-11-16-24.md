@@ -19,4 +19,26 @@ end
 
 4. Commented out the users/signup and login paths in routes.rb 
 5. Updated "VB LOGIN" button in registrations/new to point to the login page
-- (TODO) Fix any remaining broken links 
+6. The rental/new page now shows after the `rent` button is clicked in one of the station's bikes list.
+- ```<%= form_with(model: @rental, url: new_rental_path, local: true, data: { turbo: false }) do |f| %>``` is the new beginning of the form
+7. Trying out a drop down menu for the stations
+- If this doesn't work with autofilling switch back to the earlier code
+- Drop down code: 
+```ruby: 
+      <div class='field'>
+        <%= f.label :start_station%> <br/>
+        <%= f.collection_select :start_station, Station.all, :id, :name, prompt: 'Select Start Station' %>
+      </div>
+```
+- Original code: 
+```ruby:
+        <div class='field'>
+                <%= f.label :start_station %> <br/>
+                <%= f.text_field :start_station, autofocus: true, autocomplete: 'start station' %>
+        </div>
+
+        <div class='field'>
+                <%= f.label :end_station %> <br/>
+                <%= f.text_field :end_station, autofocus: true, autocomplete: 'end station' %>
+        </div>
+```
