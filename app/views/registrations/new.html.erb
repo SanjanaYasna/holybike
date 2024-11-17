@@ -1,83 +1,56 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+  <!---
+  Renders navbar from shared/navbar + 
+  contains map display and will interact with API backend in app/javascript/map_api -->
 <head>
-<style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+  
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      justify-content: center;
+      align-items: center;
+    }
 
-/* ul { /* this is for the left side floating nav bar*/
-  /*list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 25%;
-  background-color: #f1f1f1;
-  height: 100%; /* Full height */
-  /*position: fixed; /* Make it stick, even on scroll */
-  /*overflow: auto; /* Enable scrolling if the sidenav has too much content */
-/*}*/
+    footer {
+      position: sticky;
+      padding: 5px;
+      bottom: 0;
+      width: 100%;
+      position: absolute;
+    }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #024686c5;
-  position: fixed; /*fixes position at the top of the page*/
-  top: 0;
-  width: 100%;
-  border: 4px solid #f8e750;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/*for the page your mouse is on*/
-li a:hover {
-  background-color: #f8e750a4;
-}
-
-/*for the current page youre on*/
-.active {
-  background-color: #ffe600;
-}
-
-li {
-  border-right: 4px solid #f8e750;
-}
-
-h1{
+    form{
+        text-align: center;
+    }
+    h1{
     text-align: center
-}
+    }
 
-h3 {
-  text-align: center;
-}
+    h3 {
+      text-align: center;
+    }
 
-form{
-    text-align: center;
-}
+    form{
+        text-align: center;
+    }
 </style>
 </head>
 <body>
 
-<ul>
-    <li><a href="home">Valley Bike </a></li>
+<body style="background-color: white">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+  
+  <!-- Render the navbar contents at top of every page-->
+  <%= render 'shared/ulnavbar' %>
 
-    <li><a href="login">VB Login</a></li>
-
-    <li><a href="help">Help</a></li>
-
-    <li><a href="home">Contact Us</a></li>
-</ul>
-
-<div style="padding:20px; margin-top:150px; background-color:#78b4df7e; height:500px;">
+<div style="padding:20px; margin-top:150px; background-color:grey; height:500px; color:white;">
     <h1>Sign Up</h1>
     <h3> Welcome to Valley Bike! To sign up for an account, please complete the following information:</h3>
 
