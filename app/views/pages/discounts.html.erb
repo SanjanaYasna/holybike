@@ -14,45 +14,12 @@
       margin: 0;
     }
 
-    .container {
-      /**height: calc(100vh - 56px); */
-      display: flex;
-      flex-direction: column; 
-    }
-
-    .flexbox.vertical-stretch {
-      flex: 1; 
-      display: flex; 
-      flex-direction: column; 
-    }
-
-    .top-section, .bottom-section {
-      flex: 1; 
-      display: flex;
-      justify-content: center;
-      align-items: center; 
-    }
-
-    .top-section {
-      background: grey; 
-    }
-
-    .box {
-      display: flex;
-      justify-content: space-between; /
-      width: 80%; 
-    }
-
-    .info {
-      background: white;
-      flex: 1; 
-      padding: 20px; 
-      text-align: center; 
-    }
-
-    .info img {
-      display: block; 
-      margin: 0 auto; 
+    footer {
+      position: sticky;
+      padding: 5px;
+      bottom: 0;
+      width: 100%;
+      position: absolute;
     }
   </style>
 </head>
@@ -65,15 +32,18 @@
   <%= render 'shared/navbar' %>
 
 
-<div class="page-section flexbox vertical stretch">
+<div class="page-section flexbox vertical stretch" style="padding-left:10px;">
   <div class="section-inner flexbox vertical stretch">
     <div class="section-title">
      <h1 style="color:black"> Check out our discounts! </h1>
     </div>
-    <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox horizontal justify-space-between">
+    <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox horizontal justify-space-between" style="padding-left:20px;">
         <li>Student discount Code: LearningIsFun</li>
         <li>Senior discount Code: YayBeingOld!</li>
     </div>
   </div>
-    <!-- Render the footer contents at bottom of every page!!!!-->
 </div>
+</body>
+<footer>
+ <%= render 'shared/footer' %>
+</footer>

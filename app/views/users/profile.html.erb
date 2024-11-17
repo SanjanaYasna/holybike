@@ -14,46 +14,14 @@
       margin: 0;
     }
 
-    .container {
-      /**height: calc(100vh - 56px); */
-      display: flex;
-      flex-direction: column; 
+    footer {
+      position: sticky;
+      padding: 5px;
+      bottom: 0;
+      width: 100%;
+      position: absolute; 
     }
 
-    .flexbox.vertical-stretch {
-      flex: 1; 
-      display: flex; 
-      flex-direction: column; 
-    }
-
-    .top-section, .bottom-section {
-      flex: 1; 
-      display: flex;
-      justify-content: center;
-      align-items: center; 
-    }
-
-    .top-section {
-      background: grey; 
-    }
-
-    .box {
-      display: flex;
-      justify-content: space-between; /
-      width: 80%; 
-    }
-
-    .info {
-      background: white;
-      flex: 1; 
-      padding: 20px; 
-      text-align: center; 
-    }
-
-    .info img {
-      display: block; 
-      margin: 0 auto; 
-    }
   </style>
 </head>
 <body style="background-color: white">
@@ -66,16 +34,16 @@
 
 
 <div class="page-section flexbox vertical stretch">
-  <div class="section-inner flexbox vertical stretch">
+  <div class="section-inner flexbox vertical stretch" style="padding-left:10px;">
     <div class="section-title">
      <h1 style="color:black"> Hi, <%=@user.fname%>! </h1>
     </div>
     <div class="flexbox">
         Email: <%= @user.email %>
     </div>
-
-    <div class="flexbox">
-      <%= link_to 'Back', :back %>
-    </div>
   </div>
 </div>
+</body>
+<footer>
+ <%= render 'shared/footer' %>
+</footer>

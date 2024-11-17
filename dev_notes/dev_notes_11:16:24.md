@@ -16,4 +16,9 @@ bella
     - added about function to pages controller
 
 6. changed some things with the html formatting 
+
+9-11pm (2hrs)
+7. reformat footer and header. 
+8. added to most pages. 
+
     

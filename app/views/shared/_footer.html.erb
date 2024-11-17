@@ -1,3 +1,18 @@
-        <div class="footer">
-            <p style="display: flex; justify-content: space-around; background-color: #767676; padding: 10px;">Log Out</p>
-        </div>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+        <nav class="footer footer-expand-lg footer-light footer-fixed-bottom" style = "background-color: #85C83E">
+            <button class="btn btn-outline-primary" type="button" id="Profile" aria-label="Profile Button">
+            <%=link_to "Home",root_path%>
+            </button>
+
+            <button class="btn btn-outline-primary" type="button" id="Profile" aria-label="Profile Button">
+            <%=link_to "Profile", user_path(@current_user.id)%>
+            </button>
+
+            <button class="btn btn-outline-primary" type="button" id="Search-bikes" aria-label="Search Bikes Button">
+            <%=link_to "search bikes",bikes_path%>
+            </button>
+
+            <button class="btn btn-outline-primary" type="button" id="discounts" aria-label="Discounts Button">
+            <%=link_to "About", "/About"%>
+            </button>
+        </nav>

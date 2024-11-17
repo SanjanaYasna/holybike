@@ -14,48 +14,16 @@
       margin: 0;
     }
 
-    .container {
-      /**height: calc(100vh - 56px); */
-      display: flex;
-      flex-direction: column; 
-    }
-
-    .flexbox.vertical-stretch {
-      flex: 1; 
-      display: flex; 
-      flex-direction: column; 
-    }
-
-    .top-section, .bottom-section {
-      flex: 1; 
-      display: flex;
-      justify-content: center;
-      align-items: center; 
-    }
-
-    .top-section {
-      background: grey; 
-    }
-
-    .box {
-      display: flex;
-      justify-content: space-between; /
-      width: 80%; 
-    }
-
-    .info {
-      background: white;
-      flex: 1; 
-      padding: 20px; 
-      text-align: center; 
-    }
-
-    .info img {
-      display: block; 
-      margin: 0 auto; 
+    footer {
+      position: sticky;
+      padding: 5px;
+      bottom: 0;
+      width: 100%;
+      position: absolute;
     }
   </style>
 </head>
+
 <body style="background-color: white">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
@@ -66,13 +34,16 @@
 
 
 <div class="page-section flexbox vertical stretch">
-  <div class="section-inner flexbox vertical stretch">
+  <div class="section-inner flexbox vertical stretch" style="padding-left:10px;">
     <div class="section-title">
      <h1 style="color:black"> About holybike </h1>
     </div>
-    <div>
+    <div style="padding-left:20px;padding-right:10px;">
         We were developed only to satisfy the requirements of a Software engineering course. Our name comes from quoting monty python and the holy grail while we were taking notes for this class
     </div>
   </div>
-    <!-- Render the footer contents at bottom of every page!!!!-->
 </div>
+<footer>
+ <%= render 'shared/footer' %>
+</footer>
+ </body>

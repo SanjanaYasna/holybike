@@ -1,9 +1,10 @@
 <!--Logged in Nav Bar template. (Currently only used for map)-->
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 <nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top" style = "background-color: #85C83E">
-    <a class="dropdown-toggle fit-width" data-toggle="dropdown" href="#">Menu
+    <a class="dropdown-toggle fit-width" data-toggle="dropdown" href="#"> Menu
         <span class="caret"></span></a>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu" style="padding-left:10px;">
+          <li><%= link_to "Home", root_path%></li>
           <li><%= link_to "Profile", user_path(@current_user.id)%></li>
           <li><a href="#">Search Bikes</a></li>
           <li><a href="/discounts">Discounts</a></li>
@@ -13,8 +14,8 @@
         </ul>
     </a>
     <ul class="navbar navbar-expand-lg navbar-light navbar-fixed-top navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user px-3 fit-width"></span> Switch Account</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in px-3 fit-width"></span></a>
+      <li><a href="#"><span class="glyphicon glyphicon-user px-4 fit-width"></span> Switch Account</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in px-4 fit-width"></span></a>
       <%=link_to 'Log Out', new_session_path, method: :delete%></li>
     </ul>
     <!-- Button Images -->
