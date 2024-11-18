@@ -1,5 +1,6 @@
 bella 
 1015-1215 two hours
+1-2pm 1hr
 
 1. pass the bike.identifier and bike.current_station_address that you get get from app/views/bikes/_row.html.erb 
 to the form for rentals (to rentals/index.html.erb, under views) as an autofill
