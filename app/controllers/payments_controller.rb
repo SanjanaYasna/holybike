@@ -7,23 +7,45 @@ class PaymentsController < ApplicationController
   def create
     @rental = Rental.find(params[:rental_id])
     @payment_amt = @rental.calculate_payment*100 
-    customer = Stripe::Customer.create({
+    customer = Stripe::Customer.create({ # Make a customer
       :email => params[:stripeEmail],
       :source => params[:stripeToken]
     })
-    
-    
-    charge = Stripe::Charge.create({
+
+    product = Stripe::Product.create({ # make the 'product' (the rental)
+      name: 'Bike Rental Payment',
+      description: 'rents a bike',
+    })
+
+    price = Stripe::Price.create({ # Calculate price based off rental 
+      product: product.id,  
+      unit_amount: @payment_amt,
+      currency: 'usd',
+    })
+
+    charge = Stripe::Charge.create({ # make charge 
       :customer => customer.id,
-      :amount => payment_amt, #testing custom payment
-      :description => 'Description of your product',
+      :amount => price.unit_amount, 
+      :description => 'Rental Payment',
       :currency => 'usd'
     })
+
+    session = Stripe::Checkout::Session.create( 
+      customer: customer, 
+      payment_method_types: ['card'],
+      line_items: [{
+        price: price.id,  # amount needs to be Price object not just integer
+        quantity: 1,
+      }],
+      mode: 'payment',
+      success_url:  'http://localhost:3000/success', # i don't know what these are for, but it throws an error when i get rid of this
+      cancel_url: 'http://localhost:3000/cancel'
+     )
 
     if charge.paid # .paid is a method of Stripe's charge: https://docs.stripe.com/api/charges/object 
       @ride = Ride.create(user: @rental.user, rental: @rental)
       flash[:notice] = "Payment successful"
-      redirect_to rental_path(@ride)
+      redirect_to root_path
     else
       flash[:error] = "Payment failed."
       render :new 
