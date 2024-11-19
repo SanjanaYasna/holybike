@@ -43,7 +43,7 @@ class PaymentsController < ApplicationController
      )
 
     if charge.paid # .paid is a method of Stripe's charge: https://docs.stripe.com/api/charges/object 
-      @ride = Ride.create(user: @rental.user, rental: @rental)
+      @ride = Ride.create(user: @rental.user, rental: @rental, price: @payment_amt)
       #puts "Ride Created! User #{@ride.user.id} has rental #{rental.id}"
       flash[:notice] = "Payment successful"
       redirect_to root_path
