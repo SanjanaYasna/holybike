@@ -53,6 +53,15 @@
     <%= form_with(model: @rental, url: rentals_path, local: true, data: { turbo: false }) do |f| %>
   
      <!--add in form with changes above ^ + flash alerts and jazz form new.html.erb form the sessions views.-->
+      <div class="user_fname">
+        <p>First Name</p>
+        <p><%= @current_user.fname%></p>
+      </div>
+  
+      <div class="user_lname">
+        <p>Last Name</p>
+        <p><%= @current_user.lname%></p>
+      </div>
 
       <div class="field">
         <%= f.label :bike_id, "Bike ID #" %><br/>
@@ -64,16 +73,6 @@
         <%= f.text_field :start_station_id, :value=> @station_id %>
       </div>
       
-      <div class="user_fname">
-        <p>First Name</p>
-        <p><%= @current_user.fname%></p>
-      </div>
-  
-      <div class="user_lname">
-        <p>Last Name</p>
-        <p><%= @current_user.lname%></p>
-      </div>
-
       <div class = "start_time">
         <%= f.label :start_time %><br/>
         <%= f.datetime_local_field :start_time, autofocus: true, autocomplete: "start time" %>
