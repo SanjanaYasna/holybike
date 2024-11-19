@@ -32,6 +32,7 @@ class RentalsController < ApplicationController
   def rental_params # user id not included since user is always current user
     params.require(:rental).permit(:bike_id, :start_station_id, :end_station_id, :start_time, :end_time)
   end
+  
 
   #station_id would actually be the number of the csv row for that station relative to others, as opposed to the explicit station identifier that the bike references
   #bike_id is true to its word. It is the 4 digit unique bike identifier

@@ -1,12 +1,12 @@
 class PaymentsController < ApplicationController
   def new
-    @rental = Rental.find(params[:rental_id])
-    @payment_amt = @rental.calculate_payment*100 
+    @ride = Ride.find(params[:ride_id])
+    @payment_amt = @ride.calculate_payment*100 
   end
   
   def create
-    @rental = Rental.find(params[:rental_id])
-    @payment_amt = @rental.calculate_payment*100 
+    @ride = Ride.find(params[:ride_id])
+    @payment_amt = @ride.calculate_payment*100 
     customer = Stripe::Customer.create({ # Make a customer
       :email => params[:stripeEmail],
       :source => params[:stripeToken]
@@ -45,7 +45,8 @@ class PaymentsController < ApplicationController
     if charge.paid # .paid is a method of Stripe's charge: https://docs.stripe.com/api/charges/object 
       @ride = Ride.create(user: @rental.user, rental: @rental, price: @payment_amt)
       #puts "Ride Created! User #{@ride.user.id} has rental #{rental.id}"
-      flash[:notice] = "Payment successful"
+      flash[:notice] = "Payment successful" 
+      @payment_amt =
       redirect_to root_path
     else
       flash[:error] = "Payment failed."

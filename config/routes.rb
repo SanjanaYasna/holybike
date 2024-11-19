@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'users/signup', to: 'users#create'
-  get 'users/login'
   #login and signup specific
-  resources :registrations, only: [:new,:create]
+  resources :registrations, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
   #main page upon logging in and having an authorized session
   root to: 'pages#placeholder'
@@ -21,7 +19,8 @@ Rails.application.routes.draw do
   #404 page added as our lord and savior
   post 'render_404', to: 'application#render_404'
 
-  resources :rentals, only: [:new, :pass_bike_and_station_to_form, :create]
+  resources :rentals, only: [:new, :create]#, :pass_bike_and_station_to_form, :create] 
+  resources :rides, only: [:new, :pass_bike_and_station_to_form, :create]
 
   #payments specific
   resources :payments, only: [:new, :create]

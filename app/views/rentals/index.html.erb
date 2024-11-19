@@ -50,8 +50,7 @@
     <h2>Rental Form</h2>
     <!-- CHANGE TO TIME RECORDER -->
   
-    <%= form_with(model: @rental, url: rentals_path, local: true, data: { turbo: false }) do |f| %>
-  
+    <%= form_with(model: @ride, url: rides_path, local: true, data: { turbo: false }) do |f| %>
      <!--add in form with changes above ^ + flash alerts and jazz form new.html.erb form the sessions views.-->
       <div class="user_fname">
         <p>First Name</p>
@@ -112,6 +111,3 @@
 
 </div>
 
-<footer>
-<%= render 'shared/footer' %>
-</footer>

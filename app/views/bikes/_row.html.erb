@@ -11,5 +11,5 @@
   <!--dont think ^ this is necessary-->
 
 
-  <%= link_to "Rent", new_rental_path(:bike_id=> bike.identifier, :station_id => bike.current_station_id) %>
+  <%= link_to "Rent", new_ride_path(:bike_id=> bike.identifier, :station_id => bike.current_station_id) %>
 </div>

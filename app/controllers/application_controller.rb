@@ -5,9 +5,13 @@ class ApplicationController < ActionController::API
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
   
     before_action :authorize #comment and uncomment if unauthorized error appears.
-  
+    
+    def current_user
+      @current_user = User.find_by(id: session[:user_id])
+    end 
+    
     private
-  
+
     #check if the user is logged in by checking session id
     def authorize
       @current_user = User.find_by(id: session[:user_id])
@@ -27,4 +31,5 @@ class ApplicationController < ActionController::API
     def render_404
       render file: "#{Rails.root}/public/404.html", status: 404
     end
+
 end
