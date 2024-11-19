@@ -2,6 +2,9 @@
   <label class="amount">
       <span>Amount: $5.00</span>
   </label>
+  
+  <p>Bike id:  <%= @rental.bike_id%></p>
+  <p>Custom Payment:  <%= @payment_amt = @rental.calculate_payment%></p>
 
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"

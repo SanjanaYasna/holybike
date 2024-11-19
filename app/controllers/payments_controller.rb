@@ -1,18 +1,21 @@
 class PaymentsController < ApplicationController
   def new
     @rental = Rental.find(params[:rental_id])
+    @payment_amt = @rental.calculate_payment*100 
   end
   
   def create
     @rental = Rental.find(params[:rental_id])
+    @payment_amt = @rental.calculate_payment*100 
     customer = Stripe::Customer.create({
       :email => params[:stripeEmail],
       :source => params[:stripeToken]
     })
     
+    
     charge = Stripe::Charge.create({
       :customer => customer.id,
-      :amount => 10000, #100 dollars per bike for now
+      :amount => payment_amt, #testing custom payment
       :description => 'Description of your product',
       :currency => 'usd'
     })
