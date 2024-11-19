@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  rental: one
+  start_time: 2024-11-18 19:49:29
+  end_time: 2024-11-18 19:49:29
+
+two:
+  user: two
+  rental: two
+  start_time: 2024-11-18 19:49:29
+  end_time: 2024-11-18 19:49:29

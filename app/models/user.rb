@@ -15,4 +15,5 @@ class User < ApplicationRecord
   has_many :Broken_report
   has_many :Review
   has_many :Rental   #foreign_key: true (must correspond across tables)
+  
 end
