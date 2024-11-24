@@ -10,6 +10,7 @@
     - A rental is created only after the payment is completed
 3. The ride model also has calculate_payment
     - Currently, the cost is minutes*2
+    - cost is stored as: dollars*100 for stripe's charge model
 
 
 ## Rentals
@@ -33,7 +34,7 @@ Then, it calculates the payment. (payment is an int where 1 dollar is 100)
 - the price is based off of the amount calculated by ride
 - session handles the link to stripe's premade checkout
     - https://docs.stripe.com/api/checkout/sessions?lang=curl
-- the success and cancel url are based off of local host, but it should still work if you're using a different one
+- the success url is based off of local host, so it might break
 - metadata: I couldn't figure out how to pass in the ride.id to the success path, so I used metadata instead
     - https://docs.stripe.com/api/metadata
 - `redirect_to session.url, allow_other_host: true` 
@@ -41,21 +42,21 @@ Then, it calculates the payment. (payment is an int where 1 dollar is 100)
     - `allow_other_host` lets you redirect to an outside page
 #### success
 - This creates a rental based off the ride, if the payment is successful. 
+- The bike station is updated to the end station from the ride. 
 - I tried using stripe's `charge`, but it ended up causing a token error because it wanted to reuse the token after the customer was created.
 - So, now this uses `session.payment_status`
 
 ```ruby
     if session.payment_status == 'paid'  # Check if the payment was successful
-      @ride = Ride.find(session.metadata.ride_id) # use metadata from the session to find the ride
+      @ride = Ride.find(session.metadata.ride_id)
       @rental = Rental.create(user: @ride.user, ride: @ride, cost: @ride.calculate_payment)
+      @bike = Bike.find_by(identifier: @ride.bike_id)
+      @bike.update!(current_station_id: @ride.end_station_id)
       flash[:notice] = "successful."
     else
       flash[:error] = "failed."
     end
 ```
 ## TODO
-1. Figure out what's going on with the success and failure/cancel url
-2. Set up start/end time for rental
-3. Set bike's new current station to the end station from ride
-4. Stretch: Ride currently starts and ends a rental, have an intermediate page for renting
-    - Start ride (bike_id, start_staion, start_time, update bike to unavailable) --> End ride (end station, end time, update bike to docked )
+1. Set up start/end time for rental
+
