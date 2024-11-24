@@ -2,9 +2,8 @@ class Ride < ApplicationRecord
   has_many :bike
   belongs_to :user
 
+  # Currently payment is 2*minutes
   def calculate_payment
-    # Test
-    # can you subtract datetime objects?
     puts "Start: #{start_time}"
     puts "End: #{end_time}"
     ride_duration = end_time - start_time
