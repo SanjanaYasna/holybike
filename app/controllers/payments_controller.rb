@@ -1,61 +1,57 @@
-class PaymentsController < ApplicationController
+class PaymentsController < ApplicationController 
   def new
     @ride = Ride.find(params[:ride_id])
-    @payment_amt = @ride.calculate_payment*100 
   end
-  
+
   def create
     @ride = Ride.find(params[:ride_id])
-    @payment_amt = @ride.calculate_payment*100 
-    customer = Stripe::Customer.create({ # Make a customer
-      :email => params[:stripeEmail],
-      :source => params[:stripeToken]
+    @payment_amt = @ride.calculate_payment * 100
+
+    customer = Stripe::Customer.create({
+      email: params[:stripeEmail],
+      source: params[:stripeToken]
     })
 
-    product = Stripe::Product.create({ # make the 'product' (the rental)
-      name: 'Bike Rental Payment',
+    product = Stripe::Product.create({
+      name: 'Bike ride Payment',
       description: 'rents a bike',
     })
 
-    price = Stripe::Price.create({ # Calculate price based off rental 
-      product: product.id,  
+    price = Stripe::Price.create({
+      product: product.id,
       unit_amount: @payment_amt,
       currency: 'usd',
     })
 
-    charge = Stripe::Charge.create({ # make charge 
-      :customer => customer.id,
-      :amount => price.unit_amount, 
-      :description => 'Rental Payment',
-      :currency => 'usd'
-    })
-
-    session = Stripe::Checkout::Session.create( 
-      customer: customer, 
+    session = Stripe::Checkout::Session.create(
+      customer: customer.id,
       payment_method_types: ['card'],
       line_items: [{
-        price: price.id,  # amount needs to be Price object not just integer
+        price: price.id,
         quantity: 1,
       }],
       mode: 'payment',
-      success_url:  'http://localhost:3000/success', # i don't know what these are for, but it throws an error when i get rid of this
-      cancel_url: 'http://localhost:3000/cancel'
-     )
-
-    if charge.paid # .paid is a method of Stripe's charge: https://docs.stripe.com/api/charges/object 
-      @ride = Ride.create(user: @rental.user, rental: @rental, price: @payment_amt)
-      #puts "Ride Created! User #{@ride.user.id} has rental #{rental.id}"
-      flash[:notice] = "Payment successful" 
-      @payment_amt =
-      redirect_to root_path
-    else
-      flash[:error] = "Payment failed."
-      render :new 
-    end
-    #TODO : deal with card error later
-    # rescue Stripe::CardError => e
-    #   flash[:error] = e.message
-    #   #for now, make it redirct ot 404
-    #   redirect_to render_404_path
+      # these urls use 'localhost:3000/...'. They work, but they'll break if we use another website name
+      success_url: 'http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}', 
+      cancel_url: 'http://localhost:3000/cancel',
+      metadata: {ride_id: @ride.id}
+    )
+    # this redirects to a checkout page made by stripe
+    redirect_to session.url, allow_other_host: true
   end
+
+  def success
+    session_id = params[:session_id]  # session_id for payments is separate from user_id session
+    session = Stripe::Checkout::Session.retrieve(session_id) 
+  
+    if session.payment_status == 'paid' 
+      @ride = Ride.find(session.metadata.ride_id)
+      @rental = Rental.create(user: @ride.user, ride: @ride, cost: @ride.calculate_payment)
+      flash[:notice] = "successful."
+    else
+      flash[:error] = "failed."
+    end
+    redirect_to root_path
+  end
+  
 end
