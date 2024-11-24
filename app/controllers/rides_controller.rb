@@ -32,7 +32,9 @@ class RidesController < ApplicationController
 
   def ride_params # user id not included since user is always current user
     params.inspect
-    params.require(:ride).permit(:user_id, :bike_id, :start_time, :end_time)
+    # Probably need to make new migration to get rid of start/end station
+    params.require(:ride).permit(:bike_id, :start_station_id, :end_station_id, :start_time, :end_time)
+    #params.require(:ride).permit(:user_id, :bike_id, :start_time, :end_time)
   end
 
   #station_id would actually be the number of the csv row for that station relative to others, as opposed to the explicit station identifier that the bike references

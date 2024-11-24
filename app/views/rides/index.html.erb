@@ -1,5 +1,4 @@
 <!doctype html>
-<!-- rides/index.html.erb -->
 <html lang="en">
   <!---
   Renders navbar from shared/navbar + 
@@ -71,7 +70,7 @@
 
       <div class="field">
         <%= f.label :station_id, "Station ID #" %><br/>
-        <%= f.text_field :start_station_id, :value=> @start_station_id %>
+        <%= f.text_field :start_station_id, :value=> @station_id %>
       </div>
       
       <div class = "start_time">
@@ -93,7 +92,7 @@
         <%= f.label :end_station %><br/>
         <%= f.collection_select :end_station_id, Station.all, :id, :name, prompt: "Select End Station" %>
       </div>
-      <%= f.hidden_field :user_id, value: @current_user.email %>
+      <%#= f.hidden_field :user_id, value: @current_user.email %>
 
       <div class="actions">
         <%= f.submit "Start Ride" %>
