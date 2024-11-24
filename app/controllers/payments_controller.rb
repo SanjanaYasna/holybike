@@ -5,7 +5,7 @@ class PaymentsController < ApplicationController
 
   def create
     @ride = Ride.find(params[:ride_id])
-    @payment_amt = @ride.calculate_payment * 100
+    @payment_amt = @ride.calculate_payment 
 
     customer = Stripe::Customer.create({
       email: params[:stripeEmail],
@@ -31,9 +31,9 @@ class PaymentsController < ApplicationController
         quantity: 1,
       }],
       mode: 'payment',
-      # these urls use 'localhost:3000/...'. They work, but they'll break if we use another website name
+      # success url uses 'localhost:3000/...'. It works, but it'll break if we use another website name
       success_url: 'http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}', 
-      cancel_url: 'http://localhost:3000/cancel',
+      cancel_url: request.referer,
       metadata: {ride_id: @ride.id}
     )
     # this redirects to a checkout page made by stripe
@@ -43,13 +43,17 @@ class PaymentsController < ApplicationController
   def success
     session_id = params[:session_id]  # session_id for payments is separate from user_id session
     session = Stripe::Checkout::Session.retrieve(session_id) 
-  
+    
+    # if the payment is successful, create a rental that stores the ride 
+    # and update the current station of the bike
     if session.payment_status == 'paid' 
       @ride = Ride.find(session.metadata.ride_id)
       @rental = Rental.create(user: @ride.user, ride: @ride, cost: @ride.calculate_payment)
-      flash[:notice] = "successful."
+      @bike = Bike.find_by(identifier: @ride.bike_id)
+      @bike.update!(current_station_id: @ride.end_station_id)
+      flash[:notice] = "Rental Successful!"
     else
-      flash[:error] = "failed."
+      flash[:error] = "Something went wrong with the rental."
     end
     redirect_to root_path
   end
