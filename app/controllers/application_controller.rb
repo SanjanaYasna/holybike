@@ -7,7 +7,7 @@ class ApplicationController < ActionController::API
     before_action :authorize #comment and uncomment if unauthorized error appears.
     
     def current_user
-      @current_user = User.find_by(id: session[:user_id])
+      @current_user ||= User.find_by(id: session[:user_id])
     end 
     
     private
