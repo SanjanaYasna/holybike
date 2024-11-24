@@ -13,7 +13,7 @@ class Ride < ApplicationRecord
     puts "Ride seconds: #{ride_duration}"
     minutes = (ride_duration / 60).to_i
     puts "Duration in minutes: #{minutes}"
-    payment_amt = minutes * 200
+    payment_amt = minutes * 100
     puts "Payment dollars: #{payment_amt}"
     payment_amt
   end

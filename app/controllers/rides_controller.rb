@@ -14,9 +14,10 @@ class RidesController < ApplicationController
     # @station_address =  Station.find_by(id: params[:station_id]).address
     # @ride = Ride.new
     @bike_id = params[:bike_id]
-    @start_station_id = params[:start_station_id]
+    @start_station_id = params[:station_id]
     #current user is meant to be more so r3ental info
     @current_user = User.find_by(id: session[:user_id])
+    #logger.debug "current start station id: #{@start_station_id}"
     render :index
   end
 
