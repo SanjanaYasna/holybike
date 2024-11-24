@@ -14,7 +14,8 @@ class RentalsController < ApplicationController
     # using .build for now https://apidock.com/rails/v5.2.3/ActiveRecord/Associations/CollectionProxy/build
     # it lets you pass in current user separately
     @rental = Rental.new(rental_params)
-    @rental.user_id = current_user.id
+    @rental.user_id = @current_user.email
+    logger.debug "user info:  #{@current_user}"
     if @rental.save
       redirect_to new_payment_path(rental_id: @rental.id)
     else

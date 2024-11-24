@@ -69,7 +69,7 @@
 
       <div class="field">
         <%= f.label :station_id, "Station ID #" %><br/>
-        <%= f.text_field :start_station_id, :value=> @station_id %>
+        <%= f.text_field :start_station_id, :value=> @start_station_id %>
       </div>
       
       <div class = "start_time">
@@ -81,19 +81,19 @@
         <%= f.label :end_time %><br/>
         <%= f.datetime_local_field :end_time, autofocus: true, autocomplete: "end time"  %>
       </div>
-      
-      <div class="field">
-        <%#= f.label :current_station_address %><br/>
-        <%#= f.text_field :current_station_address, :value=> @station_address %>
-      </div>
 
       <div class="field">
         <%= f.label :end_station %><br/>
         <%= f.collection_select :end_station_id, Station.all, :id, :name, prompt: "Select End Station" %>
       </div>
 
+      <div class="field">
+        <%= f.label :user_id, "Email" %><br/>
+        <%= f.text_field :user_id, :value=> @current_user.email %>
+      </div>
+      
       <div class="actions">
-        <%= f.submit "Start Rental" %>
+        <%= f.submit "Start Rental" %> 
       </div>
     
     <% end %>

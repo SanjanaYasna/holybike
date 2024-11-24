@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_11_19_204205) do
+ActiveRecord::Schema[7.0].define(version: 2024_11_24_033749) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
@@ -22,7 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_19_204205) do
     t.integer "bike_id", null: false
     t.integer "start_station_id", null: false
     t.integer "end_station_id", null: false
-    t.integer "user_id", null: false
+    t.string "user_id", null: false
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "created_at", null: false
@@ -30,13 +30,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_19_204205) do
   end
 
   create_table "rides", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.string "user_id", null: false
     t.bigint "rental_id", null: false
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price"
+    t.integer "bike_id"
     t.index ["rental_id"], name: "index_rides_on_rental_id"
   end
 
