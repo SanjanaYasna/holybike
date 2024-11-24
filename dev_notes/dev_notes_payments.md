@@ -9,7 +9,7 @@
     - Now, that form creates a 'ride' instead of a rental
     - A rental is created only after the payment is completed
 3. The ride model also has calculate_payment
-    - Currently, the cost is minutes*2
+    - Currently, the cost == minutes
     - cost is stored as: dollars*100 for stripe's charge model
 
 
@@ -58,5 +58,8 @@ Then, it calculates the payment. (payment is an int where 1 dollar is 100)
     end
 ```
 ## TODO
-1. Set up start/end time for rental
+1. Figure out params for rides and maybe redo parts of form
+2. Re-switch to using user email as the user id in rentals
+    - Needs: Migration to add string column to rental
+3. Maybe change cost. cost = minutes for now.
 

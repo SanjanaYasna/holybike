@@ -92,6 +92,12 @@
         <%= f.label :end_station %><br/>
         <%= f.collection_select :end_station_id, Station.all, :id, :name, prompt: "Select End Station" %>
       </div>
+      
+      <!-- TODO: Update ride model to have email column -->
+      <div class="field">
+        <%#= f.label :user_id, "Email" %><br/>
+        <%#= f.text_field :user_id, :value=> @current_user.email %>
+      </div>
       <%#= f.hidden_field :user_id, value: @current_user.email %>
 
       <div class="actions">
