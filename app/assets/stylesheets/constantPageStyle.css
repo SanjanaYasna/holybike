@@ -1,0 +1,16 @@
+#form {
+    padding:20px; 
+    margin-top:150px; 
+    background-color:grey; 
+    height:500px; 
+    color:white;
+    text-align: center;
+}
+
+#form .title{
+    text-align: center
+}
+
+#form .description{
+    text-align: center
+}
