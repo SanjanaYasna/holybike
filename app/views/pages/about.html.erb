@@ -1,49 +1,34 @@
 <!doctype html>
 <html lang="en">
-  <!---
-  Renders navbar from shared/navbar + 
-  contains map display and will interact with API backend in app/javascript/map_api -->
+  
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
-  
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
-
-    footer {
-      position: sticky;
-      padding: 5px;
-      bottom: 0;
-      width: 100%;
-      position: absolute;
-    }
-  </style>
+  <%= stylesheet_link_tag "constantPageStyle"%>
 </head>
 
-<body style="background-color: white">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
-  
-  <!-- Render the navbar contents at top of every page-->
+<div id=container>
+  <body style="background-color: white">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+    
+    <!-- Render the navbar contents at top of every page-->
   <%= render 'shared/navbar' %>
 
 
-<div class="page-section flexbox vertical stretch">
-  <div class="section-inner flexbox vertical stretch" style="padding-left:10px;">
-    <div class="section-title">
-     <h1 style="color:black"> About holybike </h1>
-    </div>
-    <div style="padding-left:20px;padding-right:10px;">
-        We were developed only to satisfy the requirements of a Software engineering course. Our name comes from quoting monty python and the holy grail while we were taking notes for this class
+  <div class="page-section flexbox vertical stretch">
+    <div class="section-inner flexbox vertical stretch" style="padding-left:10px;">
+      <div class="section-title">
+      <h1 style="color:black"> About holybike </h1>
+      </div>
+      <div style="padding-left:20px;padding-right:10px;">
+          We were developed only to satisfy the requirements of a Software engineering course. Our name comes from quoting monty python and the holy grail while we were taking notes for this class
+      </div>
     </div>
   </div>
+  <div id=footer>
+  <%= render 'shared/footer' %>
+  </div>
 </div>
-<footer>
- <%= render 'shared/footer' %>
-</footer>
- </body>

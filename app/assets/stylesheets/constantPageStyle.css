@@ -1,16 +1,117 @@
-#form {
-    padding:20px; 
-    margin-top:150px; 
+/* <%= stylesheet_link_tag "constantPageStyle"%>
+use that erb tag in the html files.*/
+
+#form { /*this will apply to every form, this is an ID selector. in div id="form" */
+    padding:10px; 
+    margin-top:50px; 
+    max-width:fit-content;
+    margin-inline: auto;
     background-color:grey; 
     height:500px; 
     color:white;
     text-align: center;
 }
 
-#form .title{
+#form .title, .description{ /*this is for the forms h1 and h3 headers. all items with class name in div matching one of these. only will apply to forms (i think)*/
     text-align: center
 }
 
-#form .description{
-    text-align: center
+/*use this for row displayed pages*/
+.record-row{
+    padding: 0.5cm,0.5cm,0.5cm,0.5cm;
+    line-height: 1.25cm;
+}
+
+.record-row.header{
+    background: lightgrey
+}
+
+.record-row.header a:hover{
+    color: green;
+}
+
+.record-row.even{
+    background: lightgreen;
+    
+}
+.record-row.even .ident{
+    text-align: left;
+    display: inline-flex;
+    flex-wrap: wrap;
+    position: sticky;
+    left: 10px;
+}
+.record-row.even .info{
+    text-align: center;
+    display: inline-flex;
+    flex-wrap: wrap;
+    position: sticky;
+    left: 100px;
+    right: 100px;
+}
+
+.record-row.even .rent{
+    text-align: right;
+    display: inline-flex;
+    flex-wrap: wrap;
+    position: sticky;
+    left: 90%;
+}
+.record-row.odd .ident{
+    text-align: left;
+    display: inline-flex;
+    flex-wrap: wrap;
+    position: sticky;
+    left: 10px;
+}
+.record-row.odd .info{
+    text-align: center;
+    display: inline-flex;
+    flex-wrap: wrap;
+    position: sticky;
+    left: 100px;
+    right: 100px;
+}
+
+.record-row.odd .rent{
+    text-align: right;
+    display: inline-flex;
+    flex-wrap: wrap;
+    position: sticky;
+    left: 90%;
+}
+
+
+/*for pages with header footer and little content.*/
+#container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#footer{
+    margin-top: auto;
+    width: 100%;
+}
+
+.discounts{
+    padding:10px; 
+    margin-top:50px; 
+    max-width:fit-content;
+    margin-inline: auto;
+    background-color:rgb(74, 129, 82); 
+    height:300px; 
+    color:white;
+    text-align: center;
+}
+
+table, th, td{
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    border: 1.5px solid white;
+    border-collapse: collapse;
+    border-style: outset;
+    justify-content: space-evenly;
 }
