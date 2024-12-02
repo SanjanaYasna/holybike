@@ -3,17 +3,25 @@ use that erb tag in the html files.*/
 
 #form { /*this will apply to every form, this is an ID selector. in div id="form" */
     padding:10px; 
-    margin-top:50px; 
+    margin:50px; 
     max-width:fit-content;
     margin-inline: auto;
     background-color:grey; 
-    height:500px; 
+    border: 2px solid rgb(128, 222, 160);
+    outline-style: outset;
+    outline-color: rgb(19, 93, 45);
     color:white;
     text-align: center;
 }
 
 #form .title, .description{ /*this is for the forms h1 and h3 headers. all items with class name in div matching one of these. only will apply to forms (i think)*/
-    text-align: center
+    text-align: center;
+    padding: 5px;
+    text-decoration: underline;
+}
+
+#form .field, .start_time, .end_time, .actions{
+    padding:5px;
 }
 
 /*use this for row displayed pages*/
@@ -94,14 +102,19 @@ use that erb tag in the html files.*/
     width: 100%;
 }
 
+
+/*for discount table.*/
 .discounts{
     padding:10px; 
     margin-top:50px; 
     max-width:fit-content;
     margin-inline: auto;
-    background-color:rgb(74, 129, 82); 
-    height:300px; 
-    color:white;
+    background-color:lightgray; 
+    border: 2px solid rgb(128, 222, 160);
+    outline-style: outset;
+    outline-color: rgb(19, 93, 45);
+    height:fit-content; 
+    color:black;
     text-align: center;
 }
 
@@ -114,4 +127,149 @@ table, th, td{
     border-collapse: collapse;
     border-style: outset;
     justify-content: space-evenly;
+}
+
+
+
+/*use this for row displayed on PLACEHOLDER ONLY*/
+.rec-stations-row{
+    padding: 0.5cm,0.5cm,0.5cm,0.5cm;
+    line-height: 1.25cm;
+}
+
+.rec-stations-row.header{
+    background: lightgrey;
+    padding-left: 10px
+}
+
+.rec-stations-row.header a:hover{
+    color: green;
+}
+
+.rec-stations-row.even{
+    background: lightgreen;
+    color:black;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+.rec-stations-row.even .ident{
+    text-align: left;
+    display: inline-flex;
+    flex-wrap: wrap;
+    position: sticky;
+    left: 10px;
+}
+.rec-stations-row.even .info{
+    text-align: center;
+    display: inline-flex;
+    flex-wrap: wrap;
+    position: sticky;
+    left: 100px;
+    right: 100px;
+}
+
+.rec-stations-row.even .rent{
+    text-align: right;
+    display: inline-flex;
+    flex-wrap: wrap;
+    position: sticky;
+    left: 90%;
+}
+
+.rec-stations-row.odd{
+    background: rgba(133, 209, 133, 0.299); 
+    color:white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.rec-stations-row.odd .ident{
+    text-align: left;
+    display: inline-flex;
+    flex-wrap: wrap;
+    position: sticky;
+    left: 10px;
+}
+.rec-stations-row.odd .info{
+    text-align: center;
+    display: inline-flex;
+    flex-wrap: wrap;
+    position: sticky;
+    left: 100px;
+    right: 100px;
+}
+
+.rec-stations-row.odd .rent{
+    text-align: right;
+    display: inline-flex;
+    flex-wrap: wrap;
+    position: sticky;
+    left: 90%;
+}
+
+.rec-stations-row.odd .bike_link{
+    color: white;
+    text-decoration: overline;
+    text-decoration: underline;
+}
+
+.rec-stations-row.even .bike_link{
+    color: black;
+    text-decoration: overline;
+    text-decoration: underline;
+}
+
+
+
+
+/*used for user profile display*/
+
+.user-info-header{
+    margin-top: 25px;
+    max-height: fit-content;
+    margin-inline: auto;
+    background-color:rgba(20, 162, 20, 0.529); 
+    border: 2px solid rgb(128, 222, 160);
+    outline-style: outset;
+    outline-color: rgb(19, 93, 45);
+    height:fit-content; 
+    color:black;
+    padding: 10px;
+    text-align: center;
+}
+
+.user-info{
+    background-color: lightgrey;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid rgb(128, 222, 160);
+    outline-style: outset;
+    outline-color: rgb(19, 93, 45);
+    justify-content: space-evenly;
+    padding: 500px
+
+}
+
+
+/*about page*/
+.about-header{
+    margin-top: 25px;
+    max-height: fit-content;
+    margin-inline: auto;
+    background-color:rgba(20, 162, 20, 0.529); 
+    border: 2px solid rgb(128, 222, 160);
+    outline-style: outset;
+    outline-color: rgb(19, 93, 45);
+    height:fit-content; 
+    color:white;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.about-description{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 2%;
+    background-color: lightgray;
+    padding:20px
 }

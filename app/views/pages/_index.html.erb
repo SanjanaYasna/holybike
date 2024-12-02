@@ -1,25 +1,29 @@
+<%= stylesheet_link_tag "constantPageStyle"%>
+
 <div class="page-section flexbox vertical stretch">
   <div class="section-inner flexbox vertical stretch">
-    <div style="background-color:black;color:white;padding:20px;" class="section-title flexbox horizontal center">
-      Here Are Our Bike Stations:
+    <div style="background-color:dark-grey;color:white;padding:20px;text-decoration:underline" class="section-title flexbox horizontal center">
+      <h2>Look at All These Stations! </h2>
     </div>  
-    <div style="background-color:rgb(96,96,96);color:white;padding:20px;" class="flexbox vertical stretch">
       <% if @stations.present? %>
-        <div class="record-row header flexbox horizontal justify-space-between">
+        <div class="rec-stations-row header">
           <% if params[:reverse].blank? || params[:reverse] == "0" %>
             <a href="<%= stations_path(params: [reverse:1])%>">Sort &#8595;</a>
           <% else %>
             <a href="<%= stations_path %>">Sort &#8593;</a>
           <% end %>
         </div>
-        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+        <div class="flexbox vertical stretch" style="padding-left:20px;padding-right:20px;">
+          <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+        </div>
       <% else %>
-      <div class="empty">
-        No stations found.
-      </div>
+        <div class="empty">
+          No stations found.
+        </div>
       <% end %>
+    <div class="rec-stations-row header"> 
+      <a style="text-decoration:underline;margin-left:10px"class="toggle" href="<%= bikes_path %>">View All Bikes</a>
     </div>
-    <a style="padding:20px;"class="toggle" href="<%= bikes_path %>">View All Bikes</a>
 	</div>
 </div>
 

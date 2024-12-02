@@ -7,80 +7,59 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
-  
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
+  <%= stylesheet_link_tag "constantPageStyle"%>
 
-    footer {
-      position: sticky;
-      padding: 5px;
-      bottom: 0;
-      width: 100%;
-      position: absolute;
-    }
-
-    login{
-        text-align: center;
-    }
-    h2{
-    text-align: center
-    }
-
-    form{
-        text-align: center;
-    }
-</style>
 </head>
 <body>
 
-<body style="background-color: white">
+<body style="background-color:#464646">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
   
   <!-- Render the navbar contents at top of every page-->
   <%= render 'shared/ulnavbar' %>
-</body>
-<div class="login" style="padding:20px; margin-top:150px; background-color:grey; height:500px; color:white;">
-  <h2>Log In</h2>
-  <%= form_with(model: @user, url: sessions_path, local: true, data: { turbo: false }) do |f|%>
-    <% if flash[:alert] %>
-      <p class="alert alert-danger"><%= flash[:alert] %></p>
-    <% end %>x
-    <% if flash[:success] %>
-      <p class="alert alert-success"><%= flash[:success] %></p>
+
+  <div id="form">
+    <div class="title">  
+      <h1>Log In</h1>
+    </div>
+    <div class="description">
+      <h3> Welcome back! </h3>
+    </div>
+    <%= form_with(model: @user, url: sessions_path, local: true, data: { turbo: false }) do |f|%>
+      <% if flash[:alert] %>
+        <p class="alert alert-danger"><%= flash[:alert] %></p>
+      <% end %>x
+      <% if flash[:success] %>
+        <p class="alert alert-success"><%= flash[:success] %></p>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :email %><br/>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <% if @user && @user.errors[:email].any? %>
+          <p class="error"><%= @user.errors[:email].join(", ") %></p>
+        <% end %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %><br/>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+        <% if @user && @user.errors[:password].any? %>
+          <p class="error"><%= @user.errors[:password].join(", ") %></p>
+        <% end %>
+      </div>
+
+      <div class="actions" style="padding-top:20px">
+        <%= f.submit "Log in" %>
+      </div>
     <% end %>
-
-    <div class="field">
-      <%= f.label :email %><br/>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      <% if @user && @user.errors[:email].any? %>
-        <p class="error"><%= @user.errors[:email].join(", ") %></p>
-      <% end %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password %><br/>
-      <%= f.password_field :password, autocomplete: "new-password" %>
-      <% if @user && @user.errors[:password].any? %>
-        <p class="error"><%= @user.errors[:password].join(", ") %></p>
-      <% end %>
-    </div>
-
-    <div class="actions" style="padding-top:20px">
-      <%= f.submit "Log in" %>
-    </div>
-  <% end %>
-  <div style="padding:20px">
-    <a style="color:white;text-decoration:underline;" href="/registrations/new">Create an account</a>
+    <div style="padding:20px">
+      <p> Don't have an account?</p>
+      <a style="color:white;text-decoration:underline;" href="/registrations/new">Create an account</a>
+    </div>  
   </div>
-
-</div>
+</body>
 
 </html>
