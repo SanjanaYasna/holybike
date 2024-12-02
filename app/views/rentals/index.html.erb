@@ -50,9 +50,17 @@
     <h2>Rental Form</h2>
     <!-- CHANGE TO TIME RECORDER -->
   
-    <%= form_with(model: @rental, url: new_rental_path, local: true, data: { turbo: false }) do |f| %>
-  
+    <%= form_with(model: @ride, url: rides_path, local: true, data: { turbo: false }) do |f| %>
      <!--add in form with changes above ^ + flash alerts and jazz form new.html.erb form the sessions views.-->
+      <div class="user_fname">
+        <p>First Name</p>
+        <p><%= @current_user.fname%></p>
+      </div>
+  
+      <div class="user_lname">
+        <p>Last Name</p>
+        <p><%= @current_user.lname%></p>
+      </div>
 
       <div class="field">
         <%= f.label :bike_id, "Bike ID #" %><br/>
@@ -61,48 +69,31 @@
 
       <div class="field">
         <%= f.label :station_id, "Station ID #" %><br/>
-        <%= f.text_field :current_station_id, :value=> @station_id %>
+        <%= f.text_field :start_station_id, :value=> @start_station_id %>
       </div>
       
-      <div class="field">
-        <%= f.label :first_name, "first name" %><br/>
-        <%= f.text_field :first_name, :value=> @current_user.fname%>
-      </div>
-  
-      <div class="field">
-        <%= f.label :last_name %><br/>
-        <%= f.text_field :last_name, :value=> @current_user.lname %>
-      </div>
-
       <div class = "start_time">
         <%= f.label :start_time %><br/>
-        <%= f.datetime_field :start_time, autofocus: true, autocomplete: "start time" %>
+        <%= f.datetime_local_field :start_time, autofocus: true, autocomplete: "start time" %>
       </div>
 
       <div class="end_time">
         <%= f.label :end_time %><br/>
-        <%= f.datetime_field :start_time, autofocus: true, autocomplete: "end time"  %>
-      </div>
-      
-      <!-- If autofilling the dropdown doesn't Work, switch back to f.text_field for start and end station 
-            (check #7 in dev_notes 11-16-24)-->
-      <!--<div class="field">
-        <%= f.label :start_station %><br/>
-        <%= f.collection_select :start_station, Station.all, :id, :name, prompt: "Select Start Station" %>
-      </div>
-      -->
-      <div class="field">
-        <%= f.label :current_station_address %><br/>
-        <%= f.text_field :current_station_address, :value=> @station_address %>
+        <%= f.datetime_local_field :end_time, autofocus: true, autocomplete: "end time"  %>
       </div>
 
       <div class="field">
         <%= f.label :end_station %><br/>
-        <%= f.collection_select :end_station, Station.all, :id, :name, prompt: "Select End Station" %>
+        <%= f.collection_select :end_station_id, Station.all, :id, :name, prompt: "Select End Station" %>
       </div>
 
+      <div class="field">
+        <%= f.label :user_id, "Email" %><br/>
+        <%= f.text_field :user_id, :value=> @current_user.email %>
+      </div>
+      
       <div class="actions">
-        <%= f.submit "Start Rental" %>
+        <%= f.submit "Start Rental" %> 
       </div>
     
     <% end %>
@@ -111,7 +102,6 @@
     <%# link_to "Back to stations", stations_path %>
     <%# link_to "Back to bikes", bikes_path %> 
     <div style="padding:20px; display:inline;">
-    <a style="color:white;text-decoration:underline;" href="/payments/new">Pay For Ride</a>
     <a style="color:white;text-decoration:underline;" href="/">Back to Home</a>
     <a style="color:white;text-decoration:underline;" href="/bikes">Back to All Bikes</a>
 
@@ -120,6 +110,3 @@
 
 </div>
 
-<footer>
-<%= render 'shared/footer' %>
-</footer>

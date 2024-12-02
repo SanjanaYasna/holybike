@@ -18,7 +18,6 @@ namespace :db do
             identifier: item["identifier"],
             name:       item["name"],
             address:    item["address"]})
-
         if station.save
             puts "sucessfully imported #{item["name"]}\n"
         else

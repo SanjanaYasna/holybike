@@ -18,4 +18,7 @@ class Payment < ApplicationRecord
   
   belongs_to :User, :Rental
   
+  def get_payment_amt
+    payment_amt = @rental.calculate_payment*100 
+  end
 end
