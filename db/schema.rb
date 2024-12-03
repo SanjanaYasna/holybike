@@ -25,8 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_24_033749) do
     t.string "user_id", null: false
     t.datetime "start_time"
     t.datetime "end_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "rides", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -34,8 +34,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_24_033749) do
     t.bigint "rental_id", null: false
     t.datetime "start_time"
     t.datetime "end_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer "price"
     t.integer "bike_id"
     t.index ["rental_id"], name: "index_rides_on_rental_id"

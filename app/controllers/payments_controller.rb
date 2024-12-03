@@ -1,12 +1,13 @@
 class PaymentsController < ApplicationController
   def new
     @ride = Ride.find(params[:ride_id])
-    @payment_amt = @ride.calculate_payment*100 
+    @payment_amt = @ride.price
+    render :index
   end
   
   def create
     @ride = Ride.find(params[:ride_id])
-    @payment_amt = @ride.calculate_payment*100 
+    @payment_amt = @ride.price 
     customer = Stripe::Customer.create({ # Make a customer
       :email => params[:stripeEmail],
       :source => params[:stripeToken]
@@ -17,7 +18,7 @@ class PaymentsController < ApplicationController
       description: 'rents a bike',
     })
 
-    price = Stripe::Price.create({ # Calculate price based off rental 
+    price = Stripe::Price.create({ # Get calculated price based off ride
       product: product.id,  
       unit_amount: @payment_amt,
       currency: 'usd',
