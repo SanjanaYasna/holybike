@@ -33,7 +33,7 @@ class PaymentsController < ApplicationController
       mode: 'payment',
       # success url uses 'localhost:3000/...'. It works, but it'll break if we use another website name
       success_url: 'http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}', 
-      cancel_url: request.referer,
+      cancel_url: request.referer, # request.referer = go back to the page that sent the request (the payment page)
       metadata: {ride_id: @ride.id}
     )
     # this redirects to a checkout page made by stripe
