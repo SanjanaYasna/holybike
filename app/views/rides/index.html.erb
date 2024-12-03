@@ -91,7 +91,7 @@
         <%= f.label :end_station %><br/>
         <%= f.collection_select :end_station_id, Station.all, :id, :name, prompt: "Select End Station" %>
       </div>
-      <%= f.hidden_field :user_id, value: @current_user.email %>
+      <%= f.hidden_field :email, value: @current_user.email %>
 
       <div class="actions">
         <%= f.submit "Start Rental" %>

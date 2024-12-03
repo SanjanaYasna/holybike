@@ -33,6 +33,8 @@ Rails.application.routes.draw do
 
   #about page in drop down 
   get '/About', to: 'pages#about'
+
+  get 'success', to: 'payments#success', as: 'payment_success'
 end
 
 #registrations/new <-create user for signup

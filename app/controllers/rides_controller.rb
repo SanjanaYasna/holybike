@@ -43,20 +43,19 @@ class RidesController < ApplicationController
     @ride = Ride.new(final_params)
     #issue is above iwth ride param creation...
     logger.debug "ride params: #{@ride.attributes}"
-    @ride.save
-    # if @ride.save
-    #   redirect_to root_path #new_payment_path(ride_id: @ride.user_id)
-    # else
-    #   flash.now[:alert] = @ride.errors.full_messages.to_sentence
-    #   logger.debug "Ride Failed: ride attributes hash: #{@ride.attributes()}"
+    if @ride.save
+      redirect_to new_payment_path(ride_id: @ride.id)
+    else
+      flash.now[:alert] = @ride.errors.full_messages.to_sentence
+      logger.debug "Ride Failed: ride attributes hash: #{@ride.attributes()}"
     #   #TODO create error page
     #   #render :some_failed_ride_page
-    # end
+    end
   end
 
   private
   def ride_params # user id not included since user is always current user
     params.inspect
-    params.require(:ride).permit(:user_id, :bike_id, :start_time, :end_time, :price)
+    params.require(:ride).permit(:email, :bike_id, :start_time, :end_time, :price, :start_station_id, :end_station_id)
   end
 end

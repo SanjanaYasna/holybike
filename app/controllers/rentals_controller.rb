@@ -16,6 +16,7 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
     @rental.user_id = @current_user.email
     logger.debug "user info:  #{@current_user}"
+    logger.debug "rental info:  #{@rental}"
     if @rental.save
       redirect_to new_payment_path(rental_id: @rental.id)
     else
@@ -31,7 +32,8 @@ class RentalsController < ApplicationController
   end
 
   def rental_params # user id not included since user is always current user
-    params.require(:rental).permit(:bike_id, :start_station_id, :end_station_id, :start_time, :end_time)
+    params.require(:rental).permit(:bike_id, :start_station_id, :end_station_id, :start_time, :end_time,)
+
   end
   
 

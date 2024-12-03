@@ -1,0 +1,10 @@
+<%= form_with(model: @payments, url: payments_path(ride_id: @ride.id), local: true, data: { turbo: false }) do |f| %>
+  <label class="amount">
+      <span> <p>Custom Payment:  <%= @payment_amt = @ride.price %></p></span>
+  </label>
+
+  <p>Bike id:  <%= @ride.bike_id%></p>
+
+  <%= f.submit "Pay Now" %>  
+
+<% end %>
