@@ -273,3 +273,14 @@ table, th, td{
     background-color: lightgray;
     padding:20px
 }
+
+
+.cropimg{
+    position: center; /* Position image absolutely */ 
+    top: -20px; /* Adjust vertical position */ 
+    left: 100px; /* Adjust horizontal position */ 
+    /* Optional: Use object-fit to control how the image is resized */ 
+    object-fit: cover; /* This will cover the area without distorting */ 
+    width: 500; /* Maintain aspect ratio */ 
+    height: 300;
+}
