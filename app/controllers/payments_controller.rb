@@ -9,6 +9,7 @@ class PaymentsController < ApplicationController
   def create
     @ride = Ride.find(params[:ride_id])
     @payment_amt = @ride.price 
+    @current_user = User.find_by(id: session[:user_id])
 
     customer = Stripe::Customer.create({ # Make a customer
       :email => params[:stripeEmail],
@@ -41,8 +42,9 @@ class PaymentsController < ApplicationController
   end 
     def success
       session_id = params[:session_id]  # session_id for payments is separate from user_id session
+      logger.debug "Session ID from stripe: #{session_id}"
       session = Stripe::Checkout::Session.retrieve(session_id) 
-      
+      @current_user = User.find_by(id: session[:user_id])
       # if the payment is successful, create a rental that stores the ride 
       # and update the current station of the bike
       if session.payment_status == 'paid' 
