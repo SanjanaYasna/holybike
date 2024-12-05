@@ -43,8 +43,8 @@
     <div style="background-color:black;padding:300px;" >
       <%= image_tag 'logo.PNG',class:'cropimg', alt: 'Profile'%>
     </div> 
-    
-    <!-- Homepage content starts here!-->
+
+<!-- Homepage content starts here!-->
     <!--Render index.html.erb in pages with bike rental displays:-->
       <%= render partial: "pages/index", locals: {stations: @stations} %>
 
@@ -52,23 +52,48 @@
     <div style="background-color:black;color:white;padding:40px;" class="section-title flexbox horizontal center">
     </div> 
 
-    <h2 style="color:black;padding:20px;background-color:lightgreen; text-decoration:underline"> Where Are You Headed To? </h2>
 
 
-      <!--TO DO: HOW TO HANDLE COSTS OF MAPS API + SEARCH COMPLETION API FOR GOOGLE-->
-      <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Enter your current location" aria-label="Enter your destination" aria-describedby="button-addon2">
-          <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button" id="button-addon2" style = "background-color: beige;">Search</button>
-          </div>
-          <div id="canvas-for-googlemap" style="height:100%; height: 700px; width:100%;max-width:100%;">
-            <iframe style="height:100%;width:100%;border:0;" frameborder="0" 
-            src="https://www.google.com/maps/embed/v1/place?q=Smith+College+&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8">
-            </iframe></div><a class="embed-map-html" href="https://kbj9qpmy.com/bp" id="grab-maps-authorization">
-              <a><style>#canvas-for-googlemap .text-marker{}.map-generator{max-width: 100%; max-height: 100%; background: none;}</style></a>
-          </div>
-      </div>
-    </body>
+    <!-- Homepage content starts here!-->
+  <!-- Leaflet Map View -->
+  <h3 style="color:white"> Where are you headed to? </h3> 
+  <div id="map" class="leaflet-container" style="height: 400px;">
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch('/stations') 
+        .then(response => response.json())  
+        .then(stations => {
+            console.log(stations);  
+            var map = L.map('map').setView([42.319519, -72.629761], 13);
+            // Customize marker https://leafletjs.com/examples/custom-icons/
+            var iconURL = "<%= image_path('marker.svg') %>";
+            var bikeIcon = L.icon({ 
+              iconUrl: iconURL,
+              iconSize: [32, 32],
+              iconAnchor: [16, 32],
+              popupAnchor: [0, -32]
+            });
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+            // Create markers for each station
+            stations.forEach(function(station) {
+            var markerMenu = `
+              <b>${station.name}</b><br>
+              <p><a href="/stations/${station.id}" style="color: #007bff;">View Station</a></p>
+            `;
+            L.marker([station.latitude, station.longitude], {icon: bikeIcon})
+                .addTo(map)
+                .bindPopup(markerMenu);
+            });
+        })
+      });
+      </script>
+  </div>
+
+</body>
+
   <div class="MainFooter">
   <%= render 'shared/footer' %>
   </div>
