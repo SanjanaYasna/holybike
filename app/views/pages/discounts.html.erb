@@ -1,49 +1,49 @@
 <!doctype html>
 <html lang="en">
-  <!---
-  Renders navbar from shared/navbar + 
-  contains map display and will interact with API backend in app/javascript/map_api -->
+ 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
-  
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
+  <%= stylesheet_link_tag "constantPageStyle"%>
 
-    footer {
-      position: sticky;
-      padding: 5px;
-      bottom: 0;
-      width: 100%;
-      position: absolute;
-    }
-  </style>
+
 </head>
-<body style="background-color: white">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
   
-  <!-- Render the navbar contents at top of every page-->
+<div id=container>
+  <body style="background-color: #464646">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+    
+    <!-- Render the navbar contents at top of every page-->
   <%= render 'shared/navbar' %>
 
 
-<div class="page-section flexbox vertical stretch" style="padding-left:10px;">
-  <div class="section-inner flexbox vertical stretch">
-    <div class="section-title">
-     <h1 style="color:black"> Check out our discounts! </h1>
+  <div class="page-section flexbox vertical stretch" style="padding-left:10px;">
+    <div class="section-inner flexbox vertical stretch">
+      <div class=discounts>
+        <div class="section-title">
+        <h1 style="text-decoration:underline"> Check out our discounts! </h1>
+        </div>
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>code</th>
+          </tr>
+          <tr>
+            <td>Student discount</td>
+            <td>LearningIsFun</td>
+          </tr>
+          <tr>
+            <td>Senior discount</td>
+            <td>YayBeingOld!</td>
+          </tr>
+        </table>
+        </div>
+      </div>
     </div>
-    <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox horizontal justify-space-between" style="padding-left:20px;">
-        <li>Student discount Code: LearningIsFun</li>
-        <li>Senior discount Code: YayBeingOld!</li>
-    </div>
+  <div id=footer>
+  <%= render 'shared/footer' %>
   </div>
 </div>
-</body>
-<footer>
- <%= render 'shared/footer' %>
-</footer>

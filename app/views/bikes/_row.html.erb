@@ -1,15 +1,7 @@
-<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox horizontal justify-space-between">
-  <div><%= bike.identifier%></div>
-  <div><%= bike.current_station.blank? ? "In Use" : "Docked (#{bike.current_station.address})" %></div>
- 
-  <!-- Testing payments link-->
-  <!-- Pass bike and bike station to rental form-->
-  <%# <%= button_to "Rent" ,
-  {:controller => "rentals", 
-  :action => "rentals/pass_bike_and_station_to_form", 
-  :bike_id => bike.identifier, :station_id => bike.current_station_id} %>
- 
+<%= stylesheet_link_tag "constantPageStyle"%>
 
-
-  <%= link_to "Rent", new_rental_path %>
+<div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox horizontal">
+  <div class="ident"><%= bike.identifier%> </div>
+  <div class="info" ><%= bike.current_station.blank? ? "In Use" : "Docked (#{bike.current_station.address})" %></div>
+  <div class="rent" ><%= link_to "Rent", new_rental_path(:bike_id=> bike.identifier, :station_id => bike.current_station_id) %> </div>
 </div>

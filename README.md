@@ -2,72 +2,102 @@
 NAME: Bella falbo, Sanjana Yasna, Camille Mathis, Erin Riley
 
 Smith College CSC223: Software Engineering\
-Starter App for ValetBike project
+ValetBike MVP
 
 ## Environment Configuration
 
-As you configure your environment you should **keep a log** where you **write down all the steps you take** including **each command you type**. You will inevitably run into errors setting up your development environment and maintaining a meticulous log will allow others to help you troubleshoot. Ignore this recommendation at your own peril, but don't say you haven't been warned :]
+### After cloning repo:
 
-Installing Ruby on Rails is not a trivial process. It is the essential first step to developing ValetBike, and it will take you far longer than all the other steps to complete. Be sure to set aside ample time to work through the setup.
+Add a database.yml file under config/ as follows, adjusting credientials:
 
-### 0. Remember that versions matter
-ValetBike runs on Ruby 3.1.2 and Rails 7.0.3.1. It is essential that you configure your environment to use these precise versions of the language and framework.
+``` yml
+# MySQL. Versions 5.5.8 and up are supported.
+#
+# Install the MySQL driver
+#   gem install mysql2
+#
+# Ensure the MySQL gem is defined in your Gemfile
+#   gem "mysql2"
+#
+# And be sure to use new-style password hashing:
+#   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
+#
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: your root
+  password: your password
+  socket: <%= ENV['MYSQL_SOCKET'] || '/tmp/mysql.sock' %>
 
-### 1. Install Ruby on Rails with MySQL
+development:
+  <<: *default
+  database: valetbike_development
 
-On Mac it is strongly recommended that you use asdf to install Ruby. On Windows you should set up your environment through the Windows Subsystem for Linux (WSL). The guides below explain how to do so in detail:
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: valetbike_test
 
-- [Mac Ruby on Rails Developer Environment Setup](https://github.com/deadroxy/valetbike/blob/master/notes/mac-setup.md)
-- [Windows Ruby on Rails Developer Environment Setup](https://github.com/deadroxy/valetbike/blob/master/notes/windows-setup.md)
-
-Be sure to complete all the installation procedures in the relevant guide before continuing on to the next step.
-
-### 2. Fork & clone the ValetBike repo
-
-- Click fork in the upper right hand corner of the ValetBike GitHub page
-- This creates a copy of the repository on your personal GitHub account
-- To access this code on your development machine, create a local copy of your fork with:\
-  `git clone https://github.com/<your_username>/valetbike.git`
-- Note: you should run that command when you are in the folder where you want to store the repo\
-  (e.g. `/Users/<your_username>/Development`)
-
-### 3. Prepare the application
-
-- Enter the directory you just created: `cd valetbike`
-- Add `.tool-versions` to app directory to ensure the right ruby is always used: `asdf local ruby 3.1.2`
-- Install required gems with: `bundle install`
-
-### 4. Configure the database environment variables
-
-- Add a file called `.env` to the valetbike root directory
-- Ensure that it includes the credentials you setup when installing MySQL:
-
-```shell
-MYSQL_USERNAME=root
-MYSQL_PASSWORD=YOURPASSWORD
-MYSQL_SOCKET=/tmp/mysql.sock              # For Mac
-MYSQL_SOCKET=/var/run/mysqld/mysqld.sock  # For Windows
+# As with config/credentials.yml, you never want to store sensitive information,
+# like your database password, in your source code. If your source code is
+# ever seen by anyone, they now have access to your database.
+#
+# Instead, provide the password or a full connection URL as an environment
+# variable when you boot the app. For example:
+#
+#   DATABASE_URL="mysql2://myuser:mypass@localhost/somedatabase"
+#
+# If the connection URL is provided in the special DATABASE_URL environment
+# variable, Rails will automatically merge its configuration values on top of
+# the values provided in this file. Alternatively, you can specify a connection
+# URL environment variable explicitly:
+#
+#   production:
+#     url: <%= ENV["MY_APP_DATABASE_URL"] %>
+#
+# Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
+# for a full overview on how database connection configuration can be specified.
+#
+production:
+  <<: *default
+  database: valetbike_production
+  username: valetbike
+  password: <%= ENV["VALETBIKE_DATABASE_PASSWORD"] %>
 ```
 
-### 5. Prepare the database in MySQL
+### run db tasks
 
-- Use rails to create both the development and test databases with:\
-  `rake db:create`
-- Or use mysql to just create the development databse with:\
-  `mysql -u root -p`\
-  `CREATE DATABASE valetbike_development;`\
-  `exit`
-- Then run the database migrations with:\
-  `rake db:migrate`
+```shell
 
-### 6. Confirm that the app runs
+rake db:create
 
-* Launch the web server using `rackup` or `rails s` (short for `rails server`) or `bin/dev`
-* If using `rackup` open http://localhost:9292 (or http://127.0.0.1:9292) in a browser
-* If using `rails s` or `bin/dev` open http://localhost:3000 (or http://127.0.0.1:3000) in a browser
-* You should see ValetBike welcome page
-  
-# File Organization
+rake db:migrate
+
+rake db:import_stations["notes/station-data.csv"]
+
+rake db:import_bikes["notes/bike-data.csv"] 
+```
+
+### export stripe api keys to env
+
+We have sent you a secrets.yml file, but this step isn't essential to the setup since the payments feature is a work in progress 
+(and will remain in test mode)
+
+``` shell
+export STRIPE_PUBLISHABLE_KEY=[stripe_publishable_key]
+export STRIPE_SECRET_KEY=[stripe_secret_key]
+``` 
+
+### Run server!
+
+``` shell
+rails s
+```
+
+# Model Organization for most important files:
 
 ## Controllers
 
@@ -85,10 +115,31 @@ index: reverses bike order
 
 ### pages_controller.rb:
 
-Renders placeholder(main) page and other templates (TODO) from the pages folder of views
+Functions:
+placeholder: Renders placeholder (main) page and other templates from the pages folder of views
 
-discounts and about functions render those respective pages 
+discounts and about functions render those respective pages. Discounts is work in progress
 
+
+### payments_controller.rb
+
+Used with stripe API to render payments page for pay for bike
+
+Functions:
+create: Stripe::Customer.create, and Stripe::Charge.create that defaults to 10000 for now
+
+
+### rentals_controller.rb 
+
+Creates rental object that takes from rental form. The rental form has autofill properties since once a user clicks on a bike to rent, 
+the bike and station id properties are immediately passed to look up station and bike
+
+Functions:
+new: get current_user, bike_id, station_id, station_address (found by station_id)
+
+### rides_controller.rb
+
+Has ability to reverse ride options
 
 ### registrations_controller.rb 
 
@@ -102,13 +153,15 @@ user_params: requires user form information for user creation
 
 authorizes user if user is logged in, otherwise, aids in session creation upon user creation 
 functions:
-destroy: destroy session id if user logged out (TO BE CALLED, but option in navbar)
+destroy: destroy session id if user logged out 
 create: authenticates user, if signed in, redirected to login page to then be redirected to home/main page (placeholder.html.erb)
 
 ### stations_controller:
 
 Functions:
 index: in order or reverse order stations displays
+show: find a station by id, and show all bikes under docked_bikes attribute to station, else alert station not found message
+render_stations_in_pages: passes in all stations object collection to partial to show stations (pages/_index.html.erb) and 
 
 ### users_controller.rb: 
 
@@ -118,15 +171,15 @@ create: checks if user is valid, flashes successful or unsuccessful user creatio
 user_params: passes in params to create
 profile: assigns user to current session user for profile pages
 
-## Views
+# Views (a few of them, since there's sooo many...)
 
 Shared folder contains partial rendering templates...
 
-### users/login.html.erb:
+### sessions/new.html.erb 
 
 Login form display
 
-### users/signup.html.erb:
+### registrations/new.html.erb
 
 Sign up form display
 
@@ -143,7 +196,19 @@ This is the class for passing in proper local context to different pages to be r
 
 Calls the _rows.html.erb partial to render rows of stations and bikes, and works with show.html.erb to list station and bike info
 
-## payments_controller.rb
 
-Functions: new and create
- 
+ ### bikes/index.html.erb and _row.html.erb
+
+ These are used to display bikes, and the bike selected from a given row gets its information passed to the rentals path for rentals form autocomplete
+
+ ### payments/new.html.erb
+
+ Display of stripe's payments page. For now, a bike is by default $100 
+
+ ### shared/...
+
+ Contains all partials (navbar for both pre and post login, footer)
+
+ ### users/profile.html.erb
+
+ display upon clicking profile button of navbar, takes from user module the user name and email 

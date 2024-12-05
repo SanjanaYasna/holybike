@@ -1,4 +1,5 @@
 class RegistrationsController < ApplicationController
+  skip_before_action :authorize
   def new
     @user = User.new
   end
@@ -16,7 +17,6 @@ class RegistrationsController < ApplicationController
     end
   end
 
-  
   private
 
   def user_params

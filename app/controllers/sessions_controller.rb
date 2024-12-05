@@ -25,6 +25,7 @@ class SessionsController < ApplicationController
     User.find(session[:user_id]).destroy  
     session[:user_id] = nil
     #create proper redirect path
+    flash.now[:alert] = 'Logout Successful'
     redirect_to new_session_path
   end
 end
