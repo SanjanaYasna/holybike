@@ -39,12 +39,12 @@
 
         <div class="field">
           <%= f.label :bike_id, "Bike ID #" %><br/>
-          <%= f.text_field :bike_id, :value=> @bike_id %>
+          <%= f.text_field :bike_id, value: @bike_id %>
         </div>
 
         <div class="field">
           <%= f.label :station_id, "Station ID #" %><br/>
-          <%= f.text_field :start_station_id, :value=> @start_station_id %>
+          <%= f.text_field :start_station_id, value: @start_station_id %>
         </div>
         
         <div class = "start_time">
@@ -68,11 +68,11 @@
         </div>
 
         <div class="Discount_code">
-          <%= f.label :discount_code %><br/>
-          <%= f.text_field :discount_code%>
+          <%#= f.label :discount_code %><br/>
+          <%#= f.text_field :discount_code%>
         </div>
         <br>
-        <%= f.hidden_field :email, value: @current_user.email %>
+        <%#= f.hidden_field :email, value: @current_user.email %>
 
         <div class="actions">
           <%= f.submit "Start Rental" %>
