@@ -17,30 +17,42 @@ class RidesController < ApplicationController
     @current_user = User.find_by(id: session[:user_id])
     render :index
   end
-  def calculate_payment(start_time, end_time)
+  def calculate_payment(start_time, end_time, discount_code)
     # Test
     # can you subtract datetime objects?
+    puts "dicount code: #{discount_code}"
     #parse the string into a datetime object
     start_time = DateTime.parse(start_time).to_i
     end_time = DateTime.parse(end_time).to_i
-    puts "Start: #{start_time}"
-    puts "End: #{end_time}"
     ride_duration = end_time - start_time
-    puts "Ride seconds: #{ride_duration}"
     minutes = (ride_duration / 60).to_i
-    puts "Duration in minutes: #{minutes}"
     payment_amt = minutes * 100
-    puts "Payment dollars: #{payment_amt}"
-    payment_amt
+    case discount_code
+    when "LearningIsFun"
+      return payment_amt * 0.6
+    when "YayBeingOld!"
+      return payment_amt * 0.5
+    when "TheBikeGod"
+      puts "TheBikeGod detected"
+      return 0
+    else
+      return payment_amt
+    end
   end
+
   def create
     # using .build for now https://apidock.com/rails/v5.2.3/ActiveRecord/Associations/CollectionProxy/build
     # it lets you pass in current user separately
     #pass in strong params to a temp array of params so you can add and modify params as needed
     #VERY BAD PRACTICE (not thread safe) - need to fix
-    final_params = ride_params
-    final_params[:price] = calculate_payment(ride_params[:start_time], ride_params[:end_time])
-    @ride = Ride.new(final_params)
+    price = calculate_payment(ride_params[:start_time], ride_params[:end_time], ride_params[:discount_code])
+    @ride = Ride.new(email: ride_params[:email], 
+                    bike_id: ride_params[:bike_id], 
+                    start_time: ride_params[:start_time], 
+                    end_time: ride_params[:end_time], 
+                    price: price, 
+                    start_station_id: ride_params[:start_station_id], 
+                    end_station_id: ride_params[:end_station_id])
     @ride.user_id = current_user.id
     #issue is above iwth ride param creation...
     logger.debug "ride params: #{@ride.attributes}"
@@ -60,6 +72,6 @@ class RidesController < ApplicationController
   end
   def ride_params # user id not included since user is always current user
     params.inspect
-    params.require(:ride).permit(:email, :bike_id, :start_time, :end_time, :price, :start_station_id, :end_station_id)
+    params.require(:ride).permit(:email, :bike_id, :start_time, :end_time, :price, :start_station_id, :end_station_id, :discount_code)
   end
 end

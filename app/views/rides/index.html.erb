@@ -91,6 +91,13 @@
         <%= f.label :end_station %><br/>
         <%= f.collection_select :end_station_id, Station.all, :id, :name, prompt: "Select End Station" %>
       </div>
+
+      <div class="Discount_code">
+        <p>Discount Code:</p>
+        <%= f.label :discount_code %><br/>
+        <%= f.text_field :discount_code%>
+      </div>
+      <br>
       <%= f.hidden_field :email, value: @current_user.email %>
 
       <div class="actions">
