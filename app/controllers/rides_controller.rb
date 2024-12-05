@@ -41,6 +41,7 @@ class RidesController < ApplicationController
     final_params = ride_params
     final_params[:price] = calculate_payment(ride_params[:start_time], ride_params[:end_time])
     @ride = Ride.new(final_params)
+    @ride.user_id = current_user.id
     #issue is above iwth ride param creation...
     logger.debug "ride params: #{@ride.attributes}"
     if @ride.save
@@ -52,8 +53,11 @@ class RidesController < ApplicationController
     #   #render :some_failed_ride_page
     end
   end
-
+  
   private
+  def current_user
+      @current_user = User.find_by(id: session[:user_id])
+  end
   def ride_params # user id not included since user is always current user
     params.inspect
     params.require(:ride).permit(:email, :bike_id, :start_time, :end_time, :price, :start_station_id, :end_station_id)

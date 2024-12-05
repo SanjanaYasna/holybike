@@ -3,5 +3,5 @@
 <div class="record-row <%= cycle "odd", "even", name: "row-cycler" %> flexbox horizontal">
   <div class="ident"><%= bike.identifier%> </div>
   <div class="info" ><%= bike.current_station.blank? ? "In Use" : "Docked (#{bike.current_station.address})" %></div>
-  <div class="rent" ><%= link_to "Rent", new_rental_path(:bike_id=> bike.identifier, :station_id => bike.current_station_id) %> </div>
+  <div class="rent" ><%= link_to "Rent", new_ride_path(:bike_id=> bike.identifier, :station_id => bike.current_station_id) %> </div>
 </div>
