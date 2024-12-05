@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2024_12_03_194108) do
-=======
-ActiveRecord::Schema[7.0].define(version: 2024_11_19_005125) do
->>>>>>> 375a6d6 (Rebased local branch with remote)
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
@@ -35,7 +31,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_19_005125) do
 
   create_table "rides", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "bike_id", null: false
-    t.string "user_id", null: false
     t.integer "start_station_id", null: false
     t.integer "end_station_id", null: false
     t.string "user_id", null: false
