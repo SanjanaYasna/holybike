@@ -44,6 +44,14 @@
       <%= image_tag 'logo.PNG',class:'cropimg', alt: 'Profile'%>
     </div> 
 
+<!-- Homepage content starts here!-->
+    <!--Render index.html.erb in pages with bike rental displays:-->
+      <%= render partial: "pages/index", locals: {stations: @stations} %>
+
+    <!-- add something image wise?-->
+    <div style="background-color:black;color:white;padding:40px;" class="section-title flexbox horizontal center">
+    </div> 
+
 
 
     <!-- Homepage content starts here!-->
