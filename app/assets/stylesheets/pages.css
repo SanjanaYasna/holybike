@@ -51,7 +51,7 @@
 
 }
 
-#map {
+#map { /*this is for the leaflet map*/
   height: 100%;
   width:600px
 }

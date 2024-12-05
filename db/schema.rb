@@ -22,18 +22,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_03_194108) do
     t.integer "bike_id", null: false
     t.integer "start_station_id", null: false
     t.integer "end_station_id", null: false
-    t.string "email", null: false
+    t.string "user_id", null: false
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer "price"
-    t.index ["email"], name: "index_rentals_on_user_id"
+    t.index ["user_id"], name: "index_rentals_on_user_id"
   end
 
   create_table "rides", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "email", null: false
-    t.bigint "rental_id"
+    t.string "user_id", null: false
+    t.bigint "rental_id", null: false
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "created_at"
@@ -42,8 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_03_194108) do
     t.integer "bike_id"
     t.integer "start_station_id"
     t.integer "end_station_id"
-    t.index ["email"], name: "index_rides_on_email_for_now"
-    t.index ["rental_id"], name: "fk_rails_0f3fd126cf"
+    t.index ["rental_id"], name: "index_rides_on_rental_id"
   end
 
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
