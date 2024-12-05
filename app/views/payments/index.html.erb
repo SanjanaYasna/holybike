@@ -2,6 +2,10 @@
   <label class="amount">
       <span> <p>Custom Payment:  <%= @payment_amt = @ride.price %></p></span>
   </label>
+  <%= if @ride.price < 0 
+    @message = "Thou shalt not pilfer from thine service provider! Tis unholy. Please enter a positive amount of time."
+    @message
+   end%>
 
   <p>Bike id:  <%= @ride.bike_id%></p>
 
