@@ -6,6 +6,8 @@ class StationsController < ApplicationController
     else
       @stations = Station.all.order(identifer: :desc)
     end
+    @stations = Station.all
+    render json: @stations.to_json(only: [:id, :name, :latitude, :longitude])
   end
   
   def show
@@ -29,3 +31,4 @@ class StationsController < ApplicationController
   #end
 #end
 end
+

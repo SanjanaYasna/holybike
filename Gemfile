@@ -81,9 +81,12 @@ gem 'dotenv-rails'
 
 gem 'stripe'
 
+gem 'geocoder'
+
 # Suggested Potentially Useful Gems
 # gem 'devise'
 # gem 'httparty'
 # gem 'paperclip
 # gem 'uniquify'
 # gem 'will_paginate'
+

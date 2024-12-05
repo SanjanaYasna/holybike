@@ -20,23 +20,23 @@
     </ul>
     <!-- Button Images -->
     <button class="btn btn-outline-primary" type="button" id="Profile" aria-label="Profile Button">
-    <%=link_to (image_tag 'profile.png', style: 'width: 50px; height: 40px;', alt: 'Profile'), user_path(@current_user.id)%>
+    <%=link_to (image_tag 'profile.svg', style: 'width: 50px; height: 40px;', alt: 'Profile'), user_path(@current_user.id)%>
     </button>
 
     <button class="btn btn-outline-primary" type="button" id="Search-bikes" aria-label="Search Bikes Button">
-    <%=link_to (image_tag 'bike.jpg', style: 'width: 50px; height: 40px;', alt: 'Search bikes' ),bikes_path%>
+    <%=link_to (image_tag 'BikeIcon.svg', style: 'width: 50px; height: 40px;', alt: 'Search bikes' ),bikes_path%>
     </button>
 
     <button class="btn btn-outline-primary" type="button" id="discounts" aria-label="Discounts Button">
-    <%=link_to (image_tag 'discount.png', style: 'width: 50px; height: 40px;', alt: 'Discounts'), "/discounts"%>
+    <%=link_to (image_tag 'Pricetag.svg', style: 'width: 50px; height: 40px;', alt: 'Discounts'), "/discounts"%>
     </button>
 
     <!-- need to add links for this -->
     <button class="btn btn-outline-primary" type="button" id="payment" aria-label="Prior Payment Button">
-    <%= image_tag 'prior_payment.png', style: 'width: 50px; height: 40px;', alt: 'Prior Payment' %>
+    <%= image_tag 'payments.svg', style: 'width: 50px; height: 40px;', alt: 'Prior Payment' %>
     </button>
     <button class="btn btn-outline-primary" type="button" id="analytics" aria-label="Analytics Button">
-    <%= image_tag 'analytics.png', style: 'width: 50px; height: 40px;', alt: 'Analytics' %>
+    <%= image_tag 'Analytics.svg', style: 'width: 50px; height: 40px;', alt: 'Analytics' %>
     </button>
     <!-- Collapse-able nav bar-->
 
