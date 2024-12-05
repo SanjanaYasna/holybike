@@ -1,15 +1,10 @@
-<%= form_with(model: @payments, url: payments_path(rental_id: @rental.id), local: true, data: { turbo: false }) do |f| %>
+<%= form_with(model: @payments, url: payments_path(ride_id: @ride.id), local: true, data: { turbo: false }) do |f| %>
   <label class="amount">
-      <span> <p>Custom Payment:  <%= @payment_amt = @rental.calculate_payment %></p></span>
+      <span> <p>Custom Payment:  <%= @payment_amt = @ride.calculate_payment %></p></span>
   </label>
 
-  <p>Bike id:  <%= @rental.bike_id%></p>
+  <p>Bike id:  <%= @ride.bike_id%></p>
 
-  <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-description="Bike Rental Payment"
-    data-amount="<%= @payment_amt %>"
-    data-locale="auto">
-  </script>
+  <%= f.submit "Pay Now" %>  
+
 <% end %>

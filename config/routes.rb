@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   #404 page added as our lord and savior
   post 'render_404', to: 'application#render_404'
 
-  resources :rentals, only: [:new, :create]#, :pass_bike_and_station_to_form, :create] 
+  resources :rentals, only: [:new, :create, :index]#, :pass_bike_and_station_to_form, :create] 
   resources :rides, only: [:new, :pass_bike_and_station_to_form, :create]
 
   #payments specific

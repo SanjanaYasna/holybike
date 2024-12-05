@@ -1,4 +1,4 @@
 class Rental < ApplicationRecord
   belongs_to :user
-  has_many :ride
+  belongs_to :ride
 end

@@ -47,10 +47,11 @@
   <%= render 'shared/navbar' %>
 </body>
 <div class = "new" style="padding:20px; margin-top:100px; background-color:grey; height:525px; color:white;">
-    <h2>Rides Form</h2>
+    <h2>Ride Form</h2>
     <!-- CHANGE TO TIME RECORDER -->
   
     <%= form_with(model: @ride, url: rides_path, local: true, data: { turbo: false }) do |f| %>
+  
      <!--add in form with changes above ^ + flash alerts and jazz form new.html.erb form the sessions views.-->
       <div class="user_fname">
         <p>First Name</p>
@@ -69,7 +70,7 @@
 
       <div class="field">
         <%= f.label :station_id, "Station ID #" %><br/>
-        <%= f.text_field :start_station_id, :value=> @start_station_id %>
+        <%= f.text_field :start_station_id, :value=> @station_id %>
       </div>
       
       <div class = "start_time">
@@ -91,17 +92,16 @@
         <%= f.label :end_station %><br/>
         <%= f.collection_select :end_station_id, Station.all, :id, :name, prompt: "Select End Station" %>
       </div>
-
-      <div class="Discount_code">
-        <p>Discount Code:</p>
-        <%= f.label :discount_code %><br/>
-        <%= f.text_field :discount_code%>
+      
+      <!-- TODO: Update ride model to have email column -->
+      <div class="field">
+        <%#= f.label :user_id, "Email" %><br/>
+        <%#= f.text_field :user_id, :value=> @current_user.email %>
       </div>
-      <br>
-      <%= f.hidden_field :email, value: @current_user.email %>
+      <%#= f.hidden_field :user_id, value: @current_user.email %>
 
       <div class="actions">
-        <%= f.submit "Start Rental" %>
+        <%= f.submit "Start Ride" %>
       </div>
     
     <% end %>
@@ -110,7 +110,6 @@
     <%# link_to "Back to stations", stations_path %>
     <%# link_to "Back to bikes", bikes_path %> 
     <div style="padding:20px; display:inline;">
-    <a style="color:white;text-decoration:underline;" href="/payments/new">Pay For Ride</a>
     <a style="color:white;text-decoration:underline;" href="/">Back to Home</a>
     <a style="color:white;text-decoration:underline;" href="/bikes">Back to All Bikes</a>
 
@@ -120,5 +119,5 @@
 </div>
 
 <footer>
-<%= render 'shared/footer' %>
+<%#= render 'shared/footer' %>
 </footer>
