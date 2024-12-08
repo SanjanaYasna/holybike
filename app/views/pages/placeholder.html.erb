@@ -114,19 +114,21 @@ input[type=submit] {
  
   <h2 style="color:white;text-decoration:underline; padding:20px"> Where are you headed to? </h2> 
   <!--Search button-->
-  <%# <form class="form-inline" autocomplete= "off">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success " type="submit">Search</button>
-    </form>
-  <br> %>
-<form autocomplete="off"  class="form-inline" action = "">
+<form autocomplete="off"  class="form-inline" >
   <div class="autocomplete" style="width:300px;">
     <input id="station" type="text" name="station" placeholder="Church of bike gods...">
   </div>
-  <button class="btn btn-outline-success" style="width:80px; height:40px;" type="submit">Search</button>
+ 
+  <%# <%= button_to("Show", :action => "show", :controller => "station")%>
+  <button class="btn btn-outline-success" style="width:80px; height:40px;" value = station onclick = "stationredirect(station)" type="submit" >Search</button>
 </form>
 <br>
 <script>
+
+function stationredirect(station){
+  alert("Submit button clicked!");
+  window.location.href = "/stations?station=" + station;
+}
 function autocomplete(inp, arr) {
    /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
@@ -195,10 +197,10 @@ var stations = ["Florence Bank Station",
 "Florence Center",
 "Jackson Street",
 "Cooley Dickinson Health Care",
-"State St / Mass Central Rail Trail",
+"State St/Mass Central Rail Trail",
 "Northampton High School", 
-"Village Hill / State Hospital", 
-"John M Greene Hall / Smith College",
+"Village Hill/State Hospital", 
+"John M Greene Hall/Smith College",
 "Forbes Library",
 "Pulaski Park/Downtown",
 "Main Street/Court House",
