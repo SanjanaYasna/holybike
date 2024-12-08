@@ -21,4 +21,8 @@ class PagesController < ApplicationController
   def home
     render :home
   end
+
+  def surprise
+    render :surprise
+  end
 end

@@ -67,6 +67,7 @@ class PaymentsController < ApplicationController
       redirect_to root_path
     end
 
+
     #TODO : deal with card error later
     # rescue Stripe::CardError => e
     #   flash[:error] = e.message

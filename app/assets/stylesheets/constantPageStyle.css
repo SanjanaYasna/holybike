@@ -18,7 +18,7 @@ use that erb tag in the html files.*/
 
 #home .description{
     text-align: center;
-    background-color: rgba(133, 209, 133, 0.299); 
+    background-color: rgba(54, 85, 54, 0.265); 
     margin-inline: auto;
     height: fit-content;
     width: 400px;
