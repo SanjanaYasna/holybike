@@ -39,7 +39,15 @@
               </tr>
                <tr>
                 <td>Past Rides</td>
-                <td>your past rides here </td>
+                <td> <% if @rentals.present? %>
+                      <ol>
+                      <%= render(partial: "rentals/row", collection: @rentals, as: :rental) %>
+                      </ol>
+                    <% else %>
+                      <div class="empty">
+                          You haven't rented a bike yet.
+                      </div>
+                  <% end %> </td>
               </tr>
             </table>
       </div>
