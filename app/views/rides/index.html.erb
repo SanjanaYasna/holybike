@@ -68,9 +68,11 @@
         </div>
 
         <div class="Discount_code">
-          <%#= f.label :discount_code %><br/>
-          <%#= f.text_field :discount_code%>
-        </div>
+        <p>Discount Code:</p>
+        <%= f.label :discount_code %><br/>
+        <%= f.text_field :discount_code%>
+      </div>
+      <br>
         <br>
         <%#= f.hidden_field :email, value: @current_user.email %>
 

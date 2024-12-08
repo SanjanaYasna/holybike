@@ -120,15 +120,29 @@ input[type=submit] {
   </div>
  
   <%# <%= button_to("Show", :action => "show", :controller => "station")%>
-  <button class="btn btn-outline-success" style="width:80px; height:40px;" value = station onclick = "stationredirect(station)" type="submit" >Search</button>
+  <button class="btn btn-outline-success" style="width:80px; height:40px;" 
+  value = station onclick = "stationredirect(station)" type="submit" >Search</button>
 </form>
 <br>
 <script>
 
 function stationredirect(station){
-  alert("Submit button clicked!");
-  window.location.href = "/stations?station=" + station;
+  document.addEventListener("DOMContentLoaded", function() {
+  fetch('/stations')
+  .then(response => response.json())
+  .then(stations => {
+    stations.forEach(function(station) {
+      alert("looking at stations");
+      if (station.name == station){
+        console.log("station found", station);
+        alert("what hte fuck");
+        href = '/stations/' + station.id;
+      }
+    });
+  });
+} )
 }
+
 function autocomplete(inp, arr) {
    /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
