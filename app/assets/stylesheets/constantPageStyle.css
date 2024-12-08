@@ -154,7 +154,7 @@ use that erb tag in the html files.*/
 
 /*for discount table.*/
 .discounts{
-    padding:10px; 
+    padding:20px; 
     margin-top:50px; 
     max-width:fit-content;
     margin-inline: auto;
@@ -172,7 +172,7 @@ table, th, td{
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
-    padding: 5px;
+    padding: 20px;
     border: 1.5px solid white;
     border-collapse: collapse;
     border-style: outset;
@@ -188,7 +188,6 @@ table, th, td{
 }
 
 .rec-stations-row.header{
-    background: lightgrey;
     padding-left: 10px
 }
 
@@ -278,7 +277,7 @@ table, th, td{
     margin-top: 25px;
     max-height: fit-content;
     margin-inline: auto;
-    background-color:rgba(20, 162, 20, 0.529); 
+    background-color:rgba(133, 209, 133, 0.299); 
     border: 2px solid rgb(128, 222, 160);
     outline-style: outset;
     outline-color: rgb(19, 93, 45);
@@ -321,7 +320,10 @@ table, th, td{
     margin-right: 20%;
     margin-top: 2%;
     background-color: lightgray;
-    padding:20px
+    padding:20px;
+    border: 2px solid rgb(128, 222, 160);
+    outline-style: outset;
+    outline-color: rgb(19, 93, 45);
 }
 
 
