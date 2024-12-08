@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  skip_before_action :authorize, only: [:home]
   def index
     render :index
   end
