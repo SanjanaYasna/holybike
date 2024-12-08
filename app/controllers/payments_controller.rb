@@ -5,7 +5,7 @@ class PaymentsController < ApplicationController
 
   def create
     @ride = Ride.find(params[:ride_id])
-    @payment_amt = @ride.calculate_payment 
+    @payment_amt = @ride.price
 
     customer = Stripe::Customer.create({
       email: params[:stripeEmail],
@@ -48,7 +48,7 @@ class PaymentsController < ApplicationController
     # and update the current station of the bike
     if session.payment_status == 'paid' 
       @ride = Ride.find(session.metadata.ride_id)
-      @rental = Rental.create(user: @ride.user, ride: @ride, cost: @ride.calculate_payment)
+      @rental = Rental.create(user: @ride.user, ride: @ride, cost: @ride.price)
       @bike = Bike.find_by(identifier: @ride.bike_id)
       @bike.update!(current_station_id: @ride.end_station_id)
       flash[:notice] = "Rental Successful!"
