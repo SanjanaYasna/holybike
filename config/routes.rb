@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+
+  #mainpage wihtout login: 
+  get '/home', to: 'pages#home'
+  
   #login and signup specific
   resources :registrations, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
+
   #main page upon logging in and having an authorized session
   root to: 'pages#placeholder'
   get 'pages#placeholder', to: 'stations_controller#render_stations_in_pages'
