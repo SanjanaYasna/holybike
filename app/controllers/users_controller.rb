@@ -21,5 +21,6 @@ class UsersController < ApplicationController
 
   def profile
     @user= User.find_by(id: session[:user_id])
+    @rentals = Rental.where(user_id: @user.id)
   end
 end

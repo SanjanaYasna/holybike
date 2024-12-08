@@ -1,0 +1,14 @@
+<% ride = Ride.find_by(id: rental.ride_id) %>
+<%@minutes = ((ride.end_time - ride.start_time)/60).to_i%>
+<%# start station and end station %>
+<%start = Station.find_by(id: ride.start_station_id)%>
+<%end_station = Station.find_by(id: ride.end_station_id)%>
+
+
+<div class="record-row flexbox horizontal">
+  <li>
+    <div class="info" > <%=start.name%> 
+    to <%=end_station.name%>: <%=@minutes%> minutes. Cost $<%= rental.cost/100 %>
+  </div>
+  </li>
+</div>

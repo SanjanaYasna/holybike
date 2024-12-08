@@ -18,7 +18,7 @@ use that erb tag in the html files.*/
 
 #home .description{
     text-align: center;
-    background-color: rgba(19, 93, 45, 0.33); 
+    background-color: rgba(54, 85, 54, 0.265); 
     margin-inline: auto;
     height: fit-content;
     width: 400px;
@@ -29,6 +29,8 @@ use that erb tag in the html files.*/
     font-family:  "Comic Sans MS", "Comic Sans", cursive;
 
 }
+
+
 
 #form { /*this will apply to every form, this is an ID selector. in div id="form" */
     padding:10px; 
@@ -55,6 +57,9 @@ use that erb tag in the html files.*/
     padding:5px;
 }
 
+
+
+
 /*use this for row displayed pages*/
 .record-row{
     padding: 0.5cm,0.5cm,0.5cm,0.5cm;
@@ -62,7 +67,7 @@ use that erb tag in the html files.*/
 }
 
 .record-row.header{
-    background: lightgrey
+    background: rgb(211, 211, 211)
 }
 
 .record-row.header a:hover{
@@ -71,6 +76,7 @@ use that erb tag in the html files.*/
 
 .record-row.even{
     background: lightgreen;
+    padding: 5px;
     
 }
 .record-row.even .ident{
@@ -95,6 +101,12 @@ use that erb tag in the html files.*/
     flex-wrap: wrap;
     position: sticky;
     left: 90%;
+}
+.record-row.odd{
+    background-color: rgba(133, 209, 133, 0.299);
+    padding: 5px;
+    color: white;
+    
 }
 .record-row.odd .ident{
     text-align: left;
@@ -121,11 +133,15 @@ use that erb tag in the html files.*/
 }
 
 
+
+
 /*for pages with header footer and little content.*/
 #container{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-size: large;
+    font-family:  "Comic Sans MS", "Comic Sans", cursive;
 }
 
 #footer{
@@ -134,9 +150,11 @@ use that erb tag in the html files.*/
 }
 
 
+
+
 /*for discount table.*/
 .discounts{
-    padding:10px; 
+    padding:20px; 
     margin-top:50px; 
     max-width:fit-content;
     margin-inline: auto;
@@ -149,11 +167,12 @@ use that erb tag in the html files.*/
     text-align: center;
 }
 
+
 table, th, td{
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
-    padding: 5px;
+    padding: 20px;
     border: 1.5px solid white;
     border-collapse: collapse;
     border-style: outset;
@@ -169,7 +188,6 @@ table, th, td{
 }
 
 .rec-stations-row.header{
-    background: lightgrey;
     padding-left: 10px
 }
 
@@ -259,7 +277,7 @@ table, th, td{
     margin-top: 25px;
     max-height: fit-content;
     margin-inline: auto;
-    background-color:rgba(20, 162, 20, 0.529); 
+    background-color:rgba(133, 209, 133, 0.299); 
     border: 2px solid rgb(128, 222, 160);
     outline-style: outset;
     outline-color: rgb(19, 93, 45);
@@ -302,7 +320,10 @@ table, th, td{
     margin-right: 20%;
     margin-top: 2%;
     background-color: lightgray;
-    padding:20px
+    padding:20px;
+    border: 2px solid rgb(128, 222, 160);
+    outline-style: outset;
+    outline-color: rgb(19, 93, 45);
 }
 
 

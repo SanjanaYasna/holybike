@@ -6,7 +6,7 @@ identifier,name,has_kiosk,needs_maintenance,dock_count,docked_bike_count,address
 29,State St/Mass Central Rail Trail,0,0,10,4,62 Chestnut St, Florence, MA 01062
 33,Northampton High School,0,0,15,8,380 Elm Street Northampton MA
 20,Village Hill/State Hospital,0,0,14,6,Village Hill Rd Northampton, MA 01060
-26,John M Greene Hall/Smith College,0,0,16,5,1 Chapin Way Northampton, MA 01060
+26,John M Greene Hall/Smith College,0,0,16,5, 60 Elm St, Northampton, MA 01060
 23,Forbes Library,0,0,13,6,20 West Street Northampton MA
 27,Pulaski Park/Downtown,1,0,11,3,274 Main Street Northampton MA
 31,Main Street/Court House,0,1,10,3,99 Main Street Northampton MA
