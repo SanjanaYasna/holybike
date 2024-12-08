@@ -8,8 +8,7 @@
           <li><%= link_to "Profile", user_path(@current_user.id)%></li>
           <li><a href="/bikes">Search Bikes</a></li>
           <li><a href="/discounts">Discounts</a></li>
-          <li><a href="#">Payment History</a></li>
-          <li><a href="#">Analytics</a></li>
+
           <li><a href="/About">About</a></li>
         </ul>
     </a>
@@ -30,35 +29,5 @@
     <button class="btn btn-outline-primary" type="button" id="discounts" aria-label="Discounts Button">
     <%=link_to (image_tag 'Pricetag.svg', style: 'width: 50px; height: 40px;', alt: 'Discounts'), "/discounts"%>
     </button>
-
-    <!-- need to add links for this -->
-    <button class="btn btn-outline-primary" type="button" id="payment" aria-label="Prior Payment Button">
-    <%= image_tag 'payments.svg', style: 'width: 50px; height: 40px;', alt: 'Prior Payment' %>
-    </button>
-    <button class="btn btn-outline-primary" type="button" id="analytics" aria-label="Analytics Button">
-    <%= image_tag 'Analytics.svg', style: 'width: 50px; height: 40px;', alt: 'Analytics' %>
-    </button>
-    <!-- Collapse-able nav bar-->
-
-    <%# <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Profile
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Search Bikes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Discounts</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Payments</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Analytics</a>
-          </li>
-      </ul>
-    </div> %>
 
   </nav>
