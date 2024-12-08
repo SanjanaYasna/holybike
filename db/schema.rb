@@ -23,7 +23,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_03_194108) do
     t.string "user_id", null: false
     t.integer "start_station_id", null: false
     t.integer "end_station_id", null: false
-    t.string "user_id", null: false
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "created_at"
@@ -32,7 +31,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_03_194108) do
   end
 
   create_table "rides", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "email", null: false
+    t.string "user_id", null: false
+    t.string "email"
     t.bigint "rental_id"
     t.datetime "start_time"
     t.datetime "end_time"

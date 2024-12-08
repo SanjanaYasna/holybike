@@ -29,6 +29,62 @@
       justify-content: center;
       align-items: center; 
     }
+/*the container must be positioned relative:*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+  /*Created with help of W3schools tutorial on autocomplete for css styling*/
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+
+  
+
 
   </style>
 </head>
@@ -55,9 +111,106 @@
     <div style="background-color:black;color:white;padding:40px;" class="section-title flexbox horizontal center">
     </div> 
 
-  <!-- Leaflet Map View -->
+ 
   <h2 style="color:white;text-decoration:underline; padding:20px"> Where are you headed to? </h2> 
-  <div>
+  <!--Search button-->
+  <%# <form class="form-inline" autocomplete= "off">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success " type="submit">Search</button>
+    </form>
+  <br> %>
+<form autocomplete="off"  class="form-inline" action = "">
+  <div class="autocomplete" style="width:300px;">
+    <input id="station" type="text" name="station" placeholder="Church of bike gods...">
+  </div>
+  <button class="btn btn-outline-success" style="width:80px; height:40px;" type="submit">Search</button>
+</form>
+<br>
+<script>
+function autocomplete(inp, arr) {
+   /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*a array for div creation and listing, b element for adding in matches for display, a and b grow alongside each other*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      this.parentNode.appendChild(a);
+      /*iterate over stations*/
+      for (i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+        /*any substring match is good*/
+        if (arr[i].toUpperCase().includes(val.toUpperCase())) {
+          b = document.createElement("DIV");
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          b.addEventListener("click", function(e) {
+              inp.value = this.getElementsByTagName("input")[0].value;
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+
+
+  function addActive(x) {
+    if (!x) return false;
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*pop off child and corrspond iwth autocomplete-items styling*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+ /*listener function every time letter is added to search*/
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+  });
+}
+
+/*An array containing all the stations*/
+var stations = ["Florence Bank Station",
+"Florence Center",
+"Jackson Street",
+"Cooley Dickinson Health Care",
+"State St / Mass Central Rail Trail",
+"Northampton High School", 
+"Village Hill / State Hospital", 
+"John M Greene Hall / Smith College",
+"Forbes Library",
+"Pulaski Park/Downtown",
+"Main Street/Court House",
+"Northampton Train Station",
+"Main Street/Bridge Street",
+"YMCA/Childs Park"
+];
+/*initiate the autocomplete function on station lookup (continuous)*/
+autocomplete(document.getElementById("station"), stations);
+</script>
+
+ <!-- Leaflet Map View -->
   <div id="map" class="leaflet-container" style="height: 400px;">
     <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -92,7 +245,7 @@
       });
       </script>
   </div>
-</div>
+
 </body>
   <div class="MainFooter">
   <%= render 'shared/footer' %>
