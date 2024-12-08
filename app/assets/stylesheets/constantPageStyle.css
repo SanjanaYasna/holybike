@@ -1,6 +1,35 @@
 /* <%= stylesheet_link_tag "constantPageStyle"%>
 use that erb tag in the html files.*/
 
+#home{ 
+    background-color: lightgreen;
+    height: fit-content;
+    padding-bottom: 100px;;
+
+}
+#home .title{
+    text-align: center;
+    text-decoration: underline;
+    text-shadow: 3px 3px 4px  rgb(19, 93, 45);
+    color:black;
+    font-size: 40px;
+    font-family: 'Brush Script MT', cursive;
+}
+
+#home .description{
+    text-align: center;
+    background-color: rgba(19, 93, 45, 0.33); 
+    margin-inline: auto;
+    height: fit-content;
+    width: 400px;
+    color:black;
+    padding: 50px;
+    text-decoration: none;
+    font-size: large;
+    font-family:  "Comic Sans MS", "Comic Sans", cursive;
+
+}
+
 #form { /*this will apply to every form, this is an ID selector. in div id="form" */
     padding:10px; 
     margin:50px; 
@@ -12,6 +41,8 @@ use that erb tag in the html files.*/
     outline-color: rgb(19, 93, 45);
     color:white;
     text-align: center;
+    font-size: large;
+    font-family:  "Comic Sans MS", "Comic Sans", cursive;
 }
 
 #form .title, .description{ /*this is for the forms h1 and h3 headers. all items with class name in div matching one of these. only will apply to forms (i think)*/
