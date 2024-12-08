@@ -104,14 +104,21 @@
     <!--Render index.html.erb in pages with bike rental displays:-->
       <%= render partial: "pages/index", locals: {stations: @stations} %>
 
-    <!-- add something image wise?-->
-    <div style="background-color:black;color:white;padding:40px;" class="section-title flexbox horizontal center">
+  <div style="background-color:black;color:white;padding:40px;" class="section-title flexbox horizontal center">
     </div> 
 
- 
+    <!-- GODZILLA-->
+    <div class="flier">      
+      <%=link_to (image_tag "bichael.png"), "/surprise" %>
+    </div> 
+
+  
+
+
+
   <h1 style="color:white;text-decoration:underline; padding:20px"> Where are you headed to? </h1> 
   <!--Search button-->
-<form autocomplete="off"  class="form-inline" >
+<form autocomplete="off"  class="form-inline" style="padding:20px;">
   <div class="autocomplete" style="width:300px;">
     <input id="station" type="text" name="station" placeholder="Church of bike gods...">
   </div>
