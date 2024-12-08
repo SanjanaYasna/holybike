@@ -22,7 +22,8 @@ class SessionsController < ApplicationController
   
   #for logout button on navbar
   def destroy
-    User.find(session[:user_id]).destroy  
+    @current_user = nil
+    #User.find(session[:user_id]).destroy  
     session[:user_id] = nil
     #create proper redirect path
     flash.now[:alert] = 'Logout Successful'
