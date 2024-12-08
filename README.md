@@ -74,6 +74,8 @@ production:
 
 rake db:create
 
+rake db:schema:load 
+
 rake db:migrate
 
 rake db:import_stations["notes/station-data.csv"]

@@ -125,9 +125,23 @@ input[type=submit] {
 <br>
 <script>
 
+/*redirect to station page when search button is clicked with specific location*/
 function stationredirect(station){
-  alert("Submit button clicked!");
-  window.location.href = "/stations?station=" + station;
+  const station_name = document.getElementById("station").value;
+  //if station is null, return to homepage
+  if (station_name == "") {
+    alert("Please enter and select station name.");
+  }
+  fetch('/stations').
+  then(response => response.json()).
+  then(stations => {
+    //if station name matches, redirect to station.id
+    stations.forEach(function(station) {
+      if (station.name == station_name) {
+        window.location.href = `/stations/${station.id}`;
+      }
+    });
+  });
 }
 function autocomplete(inp, arr) {
    /*the autocomplete function takes two arguments,
