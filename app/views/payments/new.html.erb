@@ -28,9 +28,9 @@
 
     <%= form_with(model: @payments, url: payments_path(ride_id: @ride.id), local: true, data: { turbo: false }) do |f| %>
       <label class="amount">
-          <span> <p>Custom Payment:  <%= @payment_amt = @ride.price %></p></span>
+          <span> <p>Custom Payment:  <%= @payment_amt = @ride.calculate_payment %></p></span>
       </label>
-      <%= if @ride.price < 0 
+      <%= if @payment_amt < 0 
         @message = "Thou shalt not pilfer from thine service provider! Tis unholy. Please enter a positive amount of time."
         @message
       end%>
