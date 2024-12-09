@@ -319,6 +319,7 @@ table, th, td{
     margin-left: 20%;
     margin-right: 20%;
     margin-top: 2%;
+    margin-bottom: 2%;
     background-color: lightgray;
     padding:20px;
     border: 2px solid rgb(128, 222, 160);
@@ -391,4 +392,25 @@ table, th, td{
 	95% {
 		transform: translateX(10vw) translateY(100vh) rotateZ(0deg)
 	}
+}
+
+
+.aboutimg{
+    float: left;/* Position image absolutely */ 
+    object-fit: cover; /* This will cover the area without distorting */ 
+    width: 100px; /* Maintain aspect ratio */ 
+    height: auto;
+}
+
+.rightaboutimg{
+    float:right; /* Position image absolutely */ 
+    object-fit: cover; /* This will cover the area without distorting */ 
+    width: 100px; /* Maintain aspect ratio */ 
+    height: auto;
+}
+
+.rightaboutteam{
+    text-wrap: wrap;
+    float:right;
+    text-align: right;
 }
