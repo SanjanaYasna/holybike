@@ -255,7 +255,7 @@ autocomplete(document.getElementById("station"), stations);
             stations.forEach(function(station) {
             var markerMenu = `
               <b>${station.name}</b><br>
-              <p><a href="/stations/${station.id}" style="color: #007bff;">View Station</a></p>
+              <p><a href="/stations/${station.id}" style="color: #679D2C;">View Station</a></p>
             `;
             L.marker([station.latitude, station.longitude], {icon: bikeIcon})
                 .addTo(map)
